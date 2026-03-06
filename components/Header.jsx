@@ -14,7 +14,6 @@ const Header = () => {
   // Halaman-halaman yang tidak punya hero section gelap
   // Header akan selalu solid (tidak transparan) di halaman-halaman ini
   const solidHeaderPages = [
-    "/pdf-viewer",
     // Tambahkan halaman lain yang membutuhkan header solid di sini
   ];
 
@@ -72,12 +71,11 @@ const Header = () => {
     { name: "Projects", path: "/projects" },
     { name: "Datasets", path: "/datasets" },
     { name: "Publications", path: "/publications" },
-    { name: "Capstone", path: "/capstone" },
+    // { name: "Capstone", path: "/capstone" },
   ];
 
   const moreItems = [
     { name: "News", path: "/news" },
-    { name: "PDF Viewer", path: "/pdf-viewer" },
     // { name: "Batik Inpainting", path: "/inpainting" },
     // { name: "Batik ControlNet", path: "/controlnet" },
     // { name: "Batik IP-Adapter", path: "/ip-adapter" },
