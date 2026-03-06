@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-batik-frontend
+  namespace: web-batik
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-batik-frontend
+  template:
+    metadata:
+      labels:
+        app: web-batik-frontend
+    spec:
+      hostAliases:
+        - ip: "10.97.112.128"
+          hostnames:
+          - "rispro.umm.ac.id"
+      containers:
+      - name: web-batik-frontend
+        image: 10.10.11.235:5000/frontend-web-batik:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 3050
+        envFrom:
+        - configMapRef:
+            name: batik-configmap
+        volumeMounts:
+        - name: data
+          mountPath: /app/public/storage
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: pvc-batik
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-batik-frontend
+  namespace: web-batik
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3050
+  selector:
+    app: web-batik-frontend
