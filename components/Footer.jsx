@@ -2,7 +2,7 @@
 
 const Footer = () => {
   return (
-    <footer className="bg-stone-900 text-white relative overflow-hidden">
+    <footer className="bg-slate-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -20,27 +20,19 @@ const Footer = () => {
           {/* Logo & Brand */}
           <div className="md:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-8 h-8 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg bg-white flex-shrink-0">
+                <img
+                  src="/logo_batik.png"
+                  alt="Batik UMM Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <span className="text-xl font-bold">RISPRO</span>
+              <span className="text-xl font-bold">BATIK</span>
             </div>
             <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-              Advancing the frontiers of informatics through innovative research
-              and cutting-edge technology in Data Science, Software Engineering,
-              Computer Networks, and Smart Game Development.
+              We always provide the best service to make it easy for researchers
+              to research batik. Platform riset batik berbasis AI dari
+              Universitas Muhammadiyah Malang.
             </p>
           </div>
 
@@ -173,7 +165,8 @@ const Footer = () => {
         <div className="border-t border-gray-800 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-gray-400 text-xs md:text-sm text-center md:text-left">
-              © 2025 RISPRO. All rights reserved.
+              © {new Date().getFullYear()} IRC-UMM. All Rights Reserved.
+              Developed by Informatics Researcher.
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-xs md:text-sm">
               <a

@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Riset dan Produk Informatika",
+  title: "Batik Generative AI - UMM",
   description:
-    "An integrated platform supporting Data Science, Software Engineering, Computer Networks, and Smart Game Development for research, development, and advanced computing innovation.",
+    "Platform riset dan produk batik berbasis AI dari Universitas Muhammadiyah Malang. Eksplorasi generasi batik, klasifikasi, retrieval, dan dataset batik.",
 };
 
 export default function RootLayout({ children }) {

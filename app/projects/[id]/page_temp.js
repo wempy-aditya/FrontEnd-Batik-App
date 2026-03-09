@@ -45,7 +45,7 @@ export default function ProjectDetailPage() {
     const colors = {
       easy: 'bg-green-100 text-green-800',
       medium: 'bg-blue-100 text-blue-800',
-      hard: 'bg-orange-100 text-orange-800',
+      hard: 'bg-amber-100 text-amber-800',
       expert: 'bg-red-100 text-red-800'
     };
     return colors[complexity] || 'bg-gray-100 text-gray-800';
@@ -296,7 +296,7 @@ export default function ProjectDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50 flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-amber-500 border-t-transparent mb-4"></div>
           <p className="text-gray-600">Loading project...</p>
@@ -309,7 +309,7 @@ export default function ProjectDetailPage() {
       fullDescription:
         "Our Object Detection & Segmentation system combines the speed of YOLO (You Only Look Once) with the precision of Mask R-CNN to deliver real-time, pixel-perfect object detection and segmentation. The system can identify multiple objects in complex scenes, classify them accurately, and generate precise segmentation masks for each instance. This dual-architecture approach allows us to achieve both high speed and high accuracy, making it suitable for applications ranging from autonomous vehicles to retail analytics.",
       technologies: ["YOLO", "Mask R-CNN", "OpenCV", "PyTorch"],
-      thumbnail: "from-orange-500 to-red-500",
+      thumbnail: "from-amber-500 to-red-500",
       category: "computer-vision",
       status: "Completed",
       complexity: "Expert",
@@ -333,10 +333,10 @@ export default function ProjectDetailPage() {
         "Optimize for mobile and embedded devices",
       ],
       gallery: [
-        { type: "image", gradient: "from-orange-500 to-red-500" },
-        { type: "image", gradient: "from-red-500 to-orange-600" },
-        { type: "image", gradient: "from-orange-600 to-red-600" },
-        { type: "image", gradient: "from-red-400 to-orange-500" },
+        { type: "image", gradient: "from-amber-500 to-red-500" },
+        { type: "image", gradient: "from-red-500 to-yellow-600" },
+        { type: "image", gradient: "from-amber-600 to-red-600" },
+        { type: "image", gradient: "from-red-400 to-yellow-500" },
       ],
     },
     {
@@ -390,7 +390,7 @@ export default function ProjectDetailPage() {
         "Deep Learning",
         "Privacy AI",
       ],
-      thumbnail: "from-amber-600 to-orange-600",
+      thumbnail: "from-amber-600 to-yellow-600",
       category: "computer-vision",
       status: "Active",
       complexity: "Expert",
@@ -414,10 +414,10 @@ export default function ProjectDetailPage() {
         "Develop mask detection capabilities",
       ],
       gallery: [
-        { type: "image", gradient: "from-amber-600 to-orange-600" },
-        { type: "image", gradient: "from-orange-600 to-amber-700" },
-        { type: "image", gradient: "from-amber-500 to-orange-500" },
-        { type: "image", gradient: "from-orange-500 to-amber-600" },
+        { type: "image", gradient: "from-amber-600 to-yellow-600" },
+        { type: "image", gradient: "from-amber-600 to-amber-700" },
+        { type: "image", gradient: "from-amber-500 to-yellow-500" },
+        { type: "image", gradient: "from-amber-500 to-amber-600" },
       ],
     },
     {
@@ -428,7 +428,7 @@ export default function ProjectDetailPage() {
       fullDescription:
         "Text-to-Image Generator leverages cutting-edge diffusion models and transformer architectures to create stunning, high-quality images from natural language descriptions. Built on Stable Diffusion and CLIP technologies, the system understands complex prompts and generates coherent, aesthetically pleasing images that match the description. Users can create anything from photorealistic scenes to artistic illustrations, concept designs, and abstract art simply by describing what they want to see.",
       technologies: ["Stable Diffusion", "CLIP", "Transformers", "PyTorch"],
-      thumbnail: "from-red-500 to-orange-500",
+      thumbnail: "from-red-500 to-yellow-500",
       category: "generative-ai",
       status: "Beta",
       complexity: "Expert",
@@ -452,10 +452,10 @@ export default function ProjectDetailPage() {
         "Develop fine-tuning capabilities for specific styles",
       ],
       gallery: [
-        { type: "image", gradient: "from-red-500 to-orange-500" },
-        { type: "image", gradient: "from-orange-500 to-red-600" },
-        { type: "image", gradient: "from-red-400 to-orange-400" },
-        { type: "image", gradient: "from-orange-400 to-red-500" },
+        { type: "image", gradient: "from-red-500 to-yellow-500" },
+        { type: "image", gradient: "from-amber-500 to-red-600" },
+        { type: "image", gradient: "from-red-400 to-yellow-400" },
+        { type: "image", gradient: "from-amber-400 to-red-500" },
       ],
     },
     {
@@ -466,7 +466,7 @@ export default function ProjectDetailPage() {
       fullDescription:
         "Medical Image Analysis system is designed to assist healthcare professionals in analyzing medical imaging data including X-rays, MRIs, CT scans, and other DICOM format images. Using deep learning models trained on millions of medical images, the system can detect anomalies, identify potential diseases, and provide quantitative measurements to support clinical decision-making. The system maintains high accuracy while providing explainable AI outputs that help doctors understand the reasoning behind each detection.",
       technologies: ["Medical AI", "DICOM", "3D Analysis", "TensorFlow"],
-      thumbnail: "from-orange-600 to-amber-600",
+      thumbnail: "from-amber-600 to-amber-600",
       category: "research",
       status: "In Progress",
       complexity: "Expert",
@@ -490,10 +490,10 @@ export default function ProjectDetailPage() {
         "Develop longitudinal analysis capabilities",
       ],
       gallery: [
-        { type: "image", gradient: "from-orange-600 to-amber-600" },
-        { type: "image", gradient: "from-amber-600 to-orange-700" },
-        { type: "image", gradient: "from-orange-500 to-amber-500" },
-        { type: "image", gradient: "from-amber-500 to-orange-600" },
+        { type: "image", gradient: "from-amber-600 to-amber-600" },
+        { type: "image", gradient: "from-amber-600 to-yellow-700" },
+        { type: "image", gradient: "from-amber-500 to-yellow-500" },
+        { type: "image", gradient: "from-amber-500 to-yellow-600" },
       ],
     },
     {
@@ -590,7 +590,7 @@ export default function ProjectDetailPage() {
         "Cultural Heritage AI",
         "Restoration",
       ],
-      thumbnail: "from-orange-400 to-amber-400",
+      thumbnail: "from-amber-400 to-amber-400",
       category: "enhancement",
       status: "Active",
       complexity: "Advanced",
@@ -614,10 +614,10 @@ export default function ProjectDetailPage() {
         "Add temporal analysis for aging patterns",
       ],
       gallery: [
-        { type: "image", gradient: "from-orange-400 to-amber-400" },
-        { type: "image", gradient: "from-amber-400 to-orange-500" },
-        { type: "image", gradient: "from-orange-300 to-amber-300" },
-        { type: "image", gradient: "from-amber-300 to-orange-400" },
+        { type: "image", gradient: "from-amber-400 to-amber-400" },
+        { type: "image", gradient: "from-amber-400 to-yellow-500" },
+        { type: "image", gradient: "from-amber-300 to-amber-300" },
+        { type: "image", gradient: "from-amber-300 to-yellow-400" },
       ],
     },
     {
@@ -633,7 +633,7 @@ export default function ProjectDetailPage() {
         "Voice Processing",
         "Image Synthesis",
       ],
-      thumbnail: "from-red-400 to-orange-400",
+      thumbnail: "from-red-400 to-yellow-400",
       category: "generative-ai",
       status: "Beta",
       complexity: "Expert",
@@ -657,10 +657,10 @@ export default function ProjectDetailPage() {
         "Develop voice-controlled video generation",
       ],
       gallery: [
-        { type: "image", gradient: "from-red-400 to-orange-400" },
-        { type: "image", gradient: "from-orange-400 to-red-500" },
-        { type: "image", gradient: "from-red-300 to-orange-300" },
-        { type: "image", gradient: "from-orange-300 to-red-400" },
+        { type: "image", gradient: "from-red-400 to-yellow-400" },
+        { type: "image", gradient: "from-amber-400 to-red-500" },
+        { type: "image", gradient: "from-red-300 to-yellow-300" },
+        { type: "image", gradient: "from-amber-300 to-red-400" },
       ],
     },
     {
@@ -676,7 +676,7 @@ export default function ProjectDetailPage() {
         "Environmental AI",
         "Satellite Imagery",
       ],
-      thumbnail: "from-yellow-400 to-orange-400",
+      thumbnail: "from-yellow-400 to-yellow-400",
       category: "research",
       status: "In Progress",
       complexity: "Advanced",
@@ -700,10 +700,10 @@ export default function ProjectDetailPage() {
         "Develop disaster prediction capabilities",
       ],
       gallery: [
-        { type: "image", gradient: "from-yellow-400 to-orange-400" },
-        { type: "image", gradient: "from-orange-400 to-yellow-500" },
-        { type: "image", gradient: "from-yellow-300 to-orange-300" },
-        { type: "image", gradient: "from-orange-300 to-yellow-400" },
+        { type: "image", gradient: "from-yellow-400 to-yellow-400" },
+        { type: "image", gradient: "from-amber-400 to-yellow-500" },
+        { type: "image", gradient: "from-yellow-300 to-yellow-300" },
+        { type: "image", gradient: "from-amber-300 to-yellow-400" },
       ],
     },
     {
@@ -756,7 +756,7 @@ export default function ProjectDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50 flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-amber-500 border-t-transparent mb-4"></div>
           <p className="text-gray-600">Loading project...</p>
@@ -767,7 +767,7 @@ export default function ProjectDetailPage() {
 
   if (!displayProject) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Project Not Found
@@ -777,7 +777,7 @@ export default function ProjectDetailPage() {
           </p>
           <button
             onClick={() => router.push("/projects")}
-            className="inline-block px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-xl cursor-pointer hover:shadow-xl transition-all duration-300"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold rounded-xl cursor-pointer hover:shadow-xl transition-all duration-300"
           >
             Back to Projects
           </button>
@@ -806,7 +806,7 @@ export default function ProjectDetailPage() {
       case "medium":
         return "bg-yellow-100 text-yellow-800";
       case "hard":
-        return "bg-orange-100 text-orange-800";
+        return "bg-amber-100 text-amber-800";
       case "expert":
         return "bg-red-100 text-red-800";
       default:
@@ -815,9 +815,9 @@ export default function ProjectDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50">
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -831,7 +831,7 @@ export default function ProjectDetailPage() {
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -898,7 +898,7 @@ export default function ProjectDetailPage() {
                     />
                   ) : null}
                   <div
-                    className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-500"
+                    className="absolute inset-0 bg-gradient-to-br from-amber-500 to-yellow-500"
                     style={{ display: displayProject?.thumbnail_url ? 'none' : 'flex' }}
                   >
                     <div className="absolute inset-0 bg-black/20"></div>
@@ -1014,11 +1014,11 @@ export default function ProjectDetailPage() {
                   {(displayProject?.technologies || []).map((tech, index) => (
                     <div
                       key={index}
-                      className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200 hover:border-amber-400 transition-all duration-300 hover:shadow-lg"
+                      className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 border-2 border-amber-200 hover:border-amber-400 transition-all duration-300 hover:shadow-lg"
                     >
                       <div className="flex items-start gap-4">
                         <div
-                          className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center flex-shrink-0"
+                          className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center flex-shrink-0"
                         >
                           <span className="text-white font-bold text-lg">
                             {index + 1}
@@ -1042,7 +1042,7 @@ export default function ProjectDetailPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="mt-16 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 rounded-3xl p-12 text-center">
+          <div className="mt-16 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 rounded-3xl p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Interested in This Project?
             </h2>

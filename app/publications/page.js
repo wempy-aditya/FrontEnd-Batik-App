@@ -276,9 +276,9 @@ export default function PublicationsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50">
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -292,7 +292,7 @@ export default function PublicationsPage() {
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -341,7 +341,7 @@ export default function PublicationsPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-orange-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
                 Research Publications
               </span>
             </h1>
@@ -503,7 +503,7 @@ export default function PublicationsPage() {
                 }}
                 className={`px-5 py-3 rounded-xl font-semibold transition-all duration-300 border-2 whitespace-nowrap ${
                   isFeatured
-                    ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white border-transparent shadow-md"
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white border-transparent shadow-md"
                     : "bg-gray-50 text-gray-700 border-gray-200 hover:border-amber-300 hover:bg-amber-50"
                 }`}
               >
@@ -710,7 +710,7 @@ export default function PublicationsPage() {
                     {/* Header */}
                     <div className="flex items-start justify-between mb-6">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl flex items-center justify-center">
+                        <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center">
                           <svg
                             className="w-6 h-6 text-white"
                             fill="none"
@@ -849,7 +849,7 @@ export default function PublicationsPage() {
                             onClick={() =>
                               handleDownloadPDF(paper.id, paper.pdf_url)
                             }
-                            className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-500/30"
+                            className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-500/30"
                           >
                             <div className="flex items-center justify-center gap-2">
                               <svg
@@ -880,7 +880,7 @@ export default function PublicationsPage() {
                             </button>
                             <button
                               onClick={() => setCitationPaper(paper)}
-                              className="py-2 px-3 text-emerald-700 border border-emerald-300 bg-emerald-50 rounded-lg hover:bg-emerald-100 transition-colors duration-200 text-sm flex items-center justify-center gap-1"
+                              className="py-2 px-3 text-amber-700 border border-amber-300 bg-amber-50 rounded-lg hover:bg-amber-100 transition-colors duration-200 text-sm flex items-center justify-center gap-1"
                             >
                               <svg
                                 className="w-4 h-4"
@@ -941,7 +941,7 @@ export default function PublicationsPage() {
                       onClick={() => setCurrentPage(pageNumber)}
                       className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                         currentPage === pageNumber
-                          ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg"
+                          ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
                           : "bg-white text-gray-700 border border-gray-200 hover:border-amber-300 hover:bg-amber-50"
                       }`}
                     >
@@ -991,7 +991,7 @@ export default function PublicationsPage() {
                 <div className="flex justify-center">
                   <button
                     onClick={() => (window.location.href = "/contact")}
-                    className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                   >
                     Contact Us
                   </button>

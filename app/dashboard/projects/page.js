@@ -460,7 +460,7 @@ export default function Projects() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-amber-50/30 to-slate-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-24 h-24 bg-gradient-to-r from-amber-500 to-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-amber-500/20">
+          <div className="w-24 h-24 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-amber-500/20">
             <svg
               className="w-12 h-12 text-white"
               fill="none"
@@ -519,9 +519,9 @@ export default function Projects() {
                 resetForm();
                 setShowModal(true);
               }}
-              className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
+              className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
@@ -609,7 +609,7 @@ export default function Projects() {
           <div className="flex justify-center items-center py-16">
             <div className="text-center">
               <div className="relative w-24 h-24 mx-auto mb-6">
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-3xl animate-pulse"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-3xl animate-pulse"></div>
                 <div className="absolute inset-2 bg-white rounded-2xl flex items-center justify-center">
                   <svg
                     className="w-10 h-10 text-amber-600 animate-spin"
@@ -701,7 +701,7 @@ export default function Projects() {
                           project.complexity === "easy"
                             ? "bg-blue-100 text-blue-800"
                             : project.complexity === "medium"
-                            ? "bg-orange-100 text-orange-800"
+                            ? "bg-amber-100 text-amber-800"
                             : "bg-red-100 text-red-800"
                         }`}
                       >
@@ -893,7 +893,7 @@ export default function Projects() {
                   Previous
                 </button>
 
-                <span className="flex items-center px-5 py-2.5 text-sm font-bold text-slate-900 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl">
+                <span className="flex items-center px-5 py-2.5 text-sm font-bold text-slate-900 bg-gradient-to-r from-amber-50 to-yellow-50 border-2 border-amber-200 rounded-2xl">
                   Page {currentPage} of {totalPages}
                 </span>
 
@@ -1049,7 +1049,7 @@ export default function Projects() {
                         onClick={() =>
                           addToArray("technologies", techInput, setTechInput)
                         }
-                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
+                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
                       >
                         Add
                       </button>
@@ -1106,7 +1106,7 @@ export default function Projects() {
                             setChallengeInput
                           )
                         }
-                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
+                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
                       >
                         Add
                       </button>
@@ -1115,13 +1115,13 @@ export default function Projects() {
                       {formData.challenges.map((challenge, index) => (
                         <span
                           key={index}
-                          className="bg-gradient-to-r from-orange-50 to-orange-100 text-orange-700 px-4 py-1.5 rounded-xl text-sm font-medium border border-orange-200 flex items-center gap-2"
+                          className="bg-gradient-to-r from-amber-50 to-yellow-100 text-amber-700 px-4 py-1.5 rounded-xl text-sm font-medium border border-amber-200 flex items-center gap-2"
                         >
                           {challenge}
                           <button
                             type="button"
                             onClick={() => removeFromArray("challenges", index)}
-                            className="text-orange-600 hover:text-orange-800 hover:scale-125 transition-transform"
+                            className="text-amber-600 hover:text-amber-800 hover:scale-125 transition-transform"
                           >
                             ×
                           </button>
@@ -1161,7 +1161,7 @@ export default function Projects() {
                             setAchievementInput
                           )
                         }
-                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
+                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
                       >
                         Add
                       </button>
@@ -1218,7 +1218,7 @@ export default function Projects() {
                             setFutureWorkInput
                           )
                         }
-                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
+                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
                       >
                         Add
                       </button>
@@ -1267,7 +1267,7 @@ export default function Projects() {
                         onClick={() =>
                           addToArray("tags", tagInput, setTagInput)
                         }
-                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
+                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
                       >
                         Add
                       </button>
@@ -1372,7 +1372,7 @@ export default function Projects() {
                         onClick={() =>
                           addToArray("demo_url", demoUrlInput, setDemoUrlInput)
                         }
-                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
+                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
                       >
                         Add
                       </button>
@@ -1381,13 +1381,13 @@ export default function Projects() {
                       {formData.demo_url.map((url, index) => (
                         <span
                           key={index}
-                          className="bg-gradient-to-r from-indigo-50 to-indigo-100 text-indigo-700 px-4 py-1.5 rounded-xl text-sm font-medium border border-indigo-200 flex items-center gap-2 max-w-md"
+                          className="bg-gradient-to-r from-amber-50 to-amber-100 text-amber-700 px-4 py-1.5 rounded-xl text-sm font-medium border border-amber-200 flex items-center gap-2 max-w-md"
                         >
                           <span className="truncate">{url}</span>
                           <button
                             type="button"
                             onClick={() => removeFromArray("demo_url", index)}
-                            className="text-indigo-600 hover:text-indigo-800 hover:scale-125 transition-transform flex-shrink-0"
+                            className="text-amber-600 hover:text-amber-800 hover:scale-125 transition-transform flex-shrink-0"
                           >
                             ×
                           </button>
@@ -1471,7 +1471,7 @@ export default function Projects() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="px-8 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="px-8 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {loading ? (
                         <>
@@ -1729,7 +1729,7 @@ export default function Projects() {
                                   key={index}
                                   className="flex items-start gap-3 text-slate-600"
                                 >
-                                  <span className="text-orange-500 mt-1">
+                                  <span className="text-amber-500 mt-1">
                                     •
                                   </span>
                                   <span>{challenge}</span>
@@ -1811,7 +1811,7 @@ export default function Projects() {
                         <div>
                           <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2">
                             <svg
-                              className="w-5 h-5 text-indigo-600"
+                              className="w-5 h-5 text-amber-600"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -1838,16 +1838,16 @@ export default function Projects() {
                                 href={url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-3 p-3 bg-gradient-to-r from-indigo-50 to-indigo-100 hover:from-indigo-100 hover:to-indigo-200 border border-indigo-200 rounded-xl transition-all duration-200 group"
+                                className="flex items-center gap-3 p-3 bg-gradient-to-r from-amber-50 to-amber-100 hover:from-amber-100 hover:to-amber-200 border border-amber-200 rounded-xl transition-all duration-200 group"
                               >
-                                <div className="flex-shrink-0 w-8 h-8 bg-indigo-500 text-white rounded-lg flex items-center justify-center font-bold text-sm">
+                                <div className="flex-shrink-0 w-8 h-8 bg-amber-500 text-white rounded-lg flex items-center justify-center font-bold text-sm">
                                   {index + 1}
                                 </div>
-                                <span className="flex-1 text-indigo-700 font-medium text-sm truncate">
+                                <span className="flex-1 text-amber-700 font-medium text-sm truncate">
                                   {url}
                                 </span>
                                 <svg
-                                  className="w-5 h-5 text-indigo-500 group-hover:translate-x-1 transition-transform"
+                                  className="w-5 h-5 text-amber-500 group-hover:translate-x-1 transition-transform"
                                   fill="none"
                                   stroke="currentColor"
                                   viewBox="0 0 24 24"
@@ -1982,7 +1982,7 @@ export default function Projects() {
         {showCategoryModal && selectedProject && (
           <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md flex items-center justify-center z-50 p-2 sm:p-4">
             <div className="bg-white rounded-2xl sm:rounded-3xl max-w-md w-full animate-slideUp overflow-hidden max-h-[95vh] sm:max-h-[90vh] flex flex-col">
-              <div className="sticky top-0 z-10 bg-gradient-to-r from-amber-500 to-orange-600 p-4 sm:p-6">
+              <div className="sticky top-0 z-10 bg-gradient-to-r from-amber-500 to-yellow-600 p-4 sm:p-6">
                 <h2 className="text-lg sm:text-xl font-bold text-white">
                   Assign Categories
                 </h2>
@@ -2046,7 +2046,7 @@ export default function Projects() {
 
                       handleAssignCategories(selectedCategories);
                     }}
-                    className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105 flex items-center justify-center gap-2"
+                    className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105 flex items-center justify-center gap-2"
                   >
                     <svg
                       className="w-5 h-5"
@@ -2201,7 +2201,7 @@ export default function Projects() {
                                 setContributorRoles(newRoles);
                               }
                             }}
-                            className="mt-1 w-4 h-4 text-orange-600 rounded focus:ring-orange-500"
+                            className="mt-1 w-4 h-4 text-amber-600 rounded focus:ring-amber-500"
                           />
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
@@ -2237,7 +2237,7 @@ export default function Projects() {
                                     });
                                   }}
                                   placeholder="e.g., Lead Developer, Data Analyst"
-                                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
+                                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
                                 />
                               </div>
                             )}
@@ -2263,7 +2263,7 @@ export default function Projects() {
                   <button
                     onClick={handleAssignContributors}
                     disabled={selectedContributorIds.length === 0}
-                    className="flex-1 px-6 py-3 bg-orange-600 text-white rounded-xl hover:bg-orange-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium"
+                    className="flex-1 px-6 py-3 bg-amber-600 text-white rounded-xl hover:bg-amber-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors font-medium"
                   >
                     Assign Contributors ({selectedContributorIds.length})
                   </button>

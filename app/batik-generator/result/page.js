@@ -135,7 +135,7 @@ function ResultContent() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-purple-50 to-fuchsia-50 flex items-center justify-center">
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md">
           <h2 className="text-2xl font-bold text-red-600 mb-4">⚠️ Error</h2>
           <p className="text-gray-700 mb-6">{error}</p>
@@ -151,9 +151,9 @@ function ResultContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-purple-50 to-fuchsia-50">
       {/* Header */}
-      <section className="relative py-16 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
+      <section className="relative py-16 bg-gradient-to-br from-gray-900 via-purple-900 to-stone-900">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             Generated Batik Results

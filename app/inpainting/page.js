@@ -346,9 +346,9 @@ export default function InpaintingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100">
       {/* Hero */}
-      <section className="relative py-20 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-repeat"
@@ -359,11 +359,11 @@ export default function InpaintingPage() {
         </div>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          <div className="flex items-center text-sm text-orange-200 mb-8">
+          <div className="flex items-center text-sm text-amber-200 mb-8">
             <button onClick={() => (window.location.href = "/")} className="hover:text-white transition-colors">
               Home
             </button>
@@ -382,7 +382,7 @@ export default function InpaintingPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-orange-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
                 Batik Inpainting
               </span>
             </h1>
@@ -522,7 +522,7 @@ export default function InpaintingPage() {
                     <div className="flex items-center gap-4">
                       <button
                         onClick={applyPreset}
-                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -714,7 +714,7 @@ export default function InpaintingPage() {
                   className={`w-full mt-8 py-5 px-6 text-lg font-bold rounded-2xl transition-all duration-300 transform ${
                     isProcessing || !originalImage || !maskFile || !prompt.trim()
                       ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                      : "bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:scale-[1.02] hover:shadow-2xl shadow-lg"
+                      : "bg-gradient-to-r from-amber-600 to-yellow-600 text-white hover:scale-[1.02] hover:shadow-2xl shadow-lg"
                   }`}
                 >
                   {isProcessing ? (
@@ -770,7 +770,7 @@ export default function InpaintingPage() {
 
                 {/* Processing */}
                 {isProcessing && (
-                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border-2 border-dashed border-amber-300 mb-4">
+                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl border-2 border-dashed border-amber-300 mb-4">
                     <div className="text-center">
                       <svg className="w-12 h-12 text-amber-500 animate-spin mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -800,7 +800,7 @@ export default function InpaintingPage() {
 
                     <button
                       onClick={downloadResult}
-                      className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-yellow-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -837,7 +837,7 @@ export default function InpaintingPage() {
 
                 {/* Empty state */}
                 {!resultImage && !isProcessing && !error && (
-                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50/50 to-orange-50/50 rounded-2xl border-2 border-dashed border-amber-200">
+                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50/50 to-yellow-50/50 rounded-2xl border-2 border-dashed border-amber-200">
                     <div className="text-center px-4">
                       <svg className="w-14 h-14 text-amber-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -852,7 +852,7 @@ export default function InpaintingPage() {
           </div>
 
           {/* Tips Section */}
-          <div className="mt-16 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-12">
+          <div className="mt-16 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-12">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-3">🎨 Inpainting Tips</h2>
             <p className="text-center text-gray-500 mb-10 max-w-2xl mx-auto">
               Get the best results with these techniques
@@ -861,13 +861,13 @@ export default function InpaintingPage() {
               {[
                 {
                   icon: "🎯",
-                  color: "from-amber-500 to-orange-500",
+                  color: "from-amber-500 to-yellow-500",
                   title: "White = Edit Area",
                   desc: "The white area of your mask is where the AI generates new content. Black areas are preserved exactly.",
                 },
                 {
                   icon: "🔥",
-                  color: "from-orange-500 to-red-500",
+                  color: "from-amber-500 to-red-500",
                   title: "Use High Guidance Scale",
                   desc: "Set guidance scale to 8.5–10 for strong prompt adherence. This is the main control for how much the area changes.",
                 },
@@ -879,13 +879,13 @@ export default function InpaintingPage() {
                 },
                 {
                   icon: "🛡️",
-                  color: "from-green-500 to-emerald-500",
+                  color: "from-green-500 to-yellow-500",
                   title: "Negative Prompt Matters",
                   desc: 'Add "realistic, photo, 3d render" to negative prompt to avoid photorealistic outputs.',
                 },
                 {
                   icon: "📐",
-                  color: "from-blue-500 to-indigo-500",
+                  color: "from-amber-500 to-yellow-600",
                   title: "Bigger Mask = Better Detail",
                   desc: "Larger mask areas allow the AI to generate more detailed patterns. Very small masks (<64px) may produce poor results.",
                 },

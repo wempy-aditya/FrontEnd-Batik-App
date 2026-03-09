@@ -68,8 +68,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-amber-500 to-orange-500",
-      bgGradient: "from-amber-500/10 to-orange-500/10",
+      gradient: "from-amber-500 to-yellow-500",
+      bgGradient: "from-amber-500/10 to-yellow-500/10",
     },
     {
       id: 2,
@@ -100,8 +100,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-orange-500 to-red-500",
-      bgGradient: "from-orange-500/10 to-red-500/10",
+      gradient: "from-amber-500 to-red-500",
+      bgGradient: "from-amber-500/10 to-red-500/10",
     },
     {
       id: 3,
@@ -109,7 +109,7 @@ const ProjectsPreview = () => {
       description:
         "Enhance image quality and resolution using ESRGAN and SRCNN models with GANs technology.",
       category: "Image Enhancement",
-      categoryColor: "from-green-500 to-emerald-500",
+      categoryColor: "from-green-500 to-yellow-500",
       technologies: ["ESRGAN", "SRCNN", "GANs", "TensorFlow"],
       icon: (
         <svg
@@ -135,7 +135,7 @@ const ProjectsPreview = () => {
       description:
         "Advanced facial recognition with privacy-focused design and real-time processing capabilities.",
       category: "Biometric AI",
-      categoryColor: "from-indigo-500 to-purple-500",
+      categoryColor: "from-amber-500 to-purple-500",
       technologies: ["FaceNet", "OpenCV", "Dlib", "Python"],
       icon: (
         <svg
@@ -152,8 +152,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-amber-600 to-orange-600",
-      bgGradient: "from-amber-600/10 to-orange-600/10",
+      gradient: "from-amber-600 to-yellow-600",
+      bgGradient: "from-amber-600/10 to-yellow-600/10",
     },
     {
       id: 5,
@@ -178,8 +178,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-teal-500 to-cyan-500",
-      bgGradient: "from-teal-500/10 to-cyan-500/10",
+      gradient: "from-amber-500 to-cyan-500",
+      bgGradient: "from-amber-500/10 to-cyan-500/10",
     },
     {
       id: 6,
@@ -204,8 +204,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-pink-500 to-rose-500",
-      bgGradient: "from-pink-500/10 to-rose-500/10",
+      gradient: "from-pink-500 to-amber-500",
+      bgGradient: "from-pink-500/10 to-amber-500/10",
     },
     {
       id: 7,
@@ -213,7 +213,7 @@ const ProjectsPreview = () => {
       description:
         "Generate 3D models from 2D images using Neural Radiance Fields (NeRF) technology.",
       category: "3D Vision",
-      categoryColor: "from-violet-500 to-purple-500",
+      categoryColor: "from-amber-500 to-purple-500",
       technologies: ["NeRF", "Point Cloud", "3D CNNs", "PyTorch3D"],
       icon: (
         <svg
@@ -230,8 +230,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-violet-500 to-purple-500",
-      bgGradient: "from-violet-500/10 to-purple-500/10",
+      gradient: "from-amber-500 to-purple-500",
+      bgGradient: "from-amber-500/10 to-purple-500/10",
     },
     {
       id: 8,
@@ -256,8 +256,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-red-500 to-orange-500",
-      bgGradient: "from-red-500/10 to-orange-500/10",
+      gradient: "from-red-500 to-yellow-500",
+      bgGradient: "from-red-500/10 to-yellow-500/10",
     },
     {
       id: 9,
@@ -335,8 +335,8 @@ const ProjectsPreview = () => {
   const displayProjects = loading
     ? []
     : projects.length > 0
-    ? projects
-    : fallbackProjects;
+      ? projects
+      : fallbackProjects;
 
   const maxIndex = Math.max(0, displayProjects.length - itemsPerPage);
 
@@ -362,7 +362,7 @@ const ProjectsPreview = () => {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 px-4 py-2 rounded-full text-sm font-medium text-amber-700 mb-6">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-yellow-100 px-4 py-2 rounded-full text-sm font-medium text-amber-800 mb-6">
             <svg
               className="w-4 h-4"
               fill="none"
@@ -376,21 +376,21 @@ const ProjectsPreview = () => {
                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
               />
             </svg>
-            Featured AI Projects
+            Featured Batik Products
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
             <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-              Innovative
+              Our Batik
             </span>
             <br />
-            <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-              AI Projects
+            <span className="bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">
+              Application Products
             </span>
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Discover our cutting-edge research and development projects
-            showcasing the latest advances in computer vision and machine
-            learning technology.
+            One of the masterpieces of our research product. Explore batik
+            generation, classification, retrieval, and datasets built with
+            cutting-edge AI technology.
           </p>
         </div>
 
@@ -406,7 +406,7 @@ const ProjectsPreview = () => {
             className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg border border-gray-200 transition-all duration-300 ${
               currentIndex === 0 || loading || displayProjects.length === 0
                 ? "opacity-0 cursor-not-allowed pointer-events-none"
-                : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 hover:text-white hover:scale-110"
+                : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-500 hover:text-white hover:scale-110"
             }`}
           >
             <svg
@@ -437,7 +437,7 @@ const ProjectsPreview = () => {
               loading ||
               displayProjects.length === 0
                 ? "opacity-0 cursor-not-allowed pointer-events-none"
-                : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 hover:text-white hover:scale-110"
+                : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-500 hover:text-white hover:scale-110"
             }`}
           >
             <svg
@@ -532,14 +532,14 @@ const ProjectsPreview = () => {
                       {/* Gradient Background on Hover */}
                       <div
                         className={`absolute inset-0 bg-gradient-to-br ${
-                          project.gradient || "from-amber-500 to-orange-500"
+                          project.gradient || "from-amber-500 to-yellow-500"
                         } rounded-3xl opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                       ></div>
 
                       {/* Animated Border Glow */}
                       <div
                         className={`absolute inset-0 bg-gradient-to-r ${
-                          project.gradient || "from-amber-500 to-orange-500"
+                          project.gradient || "from-amber-500 to-yellow-500"
                         } rounded-3xl opacity-0 group-hover:opacity-15 blur transition-all duration-500`}
                       ></div>
 
@@ -559,7 +559,7 @@ const ProjectsPreview = () => {
                         ) : null}
                         <div
                           className={`absolute inset-0 bg-gradient-to-br ${
-                            project.gradient || "from-amber-500 to-orange-500"
+                            project.gradient || "from-amber-500 to-yellow-500"
                           } transition-all duration-700 group-hover:scale-110`}
                           style={{
                             display: project.thumbnail_url ? "none" : "block",
@@ -641,10 +641,10 @@ const ProjectsPreview = () => {
                           <button
                             onClick={() =>
                               router.push(
-                                `/projects/${project.slug || project.id}`
+                                `/projects/${project.slug || project.id}`,
                               )
                             }
-                            className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                            className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
                           >
                             <div className="flex items-center justify-center gap-2">
                               <span>View Details</span>
@@ -681,7 +681,7 @@ const ProjectsPreview = () => {
                   onClick={() => scrollToIndex(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? "w-6 md:w-8 bg-gradient-to-r from-amber-500 to-orange-500"
+                      ? "w-6 md:w-8 bg-gradient-to-r from-amber-500 to-yellow-500"
                       : "w-2 bg-gray-300 hover:bg-gray-400"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
@@ -699,7 +699,7 @@ const ProjectsPreview = () => {
             className={`flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 transition-all duration-300 ${
               currentIndex === 0
                 ? "opacity-50 cursor-not-allowed"
-                : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 hover:text-white active:scale-95"
+                : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-500 hover:text-white active:scale-95"
             }`}
           >
             <svg
@@ -723,9 +723,9 @@ const ProjectsPreview = () => {
           <div className="text-center relative z-50 mt-6 md:mt-8">
             <button
               onClick={() => router.push("/projects")}
-              className="group inline-flex items-center px-6 md:px-10 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-base md:text-lg rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+              className="group inline-flex items-center px-6 md:px-10 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold text-base md:text-lg rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
             >
-              <span>Explore All Projects</span>
+              <span>Explore All Products</span>
               <svg
                 className="w-5 h-5 ml-2 md:ml-3 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"

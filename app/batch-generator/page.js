@@ -361,9 +361,9 @@ export default function BatchGeneratorPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -377,7 +377,7 @@ export default function BatchGeneratorPage() {
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -426,7 +426,7 @@ export default function BatchGeneratorPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-orange-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
                 Batch Image Generator
               </span>
             </h1>
@@ -557,7 +557,7 @@ export default function BatchGeneratorPage() {
                   <div>
                     <h2 className="text-xl font-bold text-gray-900 flex items-center gap-3 mb-4">
                       <svg
-                        className="w-6 h-6 text-orange-600"
+                        className="w-6 h-6 text-amber-600"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -587,7 +587,7 @@ export default function BatchGeneratorPage() {
                             )
                           }
                           disabled={isGenerating}
-                          className="w-24 px-4 py-3 text-2xl font-bold text-center border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none"
+                          className="w-24 px-4 py-3 text-2xl font-bold text-center border-2 border-gray-200 rounded-xl focus:border-amber-500 focus:outline-none"
                         />
                         <span className="text-gray-600">images</span>
                       </div>
@@ -600,7 +600,7 @@ export default function BatchGeneratorPage() {
                           setImageCount(parseInt(e.target.value))
                         }
                         disabled={isGenerating}
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange-500"
+                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
                       />
                       <div className="text-sm text-gray-500">
                         Generate {imageCount} image{imageCount > 1 ? "s" : ""}{" "}
@@ -616,7 +616,7 @@ export default function BatchGeneratorPage() {
                             disabled={isGenerating}
                             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                               imageCount === num
-                                ? "bg-orange-500 text-white"
+                                ? "bg-amber-500 text-white"
                                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                             } disabled:opacity-50`}
                           >
@@ -634,7 +634,7 @@ export default function BatchGeneratorPage() {
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
                     <svg
-                      className="w-7 h-7 text-orange-600"
+                      className="w-7 h-7 text-amber-600"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -722,7 +722,7 @@ export default function BatchGeneratorPage() {
               </div>
 
               {/* Generation Summary & Button */}
-              <div className="bg-gradient-to-r from-amber-600 to-orange-600 rounded-3xl shadow-xl p-8 text-white">
+              <div className="bg-gradient-to-r from-amber-600 to-yellow-600 rounded-3xl shadow-xl p-8 text-white">
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <h3 className="text-2xl font-bold">Generation Summary</h3>
@@ -906,7 +906,7 @@ export default function BatchGeneratorPage() {
                 {/* Batch Job Display */}
                 <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
                   {!jobId && !isGenerating && (
-                    <div className="flex items-center justify-center h-60 bg-gradient-to-br from-amber-50/30 to-orange-50/30 rounded-2xl border-2 border-dashed border-amber-200">
+                    <div className="flex items-center justify-center h-60 bg-gradient-to-br from-amber-50/30 to-yellow-50/30 rounded-2xl border-2 border-dashed border-amber-200">
                       <div className="text-center">
                         <svg
                           className="w-12 h-12 text-amber-400 mx-auto mb-3"
@@ -1016,7 +1016,7 @@ export default function BatchGeneratorPage() {
           </div>
 
           {/* Tips Section */}
-          <div className="mt-16 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-12">
+          <div className="mt-16 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-12">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
               💡 Batch Generation Tips
             </h2>
@@ -1025,7 +1025,7 @@ export default function BatchGeneratorPage() {
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-xl">🎯</span>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">
@@ -1037,7 +1037,7 @@ export default function BatchGeneratorPage() {
                 </p>
               </div>
               <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-xl">🔢</span>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Image Count</h3>

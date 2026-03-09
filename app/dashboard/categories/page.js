@@ -46,12 +46,12 @@ export default function CategoriesPage() {
     {
       value: "model",
       label: "AI Model Categories",
-      color: "from-indigo-500 to-indigo-600",
+      color: "from-amber-500 to-amber-600",
     },
     {
       value: "gallery",
       label: "Gallery Categories",
-      color: "from-amber-500 to-orange-600",
+      color: "from-amber-500 to-yellow-600",
     },
   ];
 
@@ -212,7 +212,7 @@ export default function CategoriesPage() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-amber-50/30 to-slate-50">
         <div className="text-center">
           <div className="relative w-20 h-20 mx-auto mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-2xl animate-pulse"></div>
             <div className="absolute inset-2 bg-white rounded-xl"></div>
             <svg
               className="absolute inset-0 w-full h-full p-5 text-amber-600 animate-spin"
@@ -253,9 +253,9 @@ export default function CategoriesPage() {
             </div>
             <button
               onClick={() => openModal("create")}
-              className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
+              className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
@@ -426,7 +426,7 @@ export default function CategoriesPage() {
                 <div
                   className={`w-32 h-32 bg-gradient-to-br ${
                     categoryTypes.find((t) => t.value === selectedType)
-                      ?.color || "from-amber-100 to-orange-100"
+                      ?.color || "from-amber-100 to-yellow-100"
                   } rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-amber-500/20`}
                 ></div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -440,7 +440,7 @@ export default function CategoriesPage() {
                 </p>
                 <button
                   onClick={() => openModal("create")}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-8 py-4 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
                 >
                   <svg
                     className="w-5 h-5"
@@ -648,7 +648,7 @@ export default function CategoriesPage() {
                         className={`flex-1 px-6 py-3.5 rounded-2xl font-semibold text-white transition-all duration-300 ${
                           isSubmitting
                             ? "bg-slate-400 cursor-not-allowed"
-                            : "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:scale-105"
+                            : "bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:scale-105"
                         }`}
                       >
                         {isSubmitting ? (

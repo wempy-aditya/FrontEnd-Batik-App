@@ -58,9 +58,9 @@ export default function BatikGANGalleryPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-teal-50 to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-amber-50 to-yellow-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-teal-900 to-cyan-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-stone-900 to-cyan-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-repeat"
@@ -71,28 +71,28 @@ export default function BatikGANGalleryPage() {
         </div>
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="relative container mx-auto px-4 text-center">
-          <div className="inline-block mb-6 px-6 py-2 bg-teal-500/20 backdrop-blur-sm rounded-full border border-teal-400/30">
-            <span className="text-teal-200 text-sm font-medium">
+          <div className="inline-block mb-6 px-6 py-2 bg-amber-500/20 backdrop-blur-sm rounded-full border border-amber-400/30">
+            <span className="text-amber-200 text-sm font-medium">
               🖼️ BatikGAN Collection
             </span>
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
             Generated Batik
-            <span className="block mt-2 bg-gradient-to-r from-teal-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
+            <span className="block mt-2 bg-gradient-to-r from-amber-400 via-cyan-300 to-yellow-400 bg-clip-text text-transparent">
               Gallery
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-teal-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-amber-100 mb-8 max-w-3xl mx-auto leading-relaxed">
             Explore batik patterns created by multiple GAN models
           </p>
           <button
             onClick={() => router.push("/batikgan")}
-            className="px-8 py-4 bg-white text-teal-600 rounded-xl font-bold text-lg hover:bg-teal-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="px-8 py-4 bg-white text-amber-600 rounded-xl font-bold text-lg hover:bg-amber-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             🎨 Create New Batik
           </button>
@@ -104,10 +104,10 @@ export default function BatikGANGalleryPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           {/* Stats Bar */}
           {!isLoading && galleryImages.length > 0 && (
-            <div className="mb-12 bg-white rounded-2xl shadow-xl p-6 border border-teal-100">
+            <div className="mb-12 bg-white rounded-2xl shadow-xl p-6 border border-amber-100">
               <div className="flex justify-center items-center gap-8 flex-wrap">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-teal-600">{galleryImages.length}</div>
+                  <div className="text-4xl font-bold text-amber-600">{galleryImages.length}</div>
                   <div className="text-gray-600 font-medium">Generated Images</div>
                 </div>
                 <div className="h-12 w-px bg-gray-300"></div>
@@ -117,7 +117,7 @@ export default function BatikGANGalleryPage() {
                 </div>
                 <div className="h-12 w-px bg-gray-300"></div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-600">
+                  <div className="text-4xl font-bold text-amber-600">
                     {formatFileSize(
                       galleryImages.reduce((sum, img) => sum + (img.size_kb || 0), 0)
                     )}
@@ -131,11 +131,11 @@ export default function BatikGANGalleryPage() {
           {/* Gallery Grid */}
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-20">
-              <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-teal-600 mb-4"></div>
+              <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-amber-600 mb-4"></div>
               <p className="text-gray-600 text-lg">Loading gallery...</p>
             </div>
           ) : galleryImages.length === 0 ? (
-            <div className="bg-white rounded-2xl shadow-xl p-16 text-center border border-teal-100">
+            <div className="bg-white rounded-2xl shadow-xl p-16 text-center border border-amber-100">
               <span className="text-8xl mb-6 block">🎨</span>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">
                 No images in gallery yet
@@ -145,7 +145,7 @@ export default function BatikGANGalleryPage() {
               </p>
               <button
                 onClick={() => router.push("/batikgan")}
-                className="px-8 py-4 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 inline-block"
+                className="px-8 py-4 bg-gradient-to-r from-amber-600 to-cyan-600 text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 inline-block"
               >
                 Generate First Batik
               </button>
@@ -173,7 +173,7 @@ export default function BatikGANGalleryPage() {
                           🔍 View Full Image
                         </p>
                         {image.size_kb && (
-                          <p className="text-teal-200 text-xs">
+                          <p className="text-amber-200 text-xs">
                             {formatFileSize(image.size_kb)}
                           </p>
                         )}
@@ -205,11 +205,11 @@ export default function BatikGANGalleryPage() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-teal-600 to-cyan-600 p-4 flex justify-between items-center">
+            <div className="bg-gradient-to-r from-amber-600 to-cyan-600 p-4 flex justify-between items-center">
               <div>
                 <h3 className="text-white font-bold text-xl">Batik Pattern</h3>
                 {selectedImage.filename && (
-                  <p className="text-teal-100 text-sm">{selectedImage.filename}</p>
+                  <p className="text-amber-100 text-sm">{selectedImage.filename}</p>
                 )}
               </div>
               <button
@@ -246,7 +246,7 @@ export default function BatikGANGalleryPage() {
               <a
                 href={`${API_BASE_URL}/${selectedImage.download_url || selectedImage.image_url}`}
                 download={selectedImage.filename || `batik-${Date.now()}.png`}
-                className="px-6 py-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                className="px-6 py-3 bg-gradient-to-r from-amber-600 to-cyan-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
               >
                 📥 Download
               </a>

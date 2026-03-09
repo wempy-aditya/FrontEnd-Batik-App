@@ -136,7 +136,7 @@ function ScaleSlider({ label, value, onChange, imageNum }) {
   const color =
     value <= 0.35 ? "text-blue-600" :
     value <= 0.65 ? "text-amber-600" :
-    value <= 0.85 ? "text-orange-600" :
+    value <= 0.85 ? "text-amber-600" :
     "text-red-600";
 
   return (
@@ -319,9 +319,9 @@ export default function IPAdapterPage() {
   const imageCount = [image1, image2, image3].filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100">
       {/* Hero */}
-      <section className="relative py-20 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-repeat"
@@ -332,11 +332,11 @@ export default function IPAdapterPage() {
         </div>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          <div className="flex items-center text-sm text-orange-200 mb-8">
+          <div className="flex items-center text-sm text-amber-200 mb-8">
             <button onClick={() => (window.location.href = "/")} className="hover:text-white transition-colors">
               Home
             </button>
@@ -355,7 +355,7 @@ export default function IPAdapterPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-orange-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
                 Batik IP-Adapter
               </span>
             </h1>
@@ -713,7 +713,7 @@ export default function IPAdapterPage() {
                   className={`w-full mt-8 py-5 px-6 text-lg font-bold rounded-2xl transition-all duration-300 transform ${
                     isProcessing || !image1 || !prompt.trim()
                       ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                      : "bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:scale-[1.02] hover:shadow-2xl shadow-lg"
+                      : "bg-gradient-to-r from-amber-600 to-yellow-600 text-white hover:scale-[1.02] hover:shadow-2xl shadow-lg"
                   }`}
                 >
                   {isProcessing ? (
@@ -767,7 +767,7 @@ export default function IPAdapterPage() {
 
                 {/* Processing */}
                 {isProcessing && (
-                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border-2 border-dashed border-amber-300 mb-4">
+                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl border-2 border-dashed border-amber-300 mb-4">
                     <div className="text-center">
                       <svg className="w-12 h-12 text-amber-500 animate-spin mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -793,7 +793,7 @@ export default function IPAdapterPage() {
 
                     <button
                       onClick={downloadResult}
-                      className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-yellow-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -829,7 +829,7 @@ export default function IPAdapterPage() {
 
                 {/* Empty state */}
                 {!resultImage && !isProcessing && !error && (
-                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50/50 to-orange-50/50 rounded-2xl border-2 border-dashed border-amber-200">
+                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50/50 to-yellow-50/50 rounded-2xl border-2 border-dashed border-amber-200">
                     <div className="text-center px-4">
                       <svg className="w-14 h-14 text-amber-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -844,7 +844,7 @@ export default function IPAdapterPage() {
           </div>
 
           {/* Tips Section */}
-          <div className="mt-16 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-12">
+          <div className="mt-16 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-12">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-3">🧠 IP-Adapter Tips</h2>
             <p className="text-center text-gray-500 mb-10 max-w-2xl mx-auto">
               Get the best semantic style blending results
@@ -853,13 +853,13 @@ export default function IPAdapterPage() {
               {[
                 {
                   icon: "⚖️",
-                  color: "from-amber-500 to-orange-500",
+                  color: "from-amber-500 to-yellow-500",
                   title: "Scale = Influence Strength",
                   desc: "Scale 0.6 is the balanced default. Lower (0.3) = more creative freedom. Higher (0.9) = closely follows input style/concept.",
                 },
                 {
                   icon: "🔀",
-                  color: "from-orange-500 to-red-500",
+                  color: "from-amber-500 to-red-500",
                   title: "Blend Multiple Motifs",
                   desc: "Upload 2–3 images with equal scales (0.5/0.5) to semantically blend different batik motif concepts into one output.",
                 },
@@ -871,13 +871,13 @@ export default function IPAdapterPage() {
                 },
                 {
                   icon: "🔁",
-                  color: "from-green-500 to-emerald-500",
+                  color: "from-green-500 to-yellow-500",
                   title: "Too Similar? Lower the Scale",
                   desc: "If output looks too identical to input, lower scale to 0.4. If output is too different from the reference, raise scale to 0.8.",
                 },
                 {
                   icon: "🚀",
-                  color: "from-blue-500 to-indigo-500",
+                  color: "from-amber-500 to-yellow-600",
                   title: "Higher CFG for Color Changes",
                   desc: "Set guidance_scale to 9.0 if the output colors aren't changing enough. Add old colors to negative prompt too.",
                 },

@@ -43,7 +43,7 @@ const PublicationModal = ({ paper, isOpen, onClose }) => {
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="sticky top-0 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-5 rounded-t-2xl flex items-start justify-between">
+          <div className="sticky top-0 bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-6 py-5 rounded-t-2xl flex items-start justify-between">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
                 <span className="px-3 py-1 text-xs font-semibold bg-white bg-opacity-20 rounded-full">
@@ -199,14 +199,14 @@ const PublicationModal = ({ paper, isOpen, onClose }) => {
           <div className="flex flex-wrap gap-3 p-6 pt-4 border-t border-gray-200 bg-white rounded-b-2xl">
             <a
               href={`/publications/${paper.uuid || paper.id}`}
-              className="flex-1 py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-lg text-center transition-all duration-300 hover:shadow-lg"
+              className="flex-1 py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-lg text-center transition-all duration-300 hover:shadow-lg"
             >
               Read Full Paper
             </a>
             {paper.doi && paper.doi !== "N/A" && (
               <button
                 onClick={() => setShowCitationModal(true)}
-                className="flex-1 py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg text-center transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2"
+                className="flex-1 py-3 px-4 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg text-center transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2"
               >
                 <svg
                   className="w-5 h-5"

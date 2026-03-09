@@ -140,9 +140,9 @@ export default function ParangBatikPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-amber-900 via-orange-800 to-amber-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -156,12 +156,12 @@ export default function ParangBatikPage() {
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center text-sm text-orange-200 mb-8">
+          <div className="flex items-center text-sm text-amber-200 mb-8">
             <button
               onClick={() => (window.location.href = "/")}
               className="hover:text-white transition-colors"
@@ -205,7 +205,7 @@ export default function ParangBatikPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-orange-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
                 Batik Text To Image: Parang
               </span>
             </h1>
@@ -255,7 +255,7 @@ export default function ParangBatikPage() {
                     <button
                       onClick={randomizePrompt}
                       disabled={isGenerating || isLoadingPrompts || parangBatikPrompts.length === 0}
-                      className="px-5 py-2.5 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                      className="px-5 py-2.5 bg-gradient-to-r from-amber-600 to-yellow-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                     >
                       <svg
                         className="w-4 h-4"
@@ -278,7 +278,7 @@ export default function ParangBatikPage() {
                     onChange={(e) => setPrompt(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Describe your majestic Parang batik design with detailed diagonal patterns, royal symbolism, color schemes, and cultural significance..."
-                    className="w-full h-40 px-5 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none resize-none text-gray-700 placeholder-gray-400 text-base leading-relaxed"
+                    className="w-full h-40 px-5 py-4 border-2 border-gray-200 rounded-xl focus:border-amber-500 focus:outline-none resize-none text-gray-700 placeholder-gray-400 text-base leading-relaxed"
                     disabled={isGenerating}
                   />
                 </div>
@@ -294,7 +294,7 @@ export default function ParangBatikPage() {
                       {scenarioOptions.map((option) => (
                         <label
                           key={option.value}
-                          className="flex items-start gap-3 p-3 rounded-lg border border-gray-200 hover:border-orange-300 cursor-pointer transition-colors"
+                          className="flex items-start gap-3 p-3 rounded-lg border border-gray-200 hover:border-amber-300 cursor-pointer transition-colors"
                         >
                           <input
                             type="radio"
@@ -304,7 +304,7 @@ export default function ParangBatikPage() {
                             onChange={(e) =>
                               setSelectedScenario(e.target.value)
                             }
-                            className="mt-1 text-orange-600"
+                            className="mt-1 text-amber-600"
                             disabled={isGenerating}
                           />
                           <div>
@@ -377,7 +377,7 @@ export default function ParangBatikPage() {
                         }
                         placeholder="-1 for random"
                         disabled={isGenerating}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-amber-500 focus:outline-none"
                       />
                       <div className="text-xs text-gray-500 mt-1">
                         Use -1 for random, or specific number for reproducible
@@ -402,7 +402,7 @@ export default function ParangBatikPage() {
                   disabled={isGenerating || !prompt.trim()}
                   className={`w-full py-5 px-6 text-lg font-bold rounded-xl transition-all duration-300 transform ${isGenerating || !prompt.trim()
                       ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                      : "bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:scale-105 hover:shadow-2xl shadow-lg"
+                      : "bg-gradient-to-r from-amber-600 to-yellow-600 text-white hover:scale-105 hover:shadow-2xl shadow-lg"
                     }`}
                 >
                   {isGenerating ? (
@@ -489,10 +489,10 @@ export default function ParangBatikPage() {
 
                 {/* Loading State */}
                 {isGenerating && (
-                  <div className="flex items-center justify-center h-80 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-dashed border-orange-300">
+                  <div className="flex items-center justify-center h-80 bg-gradient-to-br from-amber-50 to-red-50 rounded-2xl border-2 border-dashed border-amber-300">
                     <div className="text-center">
                       <svg
-                        className="w-16 h-16 text-orange-600 animate-spin mx-auto mb-4"
+                        className="w-16 h-16 text-amber-600 animate-spin mx-auto mb-4"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -504,10 +504,10 @@ export default function ParangBatikPage() {
                           d="M13 10V3L4 14h7v7l9-11h-7z"
                         />
                       </svg>
-                      <div className="text-orange-800 font-bold text-lg mb-2">
+                      <div className="text-amber-800 font-bold text-lg mb-2">
                         ⚡ Crafting Royal Pattern
                       </div>
-                      <div className="text-orange-700 text-sm">
+                      <div className="text-amber-700 text-sm">
                         Using {selectedScenario} with {steps} steps...
                       </div>
                     </div>
@@ -539,7 +539,7 @@ export default function ParangBatikPage() {
                         link.click();
                         document.body.removeChild(link);
                       }}
-                      className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-yellow-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       <svg
                         className="w-5 h-5"
@@ -577,10 +577,10 @@ export default function ParangBatikPage() {
 
                 {/* Empty State */}
                 {!generatedImage && !isGenerating && !error && (
-                  <div className="flex items-center justify-center h-80 bg-gradient-to-br from-orange-50/30 to-red-50/30 rounded-2xl border-2 border-dashed border-orange-200">
+                  <div className="flex items-center justify-center h-80 bg-gradient-to-br from-amber-50/30 to-red-50/30 rounded-2xl border-2 border-dashed border-amber-200">
                     <div className="text-center">
                       <svg
-                        className="w-16 h-16 text-orange-400 mx-auto mb-4"
+                        className="w-16 h-16 text-amber-400 mx-auto mb-4"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -606,7 +606,7 @@ export default function ParangBatikPage() {
           </div>
 
           {/* Tips Section */}
-          <div className="mt-16 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-12">
+          <div className="mt-16 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-12">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
               ⚡ Parang Creation Tips
             </h2>
@@ -615,7 +615,7 @@ export default function ParangBatikPage() {
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-xl">👑</span>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">
@@ -626,7 +626,7 @@ export default function ParangBatikPage() {
                 </p>
               </div>
               <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-xl">📐</span>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">
@@ -637,7 +637,7 @@ export default function ParangBatikPage() {
                 </p>
               </div>
               <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-xl">🎨</span>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">

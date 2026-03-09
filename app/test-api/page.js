@@ -115,9 +115,9 @@ export default function TestApiPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -131,7 +131,7 @@ export default function TestApiPage() {
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -180,7 +180,7 @@ export default function TestApiPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-orange-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
                 Batik Creator Studio
               </span>
             </h1>
@@ -292,7 +292,7 @@ export default function TestApiPage() {
                   className={`w-full py-5 px-6 text-lg font-bold rounded-xl transition-all duration-300 transform ${
                     isGenerating || !prompt.trim()
                       ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                      : "bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:scale-105 hover:shadow-2xl shadow-lg"
+                      : "bg-gradient-to-r from-amber-500 to-yellow-500 text-white hover:scale-105 hover:shadow-2xl shadow-lg"
                   }`}
                 >
                   {isGenerating ? (
@@ -337,7 +337,7 @@ export default function TestApiPage() {
               <div className="bg-white rounded-3xl shadow-xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <svg
-                    className="w-6 h-6 text-orange-600"
+                    className="w-6 h-6 text-amber-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -352,7 +352,7 @@ export default function TestApiPage() {
                   Traditional Batik Knowledge
                 </h3>
                 <div className="space-y-4">
-                  <div className="p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+                  <div className="p-4 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-lg border border-amber-200">
                     <h4 className="font-semibold text-gray-800 mb-2">
                       Famous Batik Motifs:
                     </h4>
@@ -375,7 +375,7 @@ export default function TestApiPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="p-4 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-lg border border-orange-200">
+                  <div className="p-4 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-lg border border-amber-200">
                     <h4 className="font-semibold text-gray-800 mb-2">
                       Cultural Elements to Include:
                     </h4>
@@ -403,7 +403,7 @@ export default function TestApiPage() {
               <div className="bg-white rounded-3xl shadow-xl p-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                   <svg
-                    className="w-8 h-8 text-orange-600"
+                    className="w-8 h-8 text-amber-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -443,7 +443,7 @@ export default function TestApiPage() {
 
                 {/* Loading State */}
                 {isGenerating && (
-                  <div className="flex items-center justify-center h-96 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border-2 border-dashed border-amber-300">
+                  <div className="flex items-center justify-center h-96 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl border-2 border-dashed border-amber-300">
                     <div className="text-center">
                       <svg
                         className="w-20 h-20 text-amber-600 animate-spin mx-auto mb-6"
@@ -498,7 +498,7 @@ export default function TestApiPage() {
                         link.click();
                         document.body.removeChild(link);
                       }}
-                      className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-yellow-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       <svg
                         className="w-5 h-5"
@@ -520,7 +520,7 @@ export default function TestApiPage() {
 
                 {/* Empty State */}
                 {!generatedImage && !isGenerating && !error && (
-                  <div className="flex items-center justify-center h-96 bg-gradient-to-br from-amber-50/30 to-orange-50/30 rounded-2xl border-2 border-dashed border-amber-200">
+                  <div className="flex items-center justify-center h-96 bg-gradient-to-br from-amber-50/30 to-yellow-50/30 rounded-2xl border-2 border-dashed border-amber-200">
                     <div className="text-center">
                       <svg
                         className="w-20 h-20 text-amber-400 mx-auto mb-6"
@@ -554,7 +554,7 @@ export default function TestApiPage() {
           {/* Motivational Section */}
           {generatedImage && (
             <div className="mt-12 text-center">
-              <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl p-8 text-white">
+              <div className="bg-gradient-to-r from-amber-500 to-amber-600 rounded-3xl p-8 text-white">
                 <h3 className="text-2xl font-bold mb-4">🎉 Congratulations!</h3>
                 <p className="text-lg opacity-90 max-w-2xl mx-auto">
                   You've successfully created a beautiful batik pattern that
@@ -567,7 +567,7 @@ export default function TestApiPage() {
           )}
 
           {/* Tips Section */}
-          <div className="mt-16 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-12">
+          <div className="mt-16 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-12">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
               ✨ Create Amazing Batik Designs
             </h2>
@@ -577,7 +577,7 @@ export default function TestApiPage() {
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <svg
                     className="w-8 h-8 text-white"
                     fill="none"
@@ -601,7 +601,7 @@ export default function TestApiPage() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <svg
                     className="w-8 h-8 text-white"
                     fill="none"
@@ -649,7 +649,7 @@ export default function TestApiPage() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <svg
                     className="w-8 h-8 text-white"
                     fill="none"
@@ -697,7 +697,7 @@ export default function TestApiPage() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <svg
                     className="w-8 h-8 text-white"
                     fill="none"

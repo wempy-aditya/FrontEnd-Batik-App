@@ -7,6 +7,26 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        brand: {
+          50: '#fdf2f2',
+          100: '#fbe2e2',
+          200: '#f7c9c9',
+          300: '#f1a2a2',
+          400: '#e76d6d',
+          500: '#db4040',
+          600: '#c62727',
+          700: '#a61b1b', // Maroon base
+          800: '#891919',
+          900: '#721b1b',
+          950: '#3e0a0a',
+        },
+        gold: {
+          400: '#facc15',
+          500: '#eab308',
+          600: '#ca8a04',
+        }
+      },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
       },

@@ -108,7 +108,7 @@ function DropZone({ label, accept, file, preview, onFile, onClear, icon, hint, r
 function WeightSlider({ label, value, onChange, color = "amber" }) {
   const colorMap = {
     amber: { track: "accent-amber-600", pct: "text-amber-600" },
-    orange: { track: "accent-orange-500", pct: "text-orange-600" },
+    orange: { track: "accent-amber-500", pct: "text-amber-600" },
     red: { track: "accent-red-500", pct: "text-red-600" },
   };
   const c = colorMap[color] || colorMap.amber;
@@ -289,9 +289,9 @@ export default function MultiControlNetPage() {
   const imageCount = [image1, image2].filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100">
       {/* Hero */}
-      <section className="relative py-20 bg-gradient-to-br from-stone-900 via-amber-950 to-stone-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-slate-900 via-stone-950 to-slate-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-repeat"
@@ -302,11 +302,11 @@ export default function MultiControlNetPage() {
         </div>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/5 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
-          <div className="flex items-center text-sm text-orange-200 mb-8">
+          <div className="flex items-center text-sm text-amber-200 mb-8">
             <button onClick={() => (window.location.href = "/")} className="hover:text-white transition-colors">
               Home
             </button>
@@ -325,7 +325,7 @@ export default function MultiControlNetPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-orange-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
                 Batik Multi-ControlNet
               </span>
             </h1>
@@ -490,7 +490,7 @@ export default function MultiControlNetPage() {
                   {/* Image 2 */}
                   <div>
                     <p className="text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
-                      <span className="w-5 h-5 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs">2</span>
+                      <span className="w-5 h-5 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs">2</span>
                       Motif B
                       <span className="text-xs bg-red-100 text-red-600 px-2 py-0.5 rounded-full">Required</span>
                     </p>
@@ -527,7 +527,7 @@ export default function MultiControlNetPage() {
                         style={{ width: `${(scale1 / (scale1 + scale2)) * 100}%` }}
                       ></div>
                       <div
-                        className="h-3 bg-orange-500 transition-all"
+                        className="h-3 bg-amber-500 transition-all"
                         style={{ width: `${(scale2 / (scale1 + scale2)) * 100}%` }}
                       ></div>
                     </div>
@@ -761,7 +761,7 @@ export default function MultiControlNetPage() {
                   className={`w-full mt-8 py-5 px-6 text-lg font-bold rounded-2xl transition-all duration-300 transform ${
                     isProcessing || !image1 || !image2 || !prompt.trim()
                       ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                      : "bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:scale-[1.02] hover:shadow-2xl shadow-lg"
+                      : "bg-gradient-to-r from-amber-600 to-yellow-600 text-white hover:scale-[1.02] hover:shadow-2xl shadow-lg"
                   }`}
                 >
                   {isProcessing ? (
@@ -816,7 +816,7 @@ export default function MultiControlNetPage() {
 
                 {/* Processing */}
                 {isProcessing && (
-                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border-2 border-dashed border-amber-300 mb-4">
+                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl border-2 border-dashed border-amber-300 mb-4">
                     <div className="text-center">
                       <svg className="w-12 h-12 text-amber-500 animate-spin mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -842,7 +842,7 @@ export default function MultiControlNetPage() {
 
                     <button
                       onClick={downloadResult}
-                      className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full py-3 px-4 bg-gradient-to-r from-green-500 to-yellow-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -877,8 +877,8 @@ export default function MultiControlNetPage() {
                         <img src={preview1} alt="Motif A" className="w-full h-16 object-cover rounded-lg border border-amber-200" />
                       </div>
                       <div>
-                        <p className="text-xs text-center text-orange-500 font-semibold mb-1">B</p>
-                        <img src={preview2} alt="Motif B" className="w-full h-16 object-cover rounded-lg border border-orange-200" />
+                        <p className="text-xs text-center text-amber-500 font-semibold mb-1">B</p>
+                        <img src={preview2} alt="Motif B" className="w-full h-16 object-cover rounded-lg border border-amber-200" />
                       </div>
                     </div>
                   </div>
@@ -886,7 +886,7 @@ export default function MultiControlNetPage() {
 
                 {/* Empty state */}
                 {!resultImage && !isProcessing && !error && (
-                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50/50 to-orange-50/50 rounded-2xl border-2 border-dashed border-amber-200">
+                  <div className="flex items-center justify-center h-72 bg-gradient-to-br from-amber-50/50 to-yellow-50/50 rounded-2xl border-2 border-dashed border-amber-200">
                     <div className="text-center px-4">
                       <svg className="w-14 h-14 text-amber-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -901,7 +901,7 @@ export default function MultiControlNetPage() {
           </div>
 
           {/* Tips Section */}
-          <div className="mt-16 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-12">
+          <div className="mt-16 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-12">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-3">🔀 Multi-ControlNet Tips</h2>
             <p className="text-center text-gray-500 mb-10 max-w-2xl mx-auto">
               Get the best motif blending results with these guidelines
@@ -910,13 +910,13 @@ export default function MultiControlNetPage() {
               {[
                 {
                   icon: "⚖️",
-                  color: "from-amber-500 to-orange-500",
+                  color: "from-amber-500 to-yellow-500",
                   title: "Start with 50/50 Weights",
                   desc: "Begin with equal weights (0.5/0.5) to get a balanced blend. Then adjust to favor one motif. Weights don't need to sum to 1.0.",
                 },
                 {
                   icon: "🎯",
-                  color: "from-orange-500 to-red-500",
+                  color: "from-amber-500 to-red-500",
                   title: "One Motif Dominates?",
                   desc: "If one motif overpowers the result, decrease its scale and increase the weaker one. Try 0.4/0.6 instead of 0.7/0.3.",
                 },
@@ -928,13 +928,13 @@ export default function MultiControlNetPage() {
                 },
                 {
                   icon: "✏️",
-                  color: "from-green-500 to-emerald-500",
+                  color: "from-green-500 to-yellow-500",
                   title: "Adjust Canny Thresholds",
                   desc: "If edges are too noisy (messy blend), use high thresholds (150/250). Too sparse (lost detail), use low thresholds (50/100).",
                 },
                 {
                   icon: "💬",
-                  color: "from-blue-500 to-indigo-500",
+                  color: "from-amber-500 to-yellow-600",
                   title: "Name Your Motifs in the Prompt",
                   desc: "Saying 'combining Kawung and Parang' helps the model understand the intent. Add 'traditional Indonesian batik style' for quality.",
                 },

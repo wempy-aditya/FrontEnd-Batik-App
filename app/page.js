@@ -1,8 +1,6 @@
 import HeroSection from "../components/HeroSection";
 import ProjectsPreview from "../components/ProjectsPreview";
-import DatasetsPreview from "../components/DatasetsPreview";
-import ResearchSection from "../components/ResearchSection";
-import GalleryCarousel from "../components/GalleryCarousel";
+import DatasetsPreview from "../components/DatasetsPreview"; // Renamed inside the component to PublicationsPreview
 
 export default function Home() {
   return (
@@ -13,14 +11,8 @@ export default function Home() {
       {/* Projects Preview */}
       <ProjectsPreview />
 
-      {/* Datasets Preview */}
+      {/* Publications Preview (formerly Datasets Preview) */}
       <DatasetsPreview />
-
-      {/* Research Section */}
-      <ResearchSection />
-
-      {/* Gallery Carousel */}
-      <GalleryCarousel />
     </div>
   );
 }

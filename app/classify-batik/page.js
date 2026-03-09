@@ -146,13 +146,13 @@ export default function ClassifyBatikPage() {
     if (confidence >= 90) return "bg-green-500";
     if (confidence >= 70) return "bg-blue-500";
     if (confidence >= 50) return "bg-yellow-500";
-    return "bg-orange-500";
+    return "bg-amber-500";
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-amber-50 to-purple-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-stone-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-repeat"
@@ -164,7 +164,7 @@ export default function ClassifyBatikPage() {
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -190,7 +190,7 @@ export default function ClassifyBatikPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-blue-100 to-indigo-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-blue-100 to-amber-100 bg-clip-text text-transparent">
                 Batik Pattern Classification
               </span>
             </h1>
@@ -343,7 +343,7 @@ export default function ClassifyBatikPage() {
                   className={`w-full py-5 px-6 text-lg font-bold rounded-xl transition-all duration-300 transform ${
                     isClassifying || (!selectedImage && !uploadedFile)
                       ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                      : "bg-gradient-to-r from-blue-500 to-indigo-500 text-white hover:scale-105 hover:shadow-2xl shadow-lg"
+                      : "bg-gradient-to-r from-amber-500 to-yellow-600 text-white hover:scale-105 hover:shadow-2xl shadow-lg"
                   }`}
                 >
                   {isClassifying ? (
@@ -370,7 +370,7 @@ export default function ClassifyBatikPage() {
               {/* Image Preview */}
               <div className="bg-white rounded-3xl shadow-xl p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                  <svg className="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   Input Image
@@ -383,7 +383,7 @@ export default function ClassifyBatikPage() {
                     className="w-full h-auto rounded-xl shadow-md"
                   />
                 ) : (
-                  <div className="flex items-center justify-center h-64 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-dashed border-blue-200">
+                  <div className="flex items-center justify-center h-64 bg-gradient-to-br from-blue-50 to-amber-50 rounded-xl border-2 border-dashed border-blue-200">
                     <div className="text-center">
                       <svg className="w-16 h-16 text-blue-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -412,7 +412,7 @@ export default function ClassifyBatikPage() {
                   <h2 className="text-2xl font-bold text-gray-900 mb-6">Classification Result</h2>
                   
                   {/* Prediction Summary */}
-                  <div className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-xl p-6 mb-6">
+                  <div className="bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-xl p-6 mb-6">
                     <div className="text-sm font-semibold mb-2">Predicted Class</div>
                     <div className="text-3xl font-bold mb-4">{result.predicted_class}</div>
                     <div className="flex items-center justify-between text-sm">
@@ -478,7 +478,7 @@ export default function ClassifyBatikPage() {
           </div>
 
           {/* Info Section */}
-          <div className="mt-16 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-12">
+          <div className="mt-16 bg-gradient-to-br from-blue-50 to-amber-50 rounded-3xl p-12">
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
               🔍 About Batik Classification
             </h2>
@@ -488,7 +488,7 @@ export default function ClassifyBatikPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {batikClasses.slice(0, 8).map((cls) => (
                 <div key={cls.index} className="bg-white rounded-xl p-4 text-center shadow-sm">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-2">
                     <span className="text-white font-bold">{cls.index + 1}</span>
                   </div>
                   <div className="text-sm font-semibold text-gray-900">{cls.name}</div>
@@ -498,7 +498,7 @@ export default function ClassifyBatikPage() {
             <div className="text-center mt-6">
               <button
                 onClick={() => window.location.href = "/compare-batik"}
-                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300"
+                className="px-8 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300"
               >
                 Compare Multiple Models →
               </button>

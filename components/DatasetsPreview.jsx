@@ -39,7 +39,8 @@ const DatasetsPreview = () => {
           const datasetsWithGradient = datasetsArray.map((dataset) => ({
             ...dataset,
             gradient:
-              dataset.gradient || "from-amber-400 via-orange-500 to-orange-600",
+              dataset.gradient ||
+              "from-amber-400 via-yellow-500 to-orange-500",
           }));
           setDatasets(datasetsWithGradient);
         }
@@ -65,7 +66,7 @@ const DatasetsPreview = () => {
       access_level: "Public",
       downloadCount: "250K+",
       updated_at: "2024-01-15",
-      gradient: "from-amber-400 via-orange-500 to-orange-600",
+      gradient: "from-amber-400 via-yellow-500 to-orange-500",
       format: "ImageNet",
       license: "Custom",
     },
@@ -80,7 +81,7 @@ const DatasetsPreview = () => {
       access_level: "Registered",
       downloadCount: "125K+",
       updated_at: "2023-11-20",
-      gradient: "from-amber-400 via-orange-500 to-orange-600",
+      gradient: "from-amber-400 via-yellow-500 to-orange-500",
       format: "COCO JSON",
       license: "CC BY 4.0",
     },
@@ -95,7 +96,7 @@ const DatasetsPreview = () => {
       access_level: "Premium",
       downloadCount: "45K+",
       updated_at: "2024-02-10",
-      gradient: "from-amber-400 via-orange-500 to-orange-600",
+      gradient: "from-amber-400 via-yellow-500 to-orange-500",
       format: "PNG/JPG",
       license: "MIT",
     },
@@ -104,8 +105,8 @@ const DatasetsPreview = () => {
   const displayDatasets = loading
     ? []
     : datasets.length > 0
-    ? datasets
-    : fallbackDatasets;
+      ? datasets
+      : fallbackDatasets;
 
   // Responsive items per page
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -155,7 +156,7 @@ const DatasetsPreview = () => {
   };
 
   const getGradientClass = (gradientString) => {
-    return gradientString || "from-amber-400 via-orange-500 to-orange-600";
+    return gradientString || "from-amber-400 via-yellow-500 to-orange-500";
   };
 
   const getAccessColor = (accessType) => {
@@ -175,8 +176,8 @@ const DatasetsPreview = () => {
     <section className="py-12 md:py-16 bg-white relative">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-0 w-72 h-72 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-gradient-to-r from-pink-200 to-orange-200 rounded-full blur-3xl opacity-30"></div>
+        <div className="absolute top-1/4 left-0 w-72 h-72 bg-gradient-to-r from-amber-200 to-yellow-200 rounded-full blur-3xl opacity-30"></div>
+        <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-gradient-to-r from-orange-200 to-red-200 rounded-full blur-3xl opacity-30"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
@@ -197,16 +198,16 @@ const DatasetsPreview = () => {
               />
             </svg>
             <span className="text-sm font-semibold text-amber-800">
-              Research Datasets
+              Batik Datasets
             </span>
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Curated Datasets
+            Batik Research Datasets
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Access high-quality, well-annotated datasets for training and
-            benchmarking your computer vision models with confidence.
+            Access high-quality batik image datasets for training and
+            benchmarking your machine learning models.
           </p>
         </div>
 
@@ -222,7 +223,7 @@ const DatasetsPreview = () => {
                 className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg border border-gray-200 transition-all duration-300 ${
                   currentIndex === 0 || loading
                     ? "opacity-0 cursor-not-allowed pointer-events-none"
-                    : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 hover:text-white hover:scale-110"
+                    : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-500 hover:text-white hover:scale-110"
                 }`}
               >
                 <svg
@@ -247,7 +248,7 @@ const DatasetsPreview = () => {
                 className={`absolute right-0 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg border border-gray-200 transition-all duration-300 ${
                   currentIndex >= maxIndex || loading
                     ? "opacity-0 cursor-not-allowed pointer-events-none"
-                    : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 hover:text-white hover:scale-110"
+                    : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-500 hover:text-white hover:scale-110"
                 }`}
               >
                 <svg
@@ -290,8 +291,8 @@ const DatasetsPreview = () => {
                     }}
                   >
                     <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                      {/* Header skeleton with orange gradient */}
-                      <div className="h-40 bg-gradient-to-br from-amber-400 via-orange-500 to-orange-600 relative overflow-hidden">
+                      {/* Header skeleton with amber gradient */}
+                      <div className="h-40 bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-500 relative overflow-hidden">
                         {/* Grid skeleton overlay - same as page.js */}
                         <div className="absolute inset-0 p-4">
                           <div className="grid grid-cols-4 gap-2 h-full opacity-30">
@@ -328,7 +329,7 @@ const DatasetsPreview = () => {
                             <div className="h-3 bg-gray-200 rounded w-2/3 mx-auto animate-pulse"></div>
                           </div>
                         </div>
-                        <div className="h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl animate-pulse"></div>
+                        <div className="h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-xl animate-pulse"></div>
                       </div>
                     </div>
                   </div>
@@ -336,7 +337,7 @@ const DatasetsPreview = () => {
               ) : displayDatasets.length === 0 ? (
                 <div className="w-full text-center py-12">
                   <div className="bg-white rounded-2xl p-8 shadow-lg border border-amber-100 max-w-md mx-auto">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-100 to-yellow-100 flex items-center justify-center">
                       <svg
                         className="w-8 h-8 text-amber-500"
                         fill="none"
@@ -378,7 +379,7 @@ const DatasetsPreview = () => {
                       <div className="relative h-40 overflow-hidden">
                         <div
                           className={`absolute inset-0 bg-gradient-to-br ${getGradientClass(
-                            dataset.gradient
+                            dataset.gradient,
                           )} transition-transform duration-700 ${
                             hoveredDataset === dataset.id ? "scale-110" : ""
                           }`}
@@ -402,8 +403,8 @@ const DatasetsPreview = () => {
                                 key={i}
                                 className="
                                 rounded-lg
-                                bg-orange-300/20
-                                border border-orange-200/30
+                                bg-amber-300/20
+                                border border-amber-200/30
                                 shadow-inner
                               "
                               />
@@ -415,7 +416,7 @@ const DatasetsPreview = () => {
                         <div
                           className="
                           absolute inset-0
-                          bg-gradient-to-br from-orange-400/20 to-orange-500/10
+                          bg-gradient-to-br from-amber-400/20 to-yellow-500/10
                           opacity-0 group-hover:opacity-100
                           transition-opacity duration-300
                         "
@@ -425,7 +426,7 @@ const DatasetsPreview = () => {
                         <div className="absolute top-4 right-4">
                           <span
                             className={`px-3 py-1 text-xs font-semibold rounded-full border ${getAccessColor(
-                              dataset.access_level
+                              dataset.access_level,
                             )}`}
                           >
                             {dataset.access_level || "Public"}
@@ -449,7 +450,7 @@ const DatasetsPreview = () => {
                       <div className="p-6 space-y-4">
                         {/* Title & Downloads */}
                         <div className="flex items-start justify-between">
-                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors duration-300">
                             {dataset.name || "Untitled Dataset"}
                           </h3>
                           <div className="flex items-center text-sm text-gray-500 ml-2">
@@ -521,7 +522,7 @@ const DatasetsPreview = () => {
                             <span className="font-medium">
                               {dataset.updated_at || dataset.created_at
                                 ? new Date(
-                                    dataset.updated_at || dataset.created_at
+                                    dataset.updated_at || dataset.created_at,
                                   ).toLocaleDateString("en-US", {
                                     year: "numeric",
                                     month: "short",
@@ -542,7 +543,7 @@ const DatasetsPreview = () => {
                                 window.location.href = `/datasets/${dataset.id}/download`;
                               }
                             }}
-                            className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
+                            className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
                           >
                             <div className="flex items-center justify-center gap-2">
                               <svg
@@ -593,7 +594,7 @@ const DatasetsPreview = () => {
                   onClick={() => scrollToIndex(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? "w-6 md:w-8 bg-gradient-to-r from-amber-500 to-orange-500"
+                      ? "w-6 md:w-8 bg-gradient-to-r from-amber-500 to-yellow-500"
                       : "w-2 bg-gray-300 hover:bg-gray-400"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
@@ -610,7 +611,7 @@ const DatasetsPreview = () => {
               console.log("Navigating to datasets page");
               window.location.href = "/datasets";
             }}
-            className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
           >
             <span>Browse All Datasets</span>
             <svg

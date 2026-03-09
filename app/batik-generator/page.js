@@ -119,9 +119,9 @@ export default function BatikGeneratorPage() {
   const currentPatches = activeDataset === "nitik" ? nitikPatches : itbPatches;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-purple-50 to-fuchsia-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-stone-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-repeat"
@@ -144,7 +144,7 @@ export default function BatikGeneratorPage() {
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
             Generate Beautiful
-            <span className="block mt-2 bg-gradient-to-r from-purple-400 via-fuchsia-300 to-violet-400 bg-clip-text text-transparent">
+            <span className="block mt-2 bg-gradient-to-r from-purple-400 via-fuchsia-300 to-yellow-400 bg-clip-text text-transparent">
               Batik Patterns
             </span>
           </h1>

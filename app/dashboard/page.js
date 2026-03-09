@@ -71,7 +71,7 @@ export default function DashboardPage() {
         {activeSection === "overview" && (
           <div className="space-y-6 w-full">
             {/* Welcome */}
-            <div className="bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 text-white shadow-sm">
+            <div className="bg-gradient-to-r from-amber-500 to-yellow-600 rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 text-white shadow-sm">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
                 Welcome back, {user?.name || user?.username}!
               </h2>
@@ -120,8 +120,8 @@ export default function DashboardPage() {
                 label="Total Users"
                 value={stats?.users?.total}
                 change={stats?.users?.new_this_month ? `+${stats.users.new_this_month} baru` : null}
-                bgClass="bg-orange-100"
-                icon={<svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" /></svg>}
+                bgClass="bg-amber-100"
+                icon={<svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" /></svg>}
               />
             </div>
 
@@ -159,7 +159,7 @@ export default function DashboardPage() {
                 {/* Users detail */}
                 <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-sm">
                   <h4 className="font-semibold text-slate-800 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
+                    <span className="w-2 h-2 bg-amber-400 rounded-full"></span>
                     Pengguna
                   </h4>
                   <div className="space-y-2 text-sm">
@@ -241,10 +241,10 @@ export default function DashboardPage() {
 
                 <button
                   onClick={() => router.push("/dashboard/news")}
-                  className="p-3 sm:p-4 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg sm:rounded-xl border-2 border-indigo-200 hover:border-indigo-300 transition-colors group"
+                  className="p-3 sm:p-4 bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg sm:rounded-xl border-2 border-amber-200 hover:border-amber-300 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                       <svg
                         className="w-5 h-5 text-white"
                         fill="none"
@@ -382,7 +382,7 @@ export default function DashboardPage() {
                     { label: "Datasets", published: stats.datasets?.by_status?.published, draft: stats.datasets?.by_status?.draft, color: "bg-blue-100", iconColor: "text-blue-600", icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" /> },
                     { label: "Publikasi", published: stats.publications?.by_status?.published, draft: stats.publications?.by_status?.draft, color: "bg-green-100", iconColor: "text-green-600", icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /> },
                     { label: "Projects", published: stats.projects?.by_status?.published, draft: stats.projects?.by_status?.draft, color: "bg-purple-100", iconColor: "text-purple-600", icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /> },
-                    { label: "News", published: stats.news?.by_status?.published, draft: stats.news?.by_status?.draft, color: "bg-indigo-100", iconColor: "text-indigo-600", icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /> },
+                    { label: "News", published: stats.news?.by_status?.published, draft: stats.news?.by_status?.draft, color: "bg-amber-100", iconColor: "text-amber-600", icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /> },
                     { label: "AI Models", published: stats.ai_models?.by_status?.published, draft: stats.ai_models?.by_status?.draft, color: "bg-cyan-100", iconColor: "text-cyan-600", icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H4a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-1" /> },
                   ].map(({ label, published, draft, color, iconColor, icon }) => (
                     <div key={label} className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-slate-50 rounded-lg sm:rounded-xl">

@@ -23,7 +23,7 @@ export default function FeaturesPage() {
         "Find similar images instantly using state-of-the-art computer vision algorithms, deep learning models, and semantic search capabilities.",
       category: "image-processing",
       icon: "🔍",
-      gradient: "from-amber-500 to-orange-500",
+      gradient: "from-amber-500 to-yellow-500",
       features: [
         "Vector similarity search",
         "Semantic image matching",
@@ -40,7 +40,7 @@ export default function FeaturesPage() {
         "AI-powered scene understanding with state-of-the-art neural networks for accurate categorization and object detection.",
       category: "machine-learning",
       icon: "🧠",
-      gradient: "from-orange-500 to-red-500",
+      gradient: "from-amber-500 to-red-500",
       features: [
         "Multi-class classification",
         "Object detection",
@@ -74,7 +74,7 @@ export default function FeaturesPage() {
         "Lightning-fast object detection and tracking with optimized inference pipelines and cloud computing power.",
       category: "computer-vision",
       icon: "👁️",
-      gradient: "from-amber-600 to-orange-600",
+      gradient: "from-amber-600 to-yellow-600",
       features: [
         "Real-time detection",
         "Multiple object tracking",
@@ -91,7 +91,7 @@ export default function FeaturesPage() {
         "Professional-grade image enhancement tools including super-resolution, denoising, and color correction.",
       category: "image-processing",
       icon: "🎨",
-      gradient: "from-red-500 to-orange-500",
+      gradient: "from-red-500 to-yellow-500",
       features: [
         "Super-resolution",
         "Noise reduction",
@@ -108,7 +108,7 @@ export default function FeaturesPage() {
         "Pixel-level understanding of images with advanced semantic segmentation models for precise analysis.",
       category: "computer-vision",
       icon: "🖼️",
-      gradient: "from-orange-600 to-amber-600",
+      gradient: "from-amber-600 to-amber-600",
       features: [
         "Pixel-level segmentation",
         "Multiple classes",
@@ -159,7 +159,7 @@ export default function FeaturesPage() {
         "Transform images with artistic styles using neural style transfer and advanced deep learning techniques.",
       category: "generative-ai",
       icon: "🎭",
-      gradient: "from-orange-500 to-amber-500",
+      gradient: "from-amber-500 to-yellow-500",
       features: [
         "Artistic style transfer",
         "Custom style training",
@@ -176,7 +176,7 @@ export default function FeaturesPage() {
         "Automatically assess and score image quality using perceptual metrics and machine learning models.",
       category: "machine-learning",
       icon: "⭐",
-      gradient: "from-amber-400 to-orange-400",
+      gradient: "from-amber-400 to-yellow-400",
       features: [
         "Quality scoring",
         "Defect detection",
@@ -193,7 +193,7 @@ export default function FeaturesPage() {
         "Specialized tools for medical imaging analysis including X-ray, MRI, and CT scan processing.",
       category: "machine-learning",
       icon: "🏥",
-      gradient: "from-red-400 to-orange-400",
+      gradient: "from-red-400 to-yellow-400",
       features: [
         "DICOM support",
         "Anomaly detection",
@@ -210,7 +210,7 @@ export default function FeaturesPage() {
         "Advanced processing and analysis of satellite imagery for environmental monitoring and urban planning.",
       category: "image-processing",
       icon: "🛰️",
-      gradient: "from-orange-400 to-yellow-400",
+      gradient: "from-amber-400 to-yellow-400",
       features: [
         "Multi-spectral analysis",
         "Change detection",
@@ -244,7 +244,7 @@ export default function FeaturesPage() {
         "Analyze video content for objects, scenes, and activities using temporal deep learning models.",
       category: "machine-learning",
       icon: "🎬",
-      gradient: "from-yellow-500 to-orange-500",
+      gradient: "from-yellow-500 to-yellow-500",
       features: [
         "Action recognition",
         "Scene detection",
@@ -261,7 +261,7 @@ export default function FeaturesPage() {
         "Automatically generate annotations and labels for images to accelerate dataset creation.",
       category: "image-processing",
       icon: "🏷️",
-      gradient: "from-orange-500 to-red-400",
+      gradient: "from-amber-500 to-red-400",
       features: [
         "Auto-labeling",
         "Bounding boxes",
@@ -300,7 +300,7 @@ export default function FeaturesPage() {
       case "Active":
         return "bg-green-100 text-green-800 border-green-200";
       case "Beta":
-        return "bg-orange-100 text-orange-800 border-orange-200";
+        return "bg-amber-100 text-amber-800 border-amber-200";
       case "Coming Soon":
         return "bg-gray-100 text-gray-800 border-gray-200";
       default:
@@ -313,7 +313,7 @@ export default function FeaturesPage() {
       case "Intermediate":
         return "bg-amber-100 text-amber-800";
       case "Advanced":
-        return "bg-orange-100 text-orange-800";
+        return "bg-amber-100 text-amber-800";
       case "Expert":
         return "bg-red-100 text-red-800";
       default:
@@ -322,9 +322,9 @@ export default function FeaturesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50">
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -338,7 +338,7 @@ export default function FeaturesPage() {
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -387,7 +387,7 @@ export default function FeaturesPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-orange-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
                 All AI Features
               </span>
             </h1>
@@ -435,7 +435,7 @@ export default function FeaturesPage() {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 border-2 ${
                     selectedCategory === category.id
-                      ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white border-transparent shadow-lg"
+                      ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white border-transparent shadow-lg"
                       : "bg-white text-gray-700 border-gray-200 hover:border-amber-300 hover:bg-amber-50"
                   }`}
                 >
@@ -561,7 +561,7 @@ export default function FeaturesPage() {
                   </div>
 
                   {/* Feature Number */}
-                  <div className="absolute top-4 left-4 w-8 h-8 bg-gradient-to-r from-amber-100 to-orange-100 text-amber-700 text-sm font-bold rounded-full flex items-center justify-center">
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700 text-sm font-bold rounded-full flex items-center justify-center">
                     {feature.id}
                   </div>
                 </div>
@@ -582,7 +582,7 @@ export default function FeaturesPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={() => router.push("/pricing")}
-                  className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                  className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                 >
                   Start Free Trial
                 </button>

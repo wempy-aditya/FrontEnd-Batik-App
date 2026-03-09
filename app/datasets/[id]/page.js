@@ -23,7 +23,7 @@ const getGradientClass = (gradientString) => {
   // Placeholder - map hex colors to Tailwind gradient classes
   // You can enhance this to dynamically generate gradients
   if (!gradientString) return "from-gray-400 to-gray-600";
-  return "from-amber-500 to-orange-500"; // Default fallback
+  return "from-amber-500 to-yellow-500"; // Default fallback
 };
 
 export default function DatasetDetailPage() {
@@ -698,7 +698,7 @@ export default function DatasetDetailPage() {
                       {(displayDataset?.use_cases || []).map((useCase, index) => (
                         <div
                           key={index}
-                          className="p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100"
+                          className="p-4 bg-gradient-to-br from-blue-50 to-amber-50 rounded-xl border border-blue-100"
                         >
                           <div className="text-blue-600 font-semibold">
                             {useCase}

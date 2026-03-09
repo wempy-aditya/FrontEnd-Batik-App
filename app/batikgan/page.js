@@ -96,9 +96,9 @@ export default function BatikGANPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-teal-50 to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-amber-50 to-yellow-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-teal-900 to-cyan-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-stone-900 to-cyan-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-repeat"
@@ -109,23 +109,23 @@ export default function BatikGANPage() {
         </div>
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="relative container mx-auto px-4 text-center">
-          <div className="inline-block mb-6 px-6 py-2 bg-teal-500/20 backdrop-blur-sm rounded-full border border-teal-400/30">
-            <span className="text-teal-200 text-sm font-medium">
+          <div className="inline-block mb-6 px-6 py-2 bg-amber-500/20 backdrop-blur-sm rounded-full border border-amber-400/30">
+            <span className="text-amber-200 text-sm font-medium">
               🤖 BatikGAN CL/SL Generator
             </span>
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
             GAN-Powered
-            <span className="block mt-2 bg-gradient-to-r from-teal-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
+            <span className="block mt-2 bg-gradient-to-r from-amber-400 via-cyan-300 to-yellow-400 bg-clip-text text-transparent">
               Batik Creation
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-teal-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-amber-100 mb-8 max-w-3xl mx-auto leading-relaxed">
             Compare 6 different GAN models to generate unique batik patterns from patch combinations
           </p>
         </div>
@@ -135,7 +135,7 @@ export default function BatikGANPage() {
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-7xl">
           {/* Model Selection */}
-          <div className="mb-12 bg-white rounded-2xl shadow-xl p-8 border border-teal-100">
+          <div className="mb-12 bg-white rounded-2xl shadow-xl p-8 border border-amber-100">
             <h2 className="text-3xl font-bold mb-6 text-gray-800 flex items-center gap-3">
               <span className="text-4xl">🧠</span>
               Select GAN Models
@@ -149,15 +149,15 @@ export default function BatikGANPage() {
                   key={model.value}
                   className={`relative flex items-start gap-4 p-5 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
                     selectedModels.includes(model.value)
-                      ? "border-teal-500 bg-teal-50 shadow-lg"
-                      : "border-gray-200 bg-white hover:border-teal-300 hover:shadow-md"
+                      ? "border-amber-500 bg-amber-50 shadow-lg"
+                      : "border-gray-200 bg-white hover:border-amber-300 hover:shadow-md"
                   }`}
                 >
                   <input
                     type="checkbox"
                     checked={selectedModels.includes(model.value)}
                     onChange={() => handleModelToggle(model.value)}
-                    className="mt-1 w-5 h-5 text-teal-600 rounded focus:ring-teal-500"
+                    className="mt-1 w-5 h-5 text-amber-600 rounded focus:ring-amber-500"
                   />
                   <div className="flex-1">
                     <span className="text-lg font-semibold text-gray-800 block">
@@ -168,14 +168,14 @@ export default function BatikGANPage() {
                     </span>
                   </div>
                   {selectedModels.includes(model.value) && (
-                    <span className="absolute top-3 right-3 text-teal-500 text-xl">✓</span>
+                    <span className="absolute top-3 right-3 text-amber-500 text-xl">✓</span>
                   )}
                 </label>
               ))}
             </div>
             {selectedModels.length > 0 && (
-              <div className="mt-4 p-4 bg-teal-50 rounded-lg border border-teal-200">
-                <p className="text-teal-800 font-medium">
+              <div className="mt-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                <p className="text-amber-800 font-medium">
                   {selectedModels.length} model{selectedModels.length > 1 ? "s" : ""} selected for comparison
                 </p>
               </div>
@@ -183,7 +183,7 @@ export default function BatikGANPage() {
           </div>
 
           {/* Patch Selection */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 border border-teal-100">
+          <div className="bg-white rounded-2xl shadow-xl p-8 border border-amber-100">
             <h2 className="text-3xl font-bold mb-6 text-gray-800 flex items-center gap-3">
               <span className="text-4xl">🎨</span>
               Select Patch Images
@@ -200,22 +200,22 @@ export default function BatikGANPage() {
             )}
 
             {/* Selection Status */}
-            <div className="mb-6 p-4 bg-teal-50 rounded-lg border border-teal-200">
+            <div className="mb-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
               <div className="flex justify-between items-center">
-                <p className="text-teal-800 font-medium">
+                <p className="text-amber-800 font-medium">
                   Selected: {selectedPatches.length} / {MAX_PATCHES} patches
                 </p>
                 {selectedPatches.length > 0 && (
                   <button
                     onClick={() => setSelectedPatches([])}
-                    className="text-teal-600 hover:text-teal-800 font-medium underline"
+                    className="text-amber-600 hover:text-amber-800 font-medium underline"
                   >
                     Clear Selection
                   </button>
                 )}
               </div>
               {selectedPatches.length > 0 && (
-                <div className="mt-2 text-sm text-teal-700">
+                <div className="mt-2 text-sm text-amber-700">
                   {selectedPatches.map((idx, order) => (
                     <span key={idx} className="mr-4">
                       Patch {order === 0 ? "A" : "B"}: #{idx}
@@ -228,7 +228,7 @@ export default function BatikGANPage() {
             {/* Patches Grid */}
             {isLoading ? (
               <div className="flex flex-col items-center justify-center py-20">
-                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-teal-600 mb-4"></div>
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-amber-600 mb-4"></div>
                 <p className="text-gray-600">Loading patches...</p>
               </div>
             ) : patches.length === 0 ? (
@@ -247,8 +247,8 @@ export default function BatikGANPage() {
                       onClick={() => handlePatchToggle(patch.index)}
                       className={`relative cursor-pointer group rounded-xl overflow-hidden transition-all duration-300 ${
                         isSelected
-                          ? "ring-4 ring-teal-500 shadow-xl scale-95"
-                          : "ring-1 ring-gray-200 hover:ring-teal-300 hover:shadow-lg hover:scale-105"
+                          ? "ring-4 ring-amber-500 shadow-xl scale-95"
+                          : "ring-1 ring-gray-200 hover:ring-amber-300 hover:shadow-lg hover:scale-105"
                       }`}
                     >
                       <img
@@ -260,14 +260,14 @@ export default function BatikGANPage() {
                       
                       {/* Selection Badge */}
                       {isSelected && (
-                        <div className="absolute top-2 left-2 bg-teal-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-lg">
+                        <div className="absolute top-2 left-2 bg-amber-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-lg">
                           {selectionOrder === 0 ? "A" : "B"}
                         </div>
                       )}
                       
                       {/* Checkmark */}
                       {isSelected && (
-                        <div className="absolute top-2 right-2 bg-white text-teal-600 w-6 h-6 rounded-full flex items-center justify-center shadow-lg">
+                        <div className="absolute top-2 right-2 bg-white text-amber-600 w-6 h-6 rounded-full flex items-center justify-center shadow-lg">
                           ✓
                         </div>
                       )}
@@ -292,7 +292,7 @@ export default function BatikGANPage() {
               disabled={selectedPatches.length !== MAX_PATCHES || selectedModels.length === 0}
               className={`px-12 py-5 rounded-xl font-bold text-lg transition-all duration-300 ${
                 selectedPatches.length === MAX_PATCHES && selectedModels.length > 0
-                  ? "bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-xl hover:shadow-2xl hover:scale-105 transform"
+                  ? "bg-gradient-to-r from-amber-600 to-cyan-600 text-white shadow-xl hover:shadow-2xl hover:scale-105 transform"
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"
               }`}
             >

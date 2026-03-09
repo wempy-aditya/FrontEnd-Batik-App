@@ -190,7 +190,7 @@ const CitationExportModal = ({ publication, isOpen, onClose }) => {
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="sticky top-0 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-5 rounded-t-2xl flex items-start justify-between">
+          <div className="sticky top-0 bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-6 py-5 rounded-t-2xl flex items-start justify-between">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
                 <svg
@@ -388,7 +388,7 @@ const CitationExportModal = ({ publication, isOpen, onClose }) => {
               className={`flex-1 py-3 px-4 font-semibold rounded-lg text-center transition-all duration-300 flex items-center justify-center gap-2 ${
                 copied
                   ? "bg-green-500 text-white"
-                  : "bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:shadow-lg"
+                  : "bg-gradient-to-r from-amber-500 to-yellow-500 text-white hover:shadow-lg"
               } ${
                 loading || !citations[selectedStyle]
                   ? "opacity-50 cursor-not-allowed"

@@ -141,13 +141,13 @@ function BatikGANResultContent() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-teal-50 to-emerald-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-amber-50 to-yellow-50 flex items-center justify-center">
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md">
           <h2 className="text-2xl font-bold text-red-600 mb-4">⚠️ Error</h2>
           <p className="text-gray-700 mb-6">{error}</p>
           <button
             onClick={handleBackToGenerator}
-            className="w-full px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition-colors"
+            className="w-full px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-700 transition-colors"
           >
             Back to Generator
           </button>
@@ -157,14 +157,14 @@ function BatikGANResultContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-teal-50 to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-amber-50 to-yellow-50">
       {/* Header */}
-      <section className="relative py-16 bg-gradient-to-br from-gray-900 via-teal-900 to-cyan-900">
+      <section className="relative py-16 bg-gradient-to-br from-gray-900 via-stone-900 to-cyan-900">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             Generated Batik Results
           </h1>
-          <p className="text-xl text-teal-200">
+          <p className="text-xl text-amber-200">
             GAN-powered batik pattern generation from patch combinations
           </p>
         </div>
@@ -174,7 +174,7 @@ function BatikGANResultContent() {
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-7xl">
           {/* Query Patches */}
-          <div className="mb-12 bg-white rounded-2xl shadow-xl p-8 border border-teal-100">
+          <div className="mb-12 bg-white rounded-2xl shadow-xl p-8 border border-amber-100">
             <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center flex items-center justify-center gap-3">
               <span className="text-4xl">🎨</span>
               Query Patch Images
@@ -182,11 +182,11 @@ function BatikGANResultContent() {
             <div className="flex justify-center items-center gap-8 flex-wrap">
               {/* Patch A */}
               <div className="text-center">
-                <div className="mb-3 px-4 py-2 bg-teal-100 rounded-full inline-block">
-                  <span className="text-teal-800 font-bold">Patch A</span>
+                <div className="mb-3 px-4 py-2 bg-amber-100 rounded-full inline-block">
+                  <span className="text-amber-800 font-bold">Patch A</span>
                 </div>
                 {patchImages.patchA ? (
-                  <div className="w-48 h-48 rounded-xl overflow-hidden shadow-lg border-4 border-teal-200">
+                  <div className="w-48 h-48 rounded-xl overflow-hidden shadow-lg border-4 border-amber-200">
                     <img
                       src={patchImages.patchA}
                       alt="Patch A"
@@ -199,15 +199,15 @@ function BatikGANResultContent() {
               </div>
 
               {/* Plus Icon */}
-              <div className="text-6xl text-teal-600 font-bold">+</div>
+              <div className="text-6xl text-amber-600 font-bold">+</div>
 
               {/* Patch B */}
               <div className="text-center">
-                <div className="mb-3 px-4 py-2 bg-teal-100 rounded-full inline-block">
-                  <span className="text-teal-800 font-bold">Patch B</span>
+                <div className="mb-3 px-4 py-2 bg-amber-100 rounded-full inline-block">
+                  <span className="text-amber-800 font-bold">Patch B</span>
                 </div>
                 {patchImages.patchB ? (
-                  <div className="w-48 h-48 rounded-xl overflow-hidden shadow-lg border-4 border-teal-200">
+                  <div className="w-48 h-48 rounded-xl overflow-hidden shadow-lg border-4 border-amber-200">
                     <img
                       src={patchImages.patchB}
                       alt="Patch B"
@@ -231,10 +231,10 @@ function BatikGANResultContent() {
               {models.map((modelName) => (
                 <div
                   key={modelName}
-                  className="bg-white rounded-2xl shadow-xl overflow-hidden border border-teal-100 transition-transform duration-300 hover:scale-105"
+                  className="bg-white rounded-2xl shadow-xl overflow-hidden border border-amber-100 transition-transform duration-300 hover:scale-105"
                 >
                   {/* Model Name Header */}
-                  <div className="bg-gradient-to-r from-teal-600 to-cyan-600 p-4">
+                  <div className="bg-gradient-to-r from-amber-600 to-cyan-600 p-4">
                     <h3 className="text-xl font-bold text-white text-center">
                       {modelLabels[modelName] || modelName}
                     </h3>
@@ -245,7 +245,7 @@ function BatikGANResultContent() {
                     <div className="relative aspect-square rounded-xl overflow-hidden bg-gray-100">
                       {loadingStates[modelName] ? (
                         <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-teal-600 mb-4"></div>
+                          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-amber-600 mb-4"></div>
                           <p className="text-gray-600 font-medium">Generating...</p>
                         </div>
                       ) : generatedImages[modelName] === "error" ? (
@@ -281,7 +281,7 @@ function BatikGANResultContent() {
                       <a
                         href={generatedImages[modelName].url}
                         download={`batik-${modelName}-${Date.now()}.png`}
-                        className="mt-4 w-full block text-center px-4 py-3 bg-teal-100 text-teal-700 rounded-lg font-semibold hover:bg-teal-200 transition-colors"
+                        className="mt-4 w-full block text-center px-4 py-3 bg-amber-100 text-amber-700 rounded-lg font-semibold hover:bg-amber-200 transition-colors"
                       >
                         📥 Download Image
                       </a>
@@ -296,13 +296,13 @@ function BatikGANResultContent() {
           <div className="flex justify-center gap-4 flex-wrap">
             <button
               onClick={handleBackToGenerator}
-              className="px-8 py-4 bg-white text-teal-600 rounded-xl font-bold text-lg border-2 border-teal-600 hover:bg-teal-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="px-8 py-4 bg-white text-amber-600 rounded-xl font-bold text-lg border-2 border-amber-600 hover:bg-amber-50 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               ← Generate Another
             </button>
             <button
               onClick={() => router.push("/batikgan/gallery")}
-              className="px-8 py-4 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 shadow-lg"
+              className="px-8 py-4 bg-gradient-to-r from-amber-600 to-cyan-600 text-white rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 shadow-lg"
             >
               View Gallery →
             </button>
@@ -316,10 +316,10 @@ function BatikGANResultContent() {
 export default function BatikGANResultPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-50 to-cyan-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 to-cyan-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-teal-600 mx-auto"></div>
-          <p className="mt-4 text-teal-600">Loading...</p>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-amber-600 mx-auto"></div>
+          <p className="mt-4 text-amber-600">Loading...</p>
         </div>
       </div>
     }>

@@ -184,7 +184,7 @@ export default function NewsDetailPage() {
       author: "Dr. Sarah Chen",
       authorRole: "Chief Research Scientist",
       readTime: "5 min read",
-      image: "from-amber-500 to-orange-500",
+      image: "from-amber-500 to-yellow-500",
       tags: ["Neural Networks", "Style Transfer", "VGG-19", "Deep Learning"],
     },
     {
@@ -224,7 +224,7 @@ export default function NewsDetailPage() {
       author: "Dr. Michael Zhang",
       authorRole: "Senior Research Engineer",
       readTime: "4 min read",
-      image: "from-blue-500 to-indigo-500",
+      image: "from-amber-500 to-yellow-600",
       tags: ["CVPR", "Object Detection", "Research", "Computer Vision"],
     },
     {
@@ -264,7 +264,7 @@ export default function NewsDetailPage() {
       author: "Emma Rodriguez",
       authorRole: "VP of Operations",
       readTime: "3 min read",
-      image: "from-green-500 to-teal-500",
+      image: "from-green-500 to-amber-500",
       tags: ["Company News", "Facility", "Expansion", "Silicon Valley"],
     },
     {
@@ -351,7 +351,7 @@ export default function NewsDetailPage() {
       author: "Lisa Anderson",
       authorRole: "Head of Product",
       readTime: "4 min read",
-      image: "from-yellow-500 to-orange-500",
+      image: "from-yellow-500 to-yellow-500",
       tags: ["Award", "Facial Recognition", "Privacy", "Innovation"],
     },
     {
@@ -460,7 +460,7 @@ export default function NewsDetailPage() {
       author: "Marketing Team",
       authorRole: "Community Engagement",
       readTime: "2 min read",
-      image: "from-indigo-500 to-purple-500",
+      image: "from-amber-500 to-purple-500",
       tags: ["Webinar", "Events", "Computer Vision", "Panel Discussion"],
     },
     {
@@ -517,7 +517,7 @@ export default function NewsDetailPage() {
       author: "John Smith",
       authorRole: "Director of Research Partnerships",
       readTime: "5 min read",
-      image: "from-teal-500 to-green-500",
+      image: "from-amber-500 to-green-500",
       tags: ["Partnership", "Universities", "Research", "Education"],
     },
     {
@@ -587,7 +587,7 @@ export default function NewsDetailPage() {
       author: "Dev Team",
       authorRole: "Engineering",
       readTime: "4 min read",
-      image: "from-orange-500 to-red-500",
+      image: "from-amber-500 to-red-500",
       tags: ["API", "Style Transfer", "Developer Tools", "Integration"],
     },
     {
@@ -728,7 +728,7 @@ export default function NewsDetailPage() {
       author: "Dr. Michael Zhang",
       authorRole: "Senior Research Engineer",
       readTime: "6 min read",
-      image: "from-pink-500 to-rose-500",
+      image: "from-pink-500 to-amber-500",
       tags: [
         "3D Reconstruction",
         "Computer Vision",
@@ -864,7 +864,7 @@ export default function NewsDetailPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
       {/* Hero Section */}
       <section
-        className="relative py-20 pt-32 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden"
+        className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden"
       >
         <div className="absolute inset-0 bg-black/40"></div>
 
@@ -970,7 +970,7 @@ export default function NewsDetailPage() {
             {/* Author Info */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200/50 p-6 mb-12">
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                <div className="w-16 h-16 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
                   {(displayNews?.creator_name || displayNews?.author || 'A').charAt(0).toUpperCase()}
                 </div>
                 <div>
@@ -1034,7 +1034,7 @@ export default function NewsDetailPage() {
             <div className="text-center mb-12">
               <button
                 onClick={() => router.push("/news")}
-                className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 ← Back to All News
               </button>

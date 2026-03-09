@@ -503,7 +503,7 @@ export default function UserManagementPage() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-amber-50/30 to-slate-50">
         <div className="text-center">
           <div className="relative w-20 h-20 mx-auto mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-2xl animate-pulse"></div>
             <div className="absolute inset-2 bg-white rounded-xl"></div>
             <svg
               className="absolute inset-0 w-full h-full p-5 text-amber-600 animate-spin"
@@ -532,7 +532,7 @@ export default function UserManagementPage() {
         {/* Page Header */}
         <div className="space-y-6 w-full">
           {/* Title Section */}
-          <div className="bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 text-white shadow-sm">
+          <div className="bg-gradient-to-r from-amber-500 to-yellow-600 rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 text-white shadow-sm">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
               User Management
             </h2>
@@ -677,7 +677,7 @@ export default function UserManagementPage() {
             </select>
             <button
               onClick={handleCreate}
-              className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl font-semibold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 flex items-center gap-2 whitespace-nowrap"
+              className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-xl font-semibold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 flex items-center gap-2 whitespace-nowrap"
             >
               <svg
                 className="w-5 h-5"
@@ -794,7 +794,7 @@ export default function UserManagementPage() {
                       className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm"
                     >
                       <div className="flex items-start gap-3 mb-3">
-                        <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
                           <span className="text-white text-sm font-bold">
                             {user.name?.charAt(0)?.toUpperCase() || "U"}
                           </span>
@@ -948,7 +948,7 @@ export default function UserManagementPage() {
                           >
                             <td className="px-4 lg:px-6 py-4">
                               <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
                                   <span className="text-white text-sm font-bold">
                                     {user.name?.charAt(0)?.toUpperCase() || "U"}
                                   </span>
@@ -1314,7 +1314,7 @@ export default function UserManagementPage() {
 
                 {/* Role & Status Management */}
                 {(modalMode === "edit" || modalMode === "create") && (
-                  <div className="bg-gradient-to-r from-amber-50 to-orange-50/50 p-4 rounded-2xl border border-amber-200">
+                  <div className="bg-gradient-to-r from-amber-50 to-yellow-50/50 p-4 rounded-2xl border border-amber-200">
                     <h3 className="text-lg font-bold text-slate-900 mb-4">
                       Role & Status Management
                     </h3>
@@ -1392,7 +1392,7 @@ export default function UserManagementPage() {
 
                 {/* View Mode Display */}
                 {modalMode === "view" && (
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50/50 p-4 rounded-2xl border border-blue-200">
+                  <div className="bg-gradient-to-r from-blue-50 to-amber-50/50 p-4 rounded-2xl border border-blue-200">
                     <h3 className="text-lg font-bold text-slate-900 mb-4">
                       Permissions & Status
                     </h3>
@@ -1509,7 +1509,7 @@ export default function UserManagementPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="flex-1 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3.5 rounded-xl font-semibold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 disabled:opacity-50"
+                        className="flex-1 bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3.5 rounded-xl font-semibold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 disabled:opacity-50"
                       >
                         {isSubmitting ? (modalMode === "create" ? "Creating..." : "Saving...") : (modalMode === "create" ? "Create User" : "Save Changes")}
                       </button>
@@ -1525,7 +1525,7 @@ export default function UserManagementPage() {
                     <button
                       type="button"
                       onClick={() => setModalMode("edit")}
-                      className="flex-1 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3.5 rounded-xl font-semibold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300"
+                      className="flex-1 bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3.5 rounded-xl font-semibold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300"
                     >
                       Edit User
                     </button>
@@ -1541,7 +1541,7 @@ export default function UserManagementPage() {
       {isDeleteModalOpen && userToDelete && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 z-50 animate-fadeIn">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all animate-slideUp">
-            <div className="bg-gradient-to-r from-red-50 to-orange-50/50 p-6 border-b border-red-200">
+            <div className="bg-gradient-to-r from-red-50 to-yellow-50/50 p-6 border-b border-red-200">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg

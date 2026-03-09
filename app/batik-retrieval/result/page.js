@@ -114,13 +114,13 @@ function RetrievalResultContent() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50 flex items-center justify-center">
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md">
           <h2 className="text-2xl font-bold text-red-600 mb-4">⚠️ Error</h2>
           <p className="text-gray-700 mb-6">{error}</p>
           <button
             onClick={handleBackToSearch}
-            className="w-full px-6 py-3 bg-orange-600 text-white rounded-lg font-semibold hover:bg-orange-700 transition-colors"
+            className="w-full px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-700 transition-colors"
           >
             Back to Search
           </button>
@@ -130,14 +130,14 @@ function RetrievalResultContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50">
       {/* Header */}
-      <section className="relative py-16 bg-gradient-to-br from-gray-900 via-orange-900 to-amber-900">
+      <section className="relative py-16 bg-gradient-to-br from-gray-900 via-stone-900 to-stone-900">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             Generated Batik Results
           </h1>
-          <p className="text-xl text-orange-200">
+          <p className="text-xl text-amber-200">
             Pattern retrieval-based batik generation
           </p>
         </div>
@@ -147,7 +147,7 @@ function RetrievalResultContent() {
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-7xl">
           {/* Query Patches */}
-          <div className="mb-12 bg-white rounded-2xl shadow-xl p-8 border border-orange-100">
+          <div className="mb-12 bg-white rounded-2xl shadow-xl p-8 border border-amber-100">
             <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center flex items-center justify-center gap-3">
               <span className="text-4xl">🎨</span>
               Query Patch Images
@@ -155,11 +155,11 @@ function RetrievalResultContent() {
             <div className="flex justify-center items-center gap-8 flex-wrap">
               {/* Patch A */}
               <div className="text-center">
-                <div className="mb-3 px-4 py-2 bg-orange-100 rounded-full inline-block">
-                  <span className="text-orange-800 font-bold">Patch A (Query)</span>
+                <div className="mb-3 px-4 py-2 bg-amber-100 rounded-full inline-block">
+                  <span className="text-amber-800 font-bold">Patch A (Query)</span>
                 </div>
                 {patchA ? (
-                  <div className="w-48 h-48 rounded-xl overflow-hidden shadow-lg border-4 border-orange-200">
+                  <div className="w-48 h-48 rounded-xl overflow-hidden shadow-lg border-4 border-amber-200">
                     <img
                       src={`${API_BASE_URL}${patchA}`}
                       alt="Patch A"
@@ -172,15 +172,15 @@ function RetrievalResultContent() {
               </div>
 
               {/* Plus Icon */}
-              <div className="text-6xl text-orange-600 font-bold">+</div>
+              <div className="text-6xl text-amber-600 font-bold">+</div>
 
               {/* Patch B */}
               <div className="text-center">
-                <div className="mb-3 px-4 py-2 bg-orange-100 rounded-full inline-block">
-                  <span className="text-orange-800 font-bold">Patch B (Similar)</span>
+                <div className="mb-3 px-4 py-2 bg-amber-100 rounded-full inline-block">
+                  <span className="text-amber-800 font-bold">Patch B (Similar)</span>
                 </div>
                 {patchB ? (
-                  <div className="w-48 h-48 rounded-xl overflow-hidden shadow-lg border-4 border-orange-200">
+                  <div className="w-48 h-48 rounded-xl overflow-hidden shadow-lg border-4 border-amber-200">
                     <img
                       src={`${API_BASE_URL}${patchB}`}
                       alt="Patch B"
@@ -204,10 +204,10 @@ function RetrievalResultContent() {
               {models.map((modelName) => (
                 <div
                   key={modelName}
-                  className="bg-white rounded-2xl shadow-xl overflow-hidden border border-orange-100 transition-transform duration-300 hover:scale-105"
+                  className="bg-white rounded-2xl shadow-xl overflow-hidden border border-amber-100 transition-transform duration-300 hover:scale-105"
                 >
                   {/* Model Name Header */}
-                  <div className="bg-gradient-to-r from-orange-600 to-amber-600 p-4">
+                  <div className="bg-gradient-to-r from-amber-600 to-amber-600 p-4">
                     <h3 className="text-xl font-bold text-white text-center">
                       {modelLabels[modelName] || modelName}
                     </h3>
@@ -218,7 +218,7 @@ function RetrievalResultContent() {
                     <div className="relative rounded-xl overflow-hidden bg-gray-100" style={{ aspectRatio: '1/1' }}>
                       {loadingStates[modelName] ? (
                         <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-orange-600 mb-4"></div>
+                          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-amber-600 mb-4"></div>
                           <p className="text-gray-600 font-medium">Generating...</p>
                         </div>
                       ) : generatedImages[modelName] === "error" ? (
@@ -254,7 +254,7 @@ function RetrievalResultContent() {
                       <a
                         href={generatedImages[modelName].downloadUrl}
                         download={generatedImages[modelName].filename}
-                        className="mt-4 w-full block text-center px-4 py-3 bg-orange-100 text-orange-700 rounded-lg font-semibold hover:bg-orange-200 transition-colors"
+                        className="mt-4 w-full block text-center px-4 py-3 bg-amber-100 text-amber-700 rounded-lg font-semibold hover:bg-amber-200 transition-colors"
                       >
                         📥 Download Image
                       </a>
@@ -269,19 +269,19 @@ function RetrievalResultContent() {
           <div className="flex justify-center gap-4 flex-wrap">
             <button
               onClick={handleBackToSearch}
-              className="px-8 py-4 bg-white text-orange-600 rounded-xl font-bold text-lg border-2 border-orange-600 hover:bg-orange-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="px-8 py-4 bg-white text-amber-600 rounded-xl font-bold text-lg border-2 border-amber-600 hover:bg-amber-50 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               ← New Search
             </button>
           </div>
 
           {/* Info Box */}
-          <div className="mt-12 p-6 bg-orange-50 rounded-xl border border-orange-200">
+          <div className="mt-12 p-6 bg-amber-50 rounded-xl border border-amber-200">
             <div className="flex items-center gap-3 mb-3">
               <span className="text-2xl">ℹ️</span>
-              <h3 className="font-bold text-orange-900">About This Generation</h3>
+              <h3 className="font-bold text-amber-900">About This Generation</h3>
             </div>
-            <p className="text-orange-800 text-sm leading-relaxed">
+            <p className="text-amber-800 text-sm leading-relaxed">
               These batik patterns were generated using similarity-based retrieval. The query patch was selected by you, 
               and the second patch was found using the Bray-Curtis distance algorithm to ensure visual similarity. 
               The GAN models then combined these patches to create unique batik patterns.
@@ -296,7 +296,7 @@ function RetrievalResultContent() {
 export default function RetrievalResultPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 to-orange-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 to-yellow-50">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-amber-600 mx-auto"></div>
           <p className="mt-4 text-amber-600">Loading...</p>

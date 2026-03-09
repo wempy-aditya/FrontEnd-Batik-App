@@ -145,7 +145,7 @@ export default function ProjectsPage() {
       case "medium":
         return "bg-yellow-100 text-yellow-800";
       case "hard":
-        return "bg-orange-100 text-orange-800";
+        return "bg-amber-100 text-amber-800";
       case "expert":
         return "bg-red-100 text-red-800";
       default:
@@ -154,9 +154,9 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -170,7 +170,7 @@ export default function ProjectsPage() {
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -219,7 +219,7 @@ export default function ProjectsPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-orange-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
                 All AI Projects
               </span>
             </h1>
@@ -337,7 +337,7 @@ export default function ProjectsPage() {
                 }}
                 className={`px-5 py-3 rounded-xl font-semibold transition-all duration-300 border-2 whitespace-nowrap ${
                   isFeatured
-                    ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white border-transparent shadow-md"
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white border-transparent shadow-md"
                     : "bg-gray-50 text-gray-700 border-gray-200 hover:border-amber-300 hover:bg-amber-50"
                 }`}
               >
@@ -519,7 +519,7 @@ export default function ProjectsPage() {
                         />
                       ) : null}
                       <div
-                        className={`absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-500 transition-all duration-700 group-hover:scale-110`}
+                        className={`absolute inset-0 bg-gradient-to-br from-amber-500 to-yellow-500 transition-all duration-700 group-hover:scale-110`}
                         style={{
                           display: project.thumbnail_url ? "none" : "block",
                         }}
@@ -626,7 +626,7 @@ export default function ProjectsPage() {
                             );
                             window.location.href = `/projects/${project.id}`;
                           }}
-                          className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                          className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
                         >
                           <div className="flex items-center justify-center gap-2">
                             <span>View Details</span>
@@ -675,7 +675,7 @@ export default function ProjectsPage() {
                     onClick={() => setCurrentPage(index + 1)}
                     className={`px-4 py-2 rounded-lg font-medium transition-all ${
                       currentPage === index + 1
-                        ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white"
+                        ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white"
                         : "bg-white text-gray-700 hover:bg-amber-50 border border-gray-200"
                     }`}
                   >
@@ -716,7 +716,7 @@ export default function ProjectsPage() {
                     console.log("Navigating to contact page");
                     window.location.href = "/contact";
                   }}
-                  className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
+                  className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
                 >
                   Get in Touch
                 </div>

@@ -70,7 +70,7 @@ export default function ProjectDetailPage() {
     const colors = {
       easy: 'bg-green-100 text-green-800',
       medium: 'bg-yellow-100 text-yellow-800',
-      hard: 'bg-orange-100 text-orange-800',
+      hard: 'bg-amber-100 text-amber-800',
       expert: 'bg-red-100 text-red-800'
     };
     return colors[complexity?.toLowerCase()] || 'bg-gray-100 text-gray-800';
@@ -105,9 +105,9 @@ export default function ProjectDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50">
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -121,7 +121,7 @@ export default function ProjectDetailPage() {
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -168,7 +168,7 @@ export default function ProjectDetailPage() {
                     />
                   ) : null}
                   <div
-                    className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-500"
+                    className="absolute inset-0 bg-gradient-to-br from-amber-500 to-yellow-500"
                     style={{ display: project.thumbnail_url ? 'none' : 'flex' }}
                   >
                     <div className="absolute inset-0 bg-black/20"></div>
@@ -330,10 +330,10 @@ export default function ProjectDetailPage() {
                   {(project.technologies || []).map((tech, index) => (
                     <div
                       key={index}
-                      className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200 hover:border-amber-400 transition-all duration-300 hover:shadow-lg"
+                      className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 border-2 border-amber-200 hover:border-amber-400 transition-all duration-300 hover:shadow-lg"
                     >
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center flex-shrink-0">
                           <span className="text-white font-bold text-lg">{index + 1}</span>
                         </div>
                         <div className="flex-1">
@@ -361,9 +361,9 @@ export default function ProjectDetailPage() {
 
                 {project.demo_url && Array.isArray(project.demo_url) && project.demo_url.length > 0 ? (
                   <div className="space-y-4">
-                    <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200">
+                    <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-6 border-2 border-amber-200">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center">
                           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -386,7 +386,7 @@ export default function ProjectDetailPage() {
                         >
                           <div className="flex items-start gap-4">
                             <div className="flex-shrink-0">
-                              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center group-hover:from-amber-500 group-hover:to-orange-500 transition-all duration-300">
+                              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-100 to-yellow-100 flex items-center justify-center group-hover:from-amber-500 group-hover:to-yellow-500 transition-all duration-300">
                                 <span className="text-amber-600 group-hover:text-white font-bold text-lg">
                                   {index + 1}
                                 </span>
@@ -403,7 +403,7 @@ export default function ProjectDetailPage() {
                                 href={url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white text-sm font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-white text-sm font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                               >
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -465,7 +465,7 @@ export default function ProjectDetailPage() {
                               />
                             ) : null}
                             <div
-                              className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-white text-xl font-bold"
+                              className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white text-xl font-bold"
                               style={{ display: contributor.profile_image ? 'none' : 'flex' }}
                             >
                               {contributor.name.charAt(0).toUpperCase()}
@@ -542,7 +542,7 @@ export default function ProjectDetailPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="mt-16 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 rounded-3xl p-12 text-center">
+          <div className="mt-16 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 rounded-3xl p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Interested in This Project?
             </h2>

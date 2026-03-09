@@ -164,9 +164,9 @@ export default function CompareBatikPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-yellow-50 to-amber-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-green-900 to-stone-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-repeat"
@@ -208,7 +208,7 @@ export default function CompareBatikPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-green-100 to-emerald-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-green-100 to-yellow-100 bg-clip-text text-transparent">
                 Compare AI Models
               </span>
             </h1>
@@ -360,7 +360,7 @@ export default function CompareBatikPage() {
                   className={`w-full py-5 px-6 text-lg font-bold rounded-xl transition-all duration-300 transform ${
                     isComparing || selectedModels.length === 0 || (!selectedImage && !uploadedFile)
                       ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                      : "bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:scale-105 hover:shadow-2xl shadow-lg"
+                      : "bg-gradient-to-r from-green-500 to-yellow-500 text-white hover:scale-105 hover:shadow-2xl shadow-lg"
                   }`}
                 >
                   {isComparing ? (
@@ -393,7 +393,7 @@ export default function CompareBatikPage() {
                     className="w-full h-auto rounded-xl shadow-md"
                   />
                 ) : (
-                  <div className="flex items-center justify-center h-64 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border-2 border-dashed border-green-200">
+                  <div className="flex items-center justify-center h-64 bg-gradient-to-br from-green-50 to-yellow-50 rounded-xl border-2 border-dashed border-green-200">
                     <div className="text-center">
                       <svg className="w-16 h-16 text-green-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -421,7 +421,7 @@ export default function CompareBatikPage() {
           {results && results.results && (
             <div className="mt-12 space-y-8">
               {/* Performance Summary */}
-              <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-3xl p-8">
+              <div className="bg-gradient-to-r from-green-500 to-yellow-500 text-white rounded-3xl p-8">
                 <h2 className="text-3xl font-bold mb-6">Performance Comparison</h2>
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
@@ -476,7 +476,7 @@ export default function CompareBatikPage() {
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl p-6 mb-6">
+                    <div className="bg-gradient-to-r from-green-500 to-yellow-500 text-white rounded-xl p-6 mb-6">
                       <div className="text-sm font-semibold mb-2">Predicted Class</div>
                       <div className="text-3xl font-bold mb-2">{result.predicted_class}</div>
                       <div className="text-sm">Confidence: {result.confidence.toFixed(2)}%</div>

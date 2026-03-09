@@ -80,7 +80,7 @@ export default function NewsPage() {
       date: "2024-01-15",
       author: "Dr. Sarah Chen",
       readTime: "5 min read",
-      image: "from-amber-500 to-orange-500",
+      image: "from-amber-500 to-yellow-500",
       featured: true,
     },
     {
@@ -92,7 +92,7 @@ export default function NewsPage() {
       date: "2024-01-12",
       author: "Dr. Michael Zhang",
       readTime: "4 min read",
-      image: "from-blue-500 to-indigo-500",
+      image: "from-amber-500 to-yellow-600",
       featured: true,
     },
     {
@@ -104,7 +104,7 @@ export default function NewsPage() {
       date: "2024-01-10",
       author: "Emma Rodriguez",
       readTime: "3 min read",
-      image: "from-green-500 to-teal-500",
+      image: "from-green-500 to-amber-500",
       featured: false,
     },
     {
@@ -128,7 +128,7 @@ export default function NewsPage() {
       date: "2024-01-05",
       author: "Lisa Anderson",
       readTime: "4 min read",
-      image: "from-yellow-500 to-orange-500",
+      image: "from-yellow-500 to-yellow-500",
       featured: false,
     },
     {
@@ -152,7 +152,7 @@ export default function NewsPage() {
       date: "2024-01-02",
       author: "Marketing Team",
       readTime: "2 min read",
-      image: "from-indigo-500 to-purple-500",
+      image: "from-amber-500 to-purple-500",
       featured: false,
     },
     {
@@ -164,7 +164,7 @@ export default function NewsPage() {
       date: "2023-12-28",
       author: "John Smith",
       readTime: "5 min read",
-      image: "from-teal-500 to-green-500",
+      image: "from-amber-500 to-green-500",
       featured: false,
     },
     {
@@ -176,7 +176,7 @@ export default function NewsPage() {
       date: "2023-12-25",
       author: "Dev Team",
       readTime: "4 min read",
-      image: "from-orange-500 to-red-500",
+      image: "from-amber-500 to-red-500",
       featured: false,
     },
     {
@@ -200,7 +200,7 @@ export default function NewsPage() {
       date: "2023-12-18",
       author: "Dr. Michael Zhang",
       readTime: "6 min read",
-      image: "from-pink-500 to-rose-500",
+      image: "from-pink-500 to-amber-500",
       featured: false,
     },
     {
@@ -264,7 +264,7 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -278,7 +278,7 @@ export default function NewsPage() {
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -327,7 +327,7 @@ export default function NewsPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-orange-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
                 News & Updates
               </span>
             </h1>
@@ -352,7 +352,7 @@ export default function NewsPage() {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 border-2 ${
                     selectedCategory === category.id
-                      ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white border-transparent shadow-lg"
+                      ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white border-transparent shadow-lg"
                       : "bg-white text-gray-700 border-gray-200 hover:border-amber-300 hover:bg-amber-50"
                   }`}
                 >
@@ -394,7 +394,7 @@ export default function NewsPage() {
                       </div>
                     ) : (
                       <div
-                        className={`h-64 bg-gradient-to-br ${article.image || "from-amber-500 to-orange-500"} relative`}
+                        className={`h-64 bg-gradient-to-br ${article.image || "from-amber-500 to-yellow-500"} relative`}
                       >
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
                         <div className="absolute top-4 left-4">
@@ -428,7 +428,7 @@ export default function NewsPage() {
 
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full flex items-center justify-center text-white font-bold">
+                          <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full flex items-center justify-center text-white font-bold">
                             {(article.creator_name || article.author || "A")
                               .charAt(0)
                               .toUpperCase()}
@@ -444,7 +444,7 @@ export default function NewsPage() {
 
                         <button
                           onClick={() => router.push(`/news/${article.id}`)}
-                          className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                          className="px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
                         >
                           Read More
                         </button>

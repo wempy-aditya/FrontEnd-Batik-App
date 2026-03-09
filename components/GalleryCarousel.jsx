@@ -47,56 +47,56 @@ const GalleryCarousel = () => {
   const fallbackGalleryImages = [
     // {
     //   id: 1,
-    //   gradient: "from-amber-500 via-orange-500 to-red-500",
+    //   gradient: "from-amber-500 via-yellow-500 to-red-500",
     //   prompt: "Cyberpunk cityscape at neon-lit night",
     //   style: "Digital Art",
     //   model: "DALL-E 3",
     // },
     // {
     //   id: 2,
-    //   gradient: "from-orange-500 via-red-500 to-pink-500",
+    //   gradient: "from-amber-500 via-red-500 to-pink-500",
     //   prompt: "Serene mountain landscape with aurora borealis",
     //   style: "Photorealistic",
     //   model: "Midjourney",
     // },
     // {
     //   id: 3,
-    //   gradient: "from-yellow-500 via-amber-500 to-orange-500",
+    //   gradient: "from-yellow-500 via-amber-500 to-yellow-500",
     //   prompt: "Abstract geometric patterns in motion",
     //   style: "Abstract",
     //   model: "Stable Diffusion",
     // },
     // {
     //   id: 4,
-    //   gradient: "from-amber-500 via-orange-500 to-red-500",
+    //   gradient: "from-amber-500 via-yellow-500 to-red-500",
     //   prompt: "Vintage robot in steampunk laboratory",
     //   style: "Steampunk",
     //   model: "DALL-E 3",
     // },
     // {
     //   id: 5,
-    //   gradient: "from-orange-600 via-amber-600 to-yellow-500",
+    //   gradient: "from-amber-600 via-amber-600 to-cyan-500",
     //   prompt: "Ethereal portrait with flowing light effects",
     //   style: "Portrait",
     //   model: "Midjourney",
     // },
     // {
     //   id: 6,
-    //   gradient: "from-amber-500 via-yellow-500 to-orange-500",
+    //   gradient: "from-amber-500 via-yellow-500 to-yellow-500",
     //   prompt: "Futuristic space station orbiting alien planet",
     //   style: "Sci-Fi",
     //   model: "Stable Diffusion",
     // },
     // {
     //   id: 7,
-    //   gradient: "from-orange-500 via-amber-500 to-yellow-500",
+    //   gradient: "from-amber-500 via-amber-500 to-cyan-500",
     //   prompt: "Mystical forest with bioluminescent creatures",
     //   style: "Fantasy",
     //   model: "DALL-E 3",
     // },
     // {
     //   id: 8,
-    //   gradient: "from-red-500 via-orange-500 to-amber-500",
+    //   gradient: "from-red-500 via-yellow-500 to-amber-500",
     //   prompt: "Art deco architecture in golden hour",
     //   style: "Architecture",
     //   model: "Midjourney",
@@ -136,12 +136,12 @@ const GalleryCarousel = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 relative">
+    <section className="py-12 md:py-16 bg-gradient-to-br from-slate-950 via-stone-900 to-slate-900 relative">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-3/4 left-1/3 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-3/4 left-1/3 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
@@ -162,16 +162,16 @@ const GalleryCarousel = () => {
               />
             </svg>
             <span className="text-sm font-semibold text-amber-200">
-              AI Generated Gallery
+              Batik Gallery
             </span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Generative Showcase
+            Batik Generative Showcase
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Explore stunning AI-generated artwork created with state-of-the-art
-            generative models and creative prompting techniques.
+            Explore stunning AI-generated batik patterns created with
+            state-of-the-art generative models and creative techniques.
           </p>
         </div>
 
@@ -230,7 +230,7 @@ const GalleryCarousel = () => {
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${
                       displayGalleryImages[currentIndex].gradient ||
-                      "from-amber-500 to-orange-500"
+                      "from-amber-500 to-yellow-500"
                     } transition-all duration-1000`}
                   >
                     {/* Overlay Pattern */}
@@ -362,7 +362,7 @@ const GalleryCarousel = () => {
                     ) : (
                       <div
                         className={`w-full h-full bg-gradient-to-br ${
-                          image.gradient || "from-amber-500 to-orange-500"
+                          image.gradient || "from-amber-500 to-yellow-500"
                         } rounded-xl`}
                       ></div>
                     )}
@@ -377,7 +377,7 @@ const GalleryCarousel = () => {
         <div className="text-center mt-6 md:mt-8">
           <button
             onClick={() => router.push("/gallery")}
-            className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+            className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
           >
             <span>View Full Gallery</span>
             <svg

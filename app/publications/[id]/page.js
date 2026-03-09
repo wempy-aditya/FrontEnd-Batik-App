@@ -315,7 +315,7 @@ export default function PublicationDetailPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-slate-50">
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 overflow-hidden">
+      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -329,7 +329,7 @@ export default function PublicationDetailPage() {
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -387,7 +387,7 @@ export default function PublicationDetailPage() {
             <div className="flex flex-col lg:flex-row gap-8 items-start">
               {/* Publication Icon */}
               <div className="lg:w-1/4">
-                <div className="relative h-64 rounded-3xl overflow-hidden bg-gradient-to-br from-amber-500 to-orange-500 shadow-2xl">
+                <div className="relative h-64 rounded-3xl overflow-hidden bg-gradient-to-br from-amber-500 to-yellow-500 shadow-2xl">
                   <div className="absolute inset-0 bg-black/20"></div>
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
                     <svg
@@ -516,7 +516,7 @@ export default function PublicationDetailPage() {
                   <div className="mt-6">
                     <button
                       onClick={handleDownloadPDF}
-                      className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+                      className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
                     >
                       <svg
                         className="w-6 h-6"
@@ -1031,7 +1031,7 @@ export default function PublicationDetailPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="mt-16 bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900 rounded-3xl p-12 text-center max-w-7xl mx-auto">
+          <div className="mt-16 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 rounded-3xl p-12 text-center max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Interested in This Research?
             </h2>

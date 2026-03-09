@@ -8,7 +8,7 @@ export default function AboutPage() {
     {
       name: "Dr. Sarah Johnson",
       role: "Lead AI Researcher",
-      image: "from-amber-500 via-orange-500 to-red-500",
+      image: "from-amber-500 via-yellow-500 to-red-500",
       description:
         "PhD in Computer Vision with 10+ years experience in deep learning",
       social: {
@@ -20,7 +20,7 @@ export default function AboutPage() {
     {
       name: "Michael Chen",
       role: "Senior ML Engineer",
-      image: "from-orange-500 via-amber-500 to-yellow-500",
+      image: "from-amber-500 via-amber-500 to-yellow-500",
       description:
         "Specialized in generative models and image processing pipelines",
       social: {
@@ -32,7 +32,7 @@ export default function AboutPage() {
     {
       name: "Emily Rodriguez",
       role: "Data Scientist",
-      image: "from-yellow-500 via-amber-500 to-orange-500",
+      image: "from-yellow-500 via-amber-500 to-yellow-500",
       description: "Expert in dataset curation and model evaluation",
       social: {
         linkedin: "#",
@@ -43,7 +43,7 @@ export default function AboutPage() {
     {
       name: "David Park",
       role: "Product Designer",
-      image: "from-red-500 via-orange-500 to-amber-500",
+      image: "from-red-500 via-yellow-500 to-amber-500",
       description: "Creating intuitive interfaces for complex AI systems",
       social: {
         linkedin: "#",
@@ -112,13 +112,13 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-stone-900 via-amber-900 to-stone-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900">
       {/* Hero Section */}
       <section className="relative py-20 pt-32 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -221,7 +221,7 @@ export default function AboutPage() {
                 key={index}
                 className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mb-4">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="none"
@@ -260,7 +260,7 @@ export default function AboutPage() {
             {milestones.map((milestone, index) => (
               <div key={index} className="flex gap-6 mb-8 group">
                 <div className="flex flex-col items-center">
-                  <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-lg group-hover:scale-110 transition-transform duration-300">
                     {milestone.year}
                   </div>
                   {index !== milestones.length - 1 && (
@@ -369,7 +369,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-20 relative">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl p-12 text-center">
+          <div className="bg-gradient-to-r from-amber-500 to-yellow-500 rounded-3xl p-12 text-center">
             <h2 className="text-4xl font-bold text-white mb-6">
               Join Our Mission
             </h2>

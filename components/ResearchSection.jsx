@@ -225,11 +225,11 @@ const ResearchSection = () => {
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Latest Research
+            Our Publications
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Explore cutting-edge research contributions advancing the field of
-            computer vision and artificial intelligence.
+            Explore our research contributions in batik pattern recognition,
+            generation, and classification using artificial intelligence.
           </p>
         </div>
 
@@ -244,7 +244,7 @@ const ResearchSection = () => {
             className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg border border-gray-200 transition-all duration-300 ${
               currentIndex === 0 || loading || displayPublications.length === 0
                 ? "opacity-0 cursor-not-allowed pointer-events-none"
-                : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 hover:text-white hover:scale-110"
+                : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-500 hover:text-white hover:scale-110"
             }`}
           >
             <svg
@@ -275,7 +275,7 @@ const ResearchSection = () => {
               loading ||
               displayPublications.length === 0
                 ? "opacity-0 cursor-not-allowed pointer-events-none"
-                : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 hover:text-white hover:scale-110"
+                : "hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-500 hover:text-white hover:scale-110"
             }`}
           >
             <svg
@@ -382,13 +382,13 @@ const ResearchSection = () => {
                       }`}
                     >
                       {/* Gradient glow on hover */}
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl opacity-0 group-hover:opacity-15 blur-[2px] transition-all duration-700"></div>
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl opacity-0 group-hover:opacity-15 blur-[2px] transition-all duration-700"></div>
 
                       <div className="relative z-10 flex flex-col h-full">
                         {/* Header */}
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg flex items-center justify-center flex-shrink-0">
                               <svg
                                 className="w-5 h-5 text-white"
                                 fill="none"
@@ -530,7 +530,7 @@ const ResearchSection = () => {
                                   `/publications/${paper.uuid || paper.id}`,
                                 )
                               }
-                              className="col-span-5 py-3 px-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-1.5"
+                              className="col-span-5 py-3 px-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-1.5"
                             >
                               <svg
                                 className="w-4 h-4"
@@ -558,7 +558,7 @@ const ResearchSection = () => {
                             {paper.doi && (
                               <button
                                 onClick={() => setCitationPaper(paper)}
-                                className="col-span-3 py-3 px-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-1"
+                                className="col-span-3 py-3 px-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-1"
                                 title="Export Citation"
                               >
                                 <svg
@@ -672,7 +672,7 @@ const ResearchSection = () => {
                 onClick={() => scrollToIndex(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "w-6 md:w-8 bg-gradient-to-r from-amber-500 to-orange-500"
+                    ? "w-6 md:w-8 bg-gradient-to-r from-amber-500 to-yellow-500"
                     : "w-2 bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -685,7 +685,7 @@ const ResearchSection = () => {
         <div className="text-center mt-6 md:mt-8">
           <button
             onClick={() => (window.location.href = "/publications")}
-            className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
           >
             <span>View All Publications</span>
             <svg
