@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../../components/AuthProvider";
 import { parseApiError } from "@/lib/handleApiError";
+import { withBasePath } from "@/lib/basePath";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -73,7 +74,7 @@ export default function Projects() {
       setLoading(true);
       const offset = (currentPage - 1) * itemsPerPage;
       const response = await fetch(
-        `/api/projects?offset=${offset}&limit=${itemsPerPage}`,
+        withBasePath(`/api/projects?offset=${offset}&limit=${itemsPerPage}`),
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -107,7 +108,7 @@ export default function Projects() {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch("/api/categories?type=project", {
+      const response = await fetch(withBasePath("/api/categories?type=project"), {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.ok) {
@@ -126,7 +127,7 @@ export default function Projects() {
 
   const fetchContributors = async () => {
     try {
-      const response = await fetch("/api/contributors?limit=100");
+      const response = await fetch(withBasePath("/api/contributors?limit=100"));
       if (response.ok) {
         const data = await response.json();
         setContributors(data.data || []);
@@ -138,7 +139,7 @@ export default function Projects() {
 
   const fetchProjectContributors = async (projectId) => {
     try {
-      const response = await fetch(`/api/contributors/by-project/${projectId}`);
+      const response = await fetch(withBasePath(`/api/contributors/by-project/${projectId}`));
       if (response.ok) {
         const data = await response.json();
         
@@ -163,7 +164,7 @@ export default function Projects() {
   const fetchProjectDetail = async (projectId) => {
     try {
       setIsLoadingDetail(true);
-      const response = await fetch(`/api/projects/${projectId}`, {
+      const response = await fetch(withBasePath(`/api/projects/${projectId}`), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -190,8 +191,8 @@ export default function Projects() {
     try {
       const method = selectedProject ? "PATCH" : "POST";
       const url = selectedProject
-        ? `/api/projects/${selectedProject.id}`
-        : "/api/projects";
+        ? withBasePath(`/api/projects/${selectedProject.id}`)
+        : withBasePath("/api/projects");
 
       // Clean up form data
       const submitData = {
@@ -265,7 +266,7 @@ export default function Projects() {
     if (!projectToDelete) return;
 
     try {
-      const response = await fetch(`/api/projects/${projectToDelete.id}`, {
+      const response = await fetch(withBasePath(`/api/projects/${projectToDelete.id}`), {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -293,7 +294,7 @@ export default function Projects() {
 
     try {
       const response = await fetch(
-        `/api/projects/${selectedProject.id}/categories`,
+        withBasePath(`/api/projects/${selectedProject.id}/categories`),
         {
           method: "POST",
           headers: {
@@ -321,7 +322,7 @@ export default function Projects() {
       const roles = contributorIds.map(id => contributorRoles[id] || '');
       
       const response = await fetch(
-        `/api/contributors/assign/project/${selectedProject.id}`,
+        withBasePath(`/api/contributors/assign/project/${selectedProject.id}`),
         {
           method: "POST",
           headers: {
@@ -406,7 +407,7 @@ export default function Projects() {
     setIsLoadingFiles(true);
     try {
       const response = await fetch(
-        "/api/files?limit=100&file_type=image",
+        withBasePath("/api/files?limit=100&file_type=image"),
         {
           headers: {
             "Content-Type": "application/json",

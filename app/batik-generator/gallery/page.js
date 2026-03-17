@@ -1,9 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 
 // Use local proxy to avoid CORS issues
-const API_BASE_URL = '/api/batik-rvgan';
+const API_BASE_URL = withBasePath('/api/batik-rvgan');
 
 export default function BatikGalleryPage() {
   const router = useRouter();

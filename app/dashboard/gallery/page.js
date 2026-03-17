@@ -57,7 +57,7 @@ export default function GalleryManagement() {
       }
 
       const response = await fetch(
-        `/api/gallery?offset=${offset}&limit=${limit}`,
+        withBasePath(`/api/gallery?offset=${offset}&limit=${limit}`),
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -105,7 +105,7 @@ export default function GalleryManagement() {
   const fetchCategories = async () => {
     try {
       const token = localStorage.getItem("access_token");
-      const response = await fetch("/api/categories?type=gallery", {
+      const response = await fetch(withBasePath("/api/categories?type=gallery"), {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -134,7 +134,7 @@ export default function GalleryManagement() {
   const fetchModels = async () => {
     try {
       const token = localStorage.getItem("access_token");
-      const response = await fetch("/api/ai-models", {
+      const response = await fetch(withBasePath("/api/ai-models"), {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -166,7 +166,7 @@ export default function GalleryManagement() {
     try {
       setIsLoadingDetail(true);
       const token = localStorage.getItem("access_token");
-      const response = await fetch(`/api/gallery/${id}`, {
+      const response = await fetch(withBasePath(`/api/gallery/${id}`), {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -252,8 +252,8 @@ export default function GalleryManagement() {
       };
 
       const url = currentGallery
-        ? `/api/gallery/${currentGallery.id}`
-        : "/api/gallery";
+        ? withBasePath(`/api/gallery/${currentGallery.id}`)
+        : withBasePath("/api/gallery");
 
       const method = currentGallery ? "PUT" : "POST";
 
@@ -286,7 +286,7 @@ export default function GalleryManagement() {
 
     try {
       const token = localStorage.getItem("access_token");
-      const response = await fetch(`/api/gallery/${galleryToDelete.id}`, {
+      const response = await fetch(withBasePath(`/api/gallery/${galleryToDelete.id}`), {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -350,7 +350,7 @@ export default function GalleryManagement() {
     try {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        `/api/gallery/${categoryGalleryId}/categories`,
+        withBasePath(`/api/gallery/${categoryGalleryId}/categories`),
         {
           method: "POST",
           headers: {
@@ -380,7 +380,7 @@ export default function GalleryManagement() {
     try {
       setIsLoadingFiles(true);
       const token = localStorage.getItem('access_token');
-      const response = await fetch('/api/files?limit=100&file_type=image', {
+      const response = await fetch(withBasePath('/api/files?limit=100&file_type=image'), {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { withBasePath } from "@/lib/basePath";
 
 export default function TestApiPage() {
   const [prompt, setPrompt] = useState("");
@@ -50,7 +51,7 @@ export default function TestApiPage() {
     setResponseData(null);
 
     try {
-      const response = await fetch("/api/generate-batik", {
+      const response = await fetch(withBasePath("/api/generate-batik"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

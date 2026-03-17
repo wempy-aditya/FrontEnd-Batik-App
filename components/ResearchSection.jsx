@@ -521,7 +521,7 @@ const ResearchSection = () => {
                             <button
                               onClick={() =>
                                 router.push(
-                                  `/publications/${paper.uuid || paper.id}`,
+                                  withBasePath(`/publications/${paper.uuid || paper.id}`),
                                 )
                               }
                               className="col-span-5 py-3 px-3 text-black font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-1.5"
@@ -679,7 +679,7 @@ const ResearchSection = () => {
         {/* View All Button */}
         <div className="text-center mt-6 md:mt-8">
           <button
-            onClick={() => (window.location.href = "/publications")}
+            onClick={() => (window.location.href = withBasePath("/publications"))}
             className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-amber-500/30"
           >
             <span>View All Publications</span>

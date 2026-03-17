@@ -546,7 +546,7 @@ const DatasetsPreview = () => {
                               if (dataset.file_url) {
                                 window.open(dataset.file_url, "_blank");
                               } else {
-                                window.location.href = `/datasets/${dataset.id}/download`;
+                                window.location.href = withBasePath(`/datasets/${dataset.id}/download`);
                               }
                             }}
                             className="w-full py-3 px-4 text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:opacity-90"
@@ -572,7 +572,7 @@ const DatasetsPreview = () => {
 
                           <button
                             onClick={() =>
-                              router.push(`/datasets/${dataset.id}`)
+                              router.push(withBasePath(`/datasets/${dataset.id}`))
                             }
                             className="w-full py-2 px-4 text-amber-300 font-medium text-sm border border-amber-500/30 rounded-lg hover:bg-amber-500/10 transition-colors duration-200"
                           >
@@ -616,7 +616,7 @@ const DatasetsPreview = () => {
           <button
             onClick={() => {
               console.log("Navigating to datasets page");
-              window.location.href = "/datasets";
+              window.location.href = withBasePath("/datasets");
             }}
             className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-amber-500/30"
           >

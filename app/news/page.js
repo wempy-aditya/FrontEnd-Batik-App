@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function NewsPage() {
   const { token } = useAuth();
@@ -18,7 +19,7 @@ export default function NewsPage() {
       try {
         const localToken = localStorage.getItem("access_token");
         const activeToken = localToken || token;
-        const response = await fetch("/api/news/public", {
+        const response = await fetch(withBasePath("/api/news/public"), {
           headers: {
             ...(activeToken ? { Authorization: `Bearer ${activeToken}` } : {}),
           },
@@ -43,7 +44,7 @@ export default function NewsPage() {
       try {
         const localToken = localStorage.getItem("access_token");
         const activeToken = localToken || token;
-        const response = await fetch("/api/news/public/featured?limit=2", {
+        const response = await fetch(withBasePath("/api/news/public/featured?limit=2"), {
           headers: {
             ...(activeToken ? { Authorization: `Bearer ${activeToken}` } : {}),
           },
@@ -302,7 +303,7 @@ export default function NewsPage() {
           {/* Breadcrumb */}
           <div className="flex items-center text-sm text-amber-200 mb-8">
             <button
-              onClick={() => router.push("/")}
+              onClick={() => router.push(withBasePath("/"))}
               className="hover:text-amber-100 transition-colors"
             >
               Home
@@ -460,7 +461,7 @@ export default function NewsPage() {
                         </div>
 
                         <button
-                          onClick={() => router.push(`/news/${article.id}`)}
+                          onClick={() => router.push(withBasePath(`/news/${article.id}`))}
                           className="px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-semibold rounded-lg hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] transition-all duration-300"
                         >
                           Read More
@@ -549,7 +550,7 @@ export default function NewsPage() {
                           By <span className="font-medium text-amber-100/80">{article.creator_name || article.author || "Admin"}</span>
                         </div>
                         <button
-                          onClick={() => router.push(`/news/${article.id}`)}
+                          onClick={() => router.push(withBasePath(`/news/${article.id}`))}
                           className="text-amber-400 hover:text-amber-300 font-semibold text-sm flex items-center gap-1 transition-colors"
                         >
                           Read <span className="text-lg leading-none">→</span>

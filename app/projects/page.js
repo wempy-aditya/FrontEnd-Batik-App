@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function ProjectsPage() {
   const { token } = useAuth();
@@ -29,7 +30,7 @@ export default function ProjectsPage() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("/api/projects/categories");
+        const response = await fetch(withBasePath("/api/projects/categories"));
         if (response.ok) {
           const data = await response.json();
           if (Array.isArray(data)) {
@@ -83,7 +84,7 @@ export default function ProjectsPage() {
         // Sort
         params.append("sort_by", sortBy);
 
-        const url = `/api/projects/public?${params.toString()}`;
+        const url = withBasePath(`/api/projects/public?${params.toString()}`);
 
         const localToken = localStorage.getItem("access_token");
         const activeToken = localToken || token;
@@ -192,7 +193,7 @@ export default function ProjectsPage() {
           {/* Breadcrumb */}
           <div className="flex items-center text-sm text-amber-200 mb-8">
             <button
-              onClick={() => router.push("/")}
+              onClick={() => router.push(withBasePath("/"))}
               className="hover:text-white transition-colors"
             >
               Home
@@ -649,7 +650,7 @@ export default function ProjectsPage() {
                             console.log(
                               `Navigating to project ${project.id} details`,
                             );
-                            window.location.href = `/projects/${project.id}`;
+                            window.location.href = withBasePath(`/projects/${project.id}`);
                           }}
                           className="w-full py-3 px-4 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 cursor-pointer hover:opacity-90"
                           style={{ background: gradientToStyle(project.gradient) }}
@@ -740,7 +741,7 @@ export default function ProjectsPage() {
                 <div
                   onClick={() => {
                     console.log("Navigating to contact page");
-                    window.location.href = "/contact";
+                    window.location.href = withBasePath("/contact");
                   }}
                   className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] cursor-pointer"
                 >
@@ -749,7 +750,7 @@ export default function ProjectsPage() {
                 <div
                   onClick={() => {
                     console.log("Navigating to publications page");
-                    window.location.href = "/publications";
+                    window.location.href = withBasePath("/publications");
                   }}
                   className="px-8 py-4 bg-white/5 text-amber-200 font-semibold rounded-xl border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10 transition-all duration-300 cursor-pointer backdrop-blur-sm"
                 >

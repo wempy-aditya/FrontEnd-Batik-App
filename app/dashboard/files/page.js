@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function FileManager() {
   const { token } = useAuth();
@@ -38,7 +39,7 @@ export default function FileManager() {
     try {
       setLoading(true);
       const offset = (currentPage - 1) * itemsPerPage;
-      let url = `/api/files?offset=${offset}&limit=${itemsPerPage}`;
+      let url = withBasePath(`/api/files?offset=${offset}&limit=${itemsPerPage}`);
       
       if (filterType && filterType !== "all") {
         url += `&file_type=${filterType}`;
@@ -62,7 +63,7 @@ export default function FileManager() {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch("/api/files/stats", {
+      const response = await fetch(withBasePath("/api/files/stats"), {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.ok) {
@@ -89,7 +90,7 @@ export default function FileManager() {
         formData.append("description", uploadDescription);
       }
 
-      const response = await fetch("/api/files", {
+      const response = await fetch(withBasePath("/api/files"), {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -127,7 +128,7 @@ export default function FileManager() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`/api/files/${selectedFile.id}`, {
+      const response = await fetch(withBasePath(`/api/files/${selectedFile.id}`), {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -159,7 +160,7 @@ export default function FileManager() {
     if (!fileToDelete) return;
 
     try {
-      const response = await fetch(`/api/files/${fileToDelete.id}`, {
+      const response = await fetch(withBasePath(`/api/files/${fileToDelete.id}`), {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -645,7 +645,7 @@ const ProjectsPreview = () => {
                           <button
                             onClick={() =>
                               router.push(
-                                `/projects/${project.slug || project.id}`,
+                                withBasePath(`/projects/${project.slug || project.id}`),
                               )
                             }
                             className="w-full py-3 px-4 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 cursor-pointer hover:opacity-90"
@@ -727,7 +727,7 @@ const ProjectsPreview = () => {
           /* CTA Section */
           <div className="text-center relative z-50 mt-6 md:mt-8">
             <button
-              onClick={() => router.push("/projects")}
+              onClick={() => router.push(withBasePath("/projects"))}
               className="group inline-flex items-center px-6 md:px-10 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-bold text-base md:text-lg rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/30"
             >
               <span>Explore All Products</span>

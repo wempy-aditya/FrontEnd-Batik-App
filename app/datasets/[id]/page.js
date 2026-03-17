@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 
 // Helper functions
 const formatFileSize = (bytes) => {
@@ -41,7 +42,7 @@ export default function DatasetDetailPage() {
   useEffect(() => {
     const fetchDataset = async () => {
       try {
-        const response = await fetch(`/api/datasets/public/${datasetId}`);
+        const response = await fetch(withBasePath(`/api/datasets/public/${datasetId}`));
         if (response.ok) {
           const data = await response.json();
           setDataset(data);
@@ -68,7 +69,7 @@ export default function DatasetDetailPage() {
   // Increment view count
   const incrementViewCount = async () => {
     try {
-      await fetch(`/api/datasets/public/${datasetId}/view`, {
+      await fetch(withBasePath(`/api/datasets/public/${datasetId}/view`), {
         method: 'POST',
       });
     } catch (error) {
@@ -80,7 +81,7 @@ export default function DatasetDetailPage() {
   const handleDownloadDataset = async () => {
     try {
       // Increment download counter
-      await fetch(`/api/datasets/public/${datasetId}/download`, {
+      await fetch(withBasePath(`/api/datasets/public/${datasetId}/download`), {
         method: 'POST',
       });
     } catch (error) {

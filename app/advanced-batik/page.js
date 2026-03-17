@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { withBasePath } from "@/lib/basePath";
 
 export default function AdvancedBatikPage() {
   const [prompt, setPrompt] = useState("");
@@ -95,7 +96,7 @@ export default function AdvancedBatikPage() {
     setResponseData(null);
 
     try {
-      const response = await fetch("/api/advanced-batik", {
+      const response = await fetch(withBasePath("/api/advanced-batik"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

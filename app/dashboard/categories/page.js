@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function CategoriesPage() {
   const router = useRouter();
@@ -64,7 +65,7 @@ export default function CategoriesPage() {
       setIsLoading(true);
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch(`/api/categories?type=${selectedType}`, {
+      const response = await fetch(withBasePath(`/api/categories?type=${selectedType}`), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -95,8 +96,8 @@ export default function CategoriesPage() {
       const token = localStorage.getItem("access_token");
       const url =
         modalMode === "edit"
-          ? `/api/categories/${selectedCategory.id}?type=${selectedType}`
-          : `/api/categories?type=${selectedType}`;
+          ? withBasePath(`/api/categories/${selectedCategory.id}?type=${selectedType}`)
+          : withBasePath(`/api/categories?type=${selectedType}`);
       const method = modalMode === "edit" ? "PATCH" : "POST";
 
       const response = await fetch(url, {
@@ -136,7 +137,7 @@ export default function CategoriesPage() {
       const token = localStorage.getItem("access_token");
 
       const response = await fetch(
-        `/api/categories/${categoryToDelete.id}?type=${selectedType}`,
+        withBasePath(`/api/categories/${categoryToDelete.id}?type=${selectedType}`),
         {
           method: "DELETE",
           headers: {

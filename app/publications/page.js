@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import CitationExportModal from "@/components/CitationExportModal";
 import { useAuth } from "@/components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function PublicationsPage() {
   const { token } = useAuth();
@@ -43,7 +44,7 @@ export default function PublicationsPage() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("/api/publications/categories");
+        const response = await fetch(withBasePath("/api/publications/categories"));
         if (response.ok) {
           const data = await response.json();
           if (Array.isArray(data) && data.length > 0) {
@@ -116,7 +117,7 @@ export default function PublicationsPage() {
         }
         params.append("sort_by", sortValue);
 
-        const url = `/api/publications/public?${params.toString()}`;
+        const url = withBasePath(`/api/publications/public?${params.toString()}`);
 
         const localToken = localStorage.getItem("access_token");
         const activeToken = localToken || token;
@@ -267,7 +268,7 @@ export default function PublicationsPage() {
   const handleDownloadPDF = async (publicationId, pdfUrl) => {
     try {
       // Increment download counter
-      await fetch(`/api/publications/public/${publicationId}/download`, {
+      await fetch(withBasePath(`/api/publications/public/${publicationId}/download`), {
         method: "POST",
       });
 
@@ -311,7 +312,7 @@ export default function PublicationsPage() {
           {/* Breadcrumb */}
           <div className="flex items-center text-sm text-amber-200 mb-8">
             <button
-              onClick={() => (window.location.href = "/")}
+              onClick={() => (window.location.href = withBasePath("/"))}
               className="hover:text-white transition-colors"
             >
               Home
@@ -890,7 +891,7 @@ export default function PublicationsPage() {
                           <div className="grid grid-cols-2 gap-2">
                             <button
                               onClick={() =>
-                                router.push(`/publications/${paper.id}`)
+                                router.push(withBasePath(`/publications/${paper.id}`))
                               }
                               className="py-2 px-3 text-amber-200 border border-amber-500/30 rounded-lg hover:bg-amber-500/10 transition-colors duration-200 text-sm"
                             >
@@ -1009,7 +1010,7 @@ export default function PublicationsPage() {
                 </p>
                 <div className="flex justify-center">
                   <button
-                    onClick={() => (window.location.href = "/contact")}
+                     onClick={() => (window.location.href = withBasePath("/contact"))}
                     className="px-8 py-4 text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg shadow-amber-500/20"
                     style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}
                   >

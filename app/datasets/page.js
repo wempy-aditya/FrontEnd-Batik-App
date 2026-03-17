@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function DatasetsPage() {
   const { token } = useAuth();
@@ -61,7 +62,7 @@ export default function DatasetsPage() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("/api/datasets/categories");
+        const response = await fetch(withBasePath("/api/datasets/categories"));
         if (response.ok) {
           const data = await response.json();
           if (Array.isArray(data)) {
@@ -127,7 +128,7 @@ export default function DatasetsPage() {
         // Sort
         params.append("sort_by", sortBy);
 
-        const url = `/api/datasets/public?${params.toString()}`;
+        const url = withBasePath(`/api/datasets/public?${params.toString()}`);
 
         const localToken = localStorage.getItem("access_token");
         const activeToken = localToken || token;
@@ -266,7 +267,7 @@ export default function DatasetsPage() {
           {/* Breadcrumb */}
           <div className="flex items-center text-sm text-amber-200 mb-8">
             <button
-              onClick={() => router.push("/")}
+              onClick={() => router.push(withBasePath("/"))}
               className="hover:text-white transition-colors"
             >
               Home
@@ -863,7 +864,7 @@ export default function DatasetsPage() {
                             if (dataset.file_url) {
                               window.open(dataset.file_url, "_blank");
                             } else {
-                              window.location.href = `/datasets/${dataset.id}/download`;
+                              window.location.href = withBasePath(`/datasets/${dataset.id}/download`);
                             }
                           }}
                           className={`w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
@@ -887,7 +888,7 @@ export default function DatasetsPage() {
                         </button>
 
                         <button
-                          onClick={() => router.push(`/datasets/${dataset.id}`)}
+                          onClick={() => router.push(withBasePath(`/datasets/${dataset.id}`))}
                           className="w-full py-2 px-4 text-amber-200 font-medium text-sm border border-amber-500/30 rounded-lg hover:bg-amber-500/10 transition-colors duration-200"
                         >
                           View Details
@@ -965,13 +966,13 @@ export default function DatasetsPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
-                    onClick={() => (window.location.href = "/contact")}
+                    onClick={() => (window.location.href = withBasePath("/contact"))}
                     className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_15px_rgba(245,158,11,0.4)]"
                   >
                     Contact Our Team
                   </button>
                   <button
-                    onClick={() => (window.location.href = "/projects")}
+                    onClick={() => (window.location.href = withBasePath("/projects"))}
                     className="px-8 py-4 bg-white/5 text-amber-200 font-semibold rounded-xl border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10 transition-all duration-300 backdrop-blur-sm"
                   >
                     View Services

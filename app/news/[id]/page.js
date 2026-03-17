@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 
 export default function NewsDetailPage() {
   const params = useParams();
@@ -91,7 +92,7 @@ export default function NewsDetailPage() {
     const fetchNews = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/news/public/${newsId}`);
+        const response = await fetch(withBasePath(`/api/news/public/${newsId}`));
         if (response.ok) {
           const data = await response.json();
           setNews(data);
@@ -850,7 +851,7 @@ export default function NewsDetailPage() {
           <h2 className="text-3xl font-bold text-gray-700 mb-4">Article Not Found</h2>
           <p className="text-gray-500 mb-8">The article you're looking for doesn't exist.</p>
           <button
-            onClick={() => router.push('/news')}
+            onClick={() => router.push(withBasePath('/news'))}
             className="px-6 py-3 bg-amber-500 text-white font-semibold rounded-xl hover:bg-amber-600 transition-colors duration-300"
           >
             Back to News
@@ -872,7 +873,7 @@ export default function NewsDetailPage() {
           {/* Breadcrumb */}
           <div className="flex items-center text-sm text-white/80 mb-8">
             <button
-              onClick={() => router.push("/")}
+              onClick={() => router.push(withBasePath("/"))}
               className="hover:text-white transition-colors"
             >
               Home
@@ -891,7 +892,7 @@ export default function NewsDetailPage() {
               />
             </svg>
             <button
-              onClick={() => router.push("/news")}
+              onClick={() => router.push(withBasePath("/news"))}
               className="hover:text-white transition-colors"
             >
               News
@@ -1033,7 +1034,7 @@ export default function NewsDetailPage() {
             {/* Back to News Button */}
             <div className="text-center mb-12">
               <button
-                onClick={() => router.push("/news")}
+                onClick={() => router.push(withBasePath("/news"))}
                 className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 ← Back to All News
@@ -1050,7 +1051,7 @@ export default function NewsDetailPage() {
                   {relatedArticles.map((related) => (
                     <div
                       key={related.id}
-                      onClick={() => router.push(`/news/${related.id}`)}
+                      onClick={() => router.push(withBasePath(`/news/${related.id}`))}
                       className="group bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200/50 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
                     >
                       <div

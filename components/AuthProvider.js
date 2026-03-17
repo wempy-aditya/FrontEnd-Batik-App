@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, createContext, useContext, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import { withBasePath } from "@/lib/basePath";
 
 const AuthContext = createContext();
 
@@ -41,7 +42,7 @@ export function AuthProvider({ children }) {
     console.log('Getting user info with token:', token ? `${token.substring(0, 20)}...` : 'No token');
     console.log('Token type:', tokenType);
     
-    const response = await fetch('/api/user/me', {
+    const response = await fetch(withBasePath('/api/user/me'), {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -78,7 +79,7 @@ export function AuthProvider({ children }) {
       throw new Error('No refresh token available');
     }
     
-    const response = await fetch('/api/auth/refresh', {
+    const response = await fetch(withBasePath('/api/auth/refresh'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -126,7 +127,7 @@ export function AuthProvider({ children }) {
     clearAuthData();
     // Force redirect to login
     if (typeof window !== 'undefined') {
-      window.location.href = '/login';
+      window.location.href = withBasePath('/login');
     }
   }, []);
 
@@ -136,7 +137,7 @@ export function AuthProvider({ children }) {
       const tokenType = localStorage.getItem('token_type');
 
       if (token) {
-        await fetch('/api/auth/logout', {
+        await fetch(withBasePath('/api/auth/logout'), {
           method: 'GET',
           headers: {
             'Authorization': `${tokenType || 'Bearer'} ${token}`,
@@ -184,7 +185,7 @@ export function ProtectedRoute({ children }) {
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      router.push('/login');
+      router.push(withBasePath('/login'));
     }
   }, [isAuthenticated, isLoading, router]);
 

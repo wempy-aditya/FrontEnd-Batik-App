@@ -88,7 +88,7 @@ export default function ManageDatasetsPage() {
       console.log("Token available:", !!token);
       console.log("Making request to /api/datasets");
 
-      const response = await fetch("/api/datasets", {
+      const response = await fetch(withBasePath("/api/datasets"), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -120,7 +120,7 @@ export default function ManageDatasetsPage() {
     try {
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch("/api/categories?type=dataset", {
+      const response = await fetch(withBasePath("/api/categories?type=dataset"), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -146,8 +146,8 @@ export default function ManageDatasetsPage() {
       const token = localStorage.getItem("access_token");
       const url =
         modalMode === "edit"
-          ? `/api/datasets/${selectedDataset.id}`
-          : "/api/datasets";
+          ? withBasePath(`/api/datasets/${selectedDataset.id}`)
+          : withBasePath("/api/datasets");
       const method = modalMode === "edit" ? "PATCH" : "POST";
 
       const response = await fetch(url, {
@@ -187,7 +187,7 @@ export default function ManageDatasetsPage() {
     try {
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch(`/api/datasets/${datasetToDelete.id}`, {
+      const response = await fetch(withBasePath(`/api/datasets/${datasetToDelete.id}`), {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -220,7 +220,7 @@ export default function ManageDatasetsPage() {
       const token = localStorage.getItem("access_token");
 
       const response = await fetch(
-        `/api/datasets/${selectedDataset.id}/categories`,
+        withBasePath(`/api/datasets/${selectedDataset.id}/categories`),
         {
           method: "POST",
           headers: {
@@ -251,7 +251,7 @@ export default function ManageDatasetsPage() {
       setIsLoadingDetail(true);
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch(`/api/datasets/${datasetId}`, {
+      const response = await fetch(withBasePath(`/api/datasets/${datasetId}`), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -498,7 +498,7 @@ export default function ManageDatasetsPage() {
     try {
       setIsLoadingFiles(true);
       const token = localStorage.getItem('access_token');
-      const response = await fetch('/api/files?limit=100&file_type=image', {
+      const response = await fetch(withBasePath('/api/files?limit=100&file_type=image'), {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

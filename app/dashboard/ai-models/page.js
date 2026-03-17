@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../../components/AuthProvider';
 import { parseApiError } from '@/lib/handleApiError';
+import { withBasePath } from "@/lib/basePath";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -61,7 +62,7 @@ export default function ManageAIModelsPage() {
         throw new Error('No authentication token available');
       }
 
-      const response = await fetch('/api/ai-models', {
+      const response = await fetch(withBasePath('/api/ai-models'), {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -98,7 +99,7 @@ export default function ManageAIModelsPage() {
         throw new Error('No authentication token available');
       }
 
-      const response = await fetch('/api/categories?type=model', {
+      const response = await fetch(withBasePath('/api/categories?type=model'), {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -132,7 +133,7 @@ export default function ManageAIModelsPage() {
         throw new Error('No authentication token available');
       }
 
-      const response = await fetch(`/api/ai-models/${modelId}`, {
+      const response = await fetch(withBasePath(`/api/ai-models/${modelId}`), {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -255,7 +256,7 @@ export default function ManageAIModelsPage() {
         throw new Error('No authentication token available');
       }
       
-      const response = await fetch(`/api/ai-models/${modelToDelete.id}`, {
+      const response = await fetch(withBasePath(`/api/ai-models/${modelToDelete.id}`), {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -341,7 +342,7 @@ export default function ManageAIModelsPage() {
       if (!submitData.dataset_used) delete submitData.dataset_used;
       if (!submitData.model_file_url) delete submitData.model_file_url;
 
-      const url = modalMode === 'create' ? '/api/ai-models' : `/api/ai-models/${selectedModel.id}`;
+      const url = modalMode === 'create' ? withBasePath('/api/ai-models') : withBasePath(`/api/ai-models/${selectedModel.id}`);
       const method = modalMode === 'create' ? 'POST' : 'PUT';
 
       const response = await fetch(url, {
@@ -379,7 +380,7 @@ export default function ManageAIModelsPage() {
         throw new Error('No authentication token available');
       }
       
-      const response = await fetch(`/api/ai-models/${modelId}/categories`, {
+      const response = await fetch(withBasePath(`/api/ai-models/${modelId}/categories`), {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -431,7 +432,7 @@ export default function ManageAIModelsPage() {
       setIsLoadingFiles(true);
       const token = localStorage.getItem('access_token');
       
-      const response = await fetch('/api/files', {
+      const response = await fetch(withBasePath('/api/files'), {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',

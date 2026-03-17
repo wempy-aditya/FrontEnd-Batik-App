@@ -1,9 +1,10 @@
 "use client";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 
 // Use local proxy to avoid CORS issues
-const API_BASE_URL = '/api/batik-rvgan';
+const API_BASE_URL = withBasePath('/api/batik-rvgan');
 
 function ResultContent() {
   const router = useRouter();

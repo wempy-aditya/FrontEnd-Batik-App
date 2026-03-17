@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useAuth } from "../../../components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function UserManagementPage() {
   const { getUserInfo, handleUnauthorized } = useAuth();
@@ -117,13 +118,13 @@ export default function UserManagementPage() {
         throw new Error("No authentication token available");
       }
 
-      let url = "/api/users";
+      let url = withBasePath("/api/users");
 
       // Apply filters
       if (filterRole !== "all") {
-        url = `/api/users/role/${filterRole}`;
+        url = withBasePath(`/api/users/role/${filterRole}`);
       } else if (filterStatus !== "all") {
-        url = `/api/users/status/${filterStatus}`;
+        url = withBasePath(`/api/users/status/${filterStatus}`);
       }
 
       url += `?page=${currentPage}&items_per_page=${itemsPerPage}`;
@@ -239,7 +240,7 @@ export default function UserManagementPage() {
         throw new Error("No authentication token available");
       }
 
-      const response = await fetch(`/api/user/${userToDelete.username}`, {
+      const response = await fetch(withBasePath(`/api/user/${userToDelete.username}`), {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -322,7 +323,7 @@ export default function UserManagementPage() {
           createData.profile_image_url = formData.profile_image_url;
         }
 
-        const response = await fetch("/api/users", {
+        const response = await fetch(withBasePath("/api/users"), {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -374,7 +375,7 @@ export default function UserManagementPage() {
           console.log("Updating user with admin privileges:", updateData);
 
           const username = result.username || formData.username;
-          const updateResponse = await fetch(`/api/user/${username}/admin`, {
+          const updateResponse = await fetch(withBasePath(`/api/user/${username}/admin`), {
             method: "PATCH",
             headers: {
               Authorization: `Bearer ${token}`,
@@ -421,7 +422,7 @@ export default function UserManagementPage() {
           submitData.tier_id = parseInt(formData.tier_id);
         }
 
-        const response = await fetch(`/api/user/${selectedUser.username}/admin`, {
+        const response = await fetch(withBasePath(`/api/user/${selectedUser.username}/admin`), {
           method: "PATCH",
           headers: {
             Authorization: `Bearer ${token}`,

@@ -2,6 +2,7 @@
 import { useAuth } from "../../../components/AuthProvider";
 import { useState, useEffect } from "react";
 import { parseApiError } from "@/lib/handleApiError";
+import { withBasePath } from "@/lib/basePath";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -71,7 +72,7 @@ export default function PublicationsPage() {
       const offset = (currentPage - 1) * itemsPerPage;
 
       const response = await fetch(
-        `/api/publications?offset=${offset}&limit=${itemsPerPage}`,
+        withBasePath(`/api/publications?offset=${offset}&limit=${itemsPerPage}`),
         {
         method: "GET",
         headers: {
@@ -195,7 +196,7 @@ export default function PublicationsPage() {
     try {
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch("/api/categories?type=publication", {
+      const response = await fetch(withBasePath("/api/categories?type=publication"), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -221,8 +222,8 @@ export default function PublicationsPage() {
       const token = localStorage.getItem("access_token");
       const url =
         modalMode === "edit"
-          ? `/api/publications/${selectedPublication.id}`
-          : "/api/publications";
+          ? withBasePath(`/api/publications/${selectedPublication.id}`)
+          : withBasePath("/api/publications");
       const method = modalMode === "edit" ? "PUT" : "POST";
 
       // Sanitize and prepare data
@@ -328,7 +329,7 @@ export default function PublicationsPage() {
       const token = localStorage.getItem("access_token");
 
       const response = await fetch(
-        `/api/publications/${publicationToDelete.id}`,
+        withBasePath(`/api/publications/${publicationToDelete.id}`),
         {
           method: "DELETE",
           headers: {
@@ -362,7 +363,7 @@ export default function PublicationsPage() {
       setIsLoadingDetail(true);
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch(`/api/publications/${publicationId}`, {
+      const response = await fetch(withBasePath(`/api/publications/${publicationId}`), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -392,7 +393,7 @@ export default function PublicationsPage() {
       const token = localStorage.getItem("access_token");
 
       const response = await fetch(
-        `/api/publications/${selectedPublication.id}/categories`,
+        withBasePath(`/api/publications/${selectedPublication.id}/categories`),
         {
           method: "POST",
           headers: {
@@ -569,7 +570,7 @@ export default function PublicationsPage() {
     setIsLoadingFiles(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/files?limit=100&file_type=image", {
+      const response = await fetch(withBasePath("/api/files?limit=100&file_type=image"), {
         headers: {
           "Content-Type": "application/json",
           Authorization: token ? `Bearer ${token}` : "",

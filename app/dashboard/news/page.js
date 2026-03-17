@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
 import { parseApiError } from "@/lib/handleApiError";
+import { withBasePath } from "@/lib/basePath";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -46,7 +47,7 @@ export default function NewsPage() {
       setIsLoading(true);
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch("/api/news", {
+      const response = await fetch(withBasePath("/api/news"), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -72,7 +73,7 @@ export default function NewsPage() {
     try {
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch("/api/categories?type=news", {
+      const response = await fetch(withBasePath("/api/categories?type=news"), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -97,7 +98,7 @@ export default function NewsPage() {
     try {
       const token = localStorage.getItem("access_token");
       const url =
-        modalMode === "edit" ? `/api/news/${selectedNews.id}` : "/api/news";
+        modalMode === "edit" ? withBasePath(`/api/news/${selectedNews.id}`) : withBasePath("/api/news");
       const method = modalMode === "edit" ? "PUT" : "POST";
 
       const response = await fetch(url, {
@@ -137,7 +138,7 @@ export default function NewsPage() {
     try {
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch(`/api/news/${newsToDelete.id}`, {
+      const response = await fetch(withBasePath(`/api/news/${newsToDelete.id}`), {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -169,7 +170,7 @@ export default function NewsPage() {
       setIsSubmitting(true);
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch(`/api/news/${selectedNews.id}/categories`, {
+      const response = await fetch(withBasePath(`/api/news/${selectedNews.id}/categories`), {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -197,7 +198,7 @@ export default function NewsPage() {
       setIsLoadingDetail(true);
       const token = localStorage.getItem("access_token");
 
-      const response = await fetch(`/api/news/${newsId}`, {
+      const response = await fetch(withBasePath(`/api/news/${newsId}`), {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -319,7 +320,7 @@ export default function NewsPage() {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        "/api/files?limit=100&file_type=image",
+        withBasePath("/api/files?limit=100&file_type=image"),
         {
           headers: {
             "Content-Type": "application/json",

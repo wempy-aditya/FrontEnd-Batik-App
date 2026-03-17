@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 
 export default function GalleryPage() {
   const router = useRouter();
@@ -24,7 +25,7 @@ export default function GalleryPage() {
   useEffect(() => {
     const fetchGallery = async () => {
       try {
-        const response = await fetch("/api/gallery");
+        const response = await fetch(withBasePath("/api/gallery"));
         if (response.ok) {
           const data = await response.json();
           if (Array.isArray(data)) {

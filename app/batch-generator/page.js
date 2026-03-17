@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { withBasePath } from "@/lib/basePath";
 
 export default function BatchGeneratorPage() {
   const [prompt, setPrompt] = useState("");
@@ -272,7 +273,7 @@ export default function BatchGeneratorPage() {
     const startTime = Date.now();
 
     try {
-      const response = await fetch("/api/advanced-batik", {
+      const response = await fetch(withBasePath("/api/advanced-batik"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function PublicAiModelsPage() {
   const router = useRouter();
@@ -41,8 +42,8 @@ export default function PublicAiModelsPage() {
 
       const basePath =
         selectedFramework !== "all"
-          ? `/api/ai-models/public/framework/${encodeURIComponent(selectedFramework)}`
-          : "/api/ai-models/public";
+          ? withBasePath(`/api/ai-models/public/framework/${encodeURIComponent(selectedFramework)}`)
+          : withBasePath("/api/ai-models/public");
 
       const response = await fetch(`${basePath}?${params.toString()}`, {
         headers: {
@@ -102,7 +103,7 @@ export default function PublicAiModelsPage() {
 
   const fetchFeaturedModels = async () => {
     try {
-      const response = await fetch("/api/ai-models/public/featured?limit=3", {
+      const response = await fetch(withBasePath("/api/ai-models/public/featured?limit=3"), {
         headers: {
           ...authHeader,
         },
@@ -120,7 +121,7 @@ export default function PublicAiModelsPage() {
 
   const fetchLatestModels = async () => {
     try {
-      const response = await fetch("/api/ai-models/public/latest?limit=4", {
+      const response = await fetch(withBasePath("/api/ai-models/public/latest?limit=4"), {
         headers: {
           ...authHeader,
         },

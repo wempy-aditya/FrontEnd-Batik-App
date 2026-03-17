@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 import {
   fetchCitation,
   fetchMultipleCitations,
@@ -34,7 +35,7 @@ export default function PublicationDetailPage() {
       setLoading(true);
       try {
         const response = await fetch(
-          `/api/publications/public/${publicationId}`
+          withBasePath(`/api/publications/public/${publicationId}`)
         );
         if (response.ok) {
           const data = await response.json();
@@ -61,7 +62,7 @@ export default function PublicationDetailPage() {
   // Increment view count
   const incrementViewCount = async () => {
     try {
-      await fetch(`/api/publications/public/${publicationId}/view`, {
+      await fetch(withBasePath(`/api/publications/public/${publicationId}/view`), {
         method: "POST",
       });
     } catch (error) {
@@ -73,7 +74,7 @@ export default function PublicationDetailPage() {
   const handleDownloadPDF = async () => {
     try {
       // Increment download counter
-      await fetch(`/api/publications/public/${publicationId}/download`, {
+      await fetch(withBasePath(`/api/publications/public/${publicationId}/download`), {
         method: "POST",
       });
 
@@ -302,7 +303,7 @@ export default function PublicationDetailPage() {
             The publication you're looking for doesn't exist.
           </p>
           <button
-            onClick={() => router.push("/publications")}
+            onClick={() => router.push(withBasePath("/publications"))}
             className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-600 transition-colors duration-300"
           >
             Back to Publications
@@ -337,7 +338,7 @@ export default function PublicationDetailPage() {
           <div className="mb-8">
             <div className="flex items-center gap-2 text-amber-200">
               <div
-                onClick={() => (window.location.href = "/")}
+                onClick={() => (window.location.href = withBasePath("/"))}
                 className="hover:text-white transition-colors duration-300 cursor-pointer"
               >
                 Home
@@ -356,7 +357,7 @@ export default function PublicationDetailPage() {
                 />
               </svg>
               <div
-                onClick={() => (window.location.href = "/publications")}
+                onClick={() => (window.location.href = withBasePath("/publications"))}
                 className="hover:text-white transition-colors duration-300 cursor-pointer"
               >
                 Publications
@@ -1040,13 +1041,13 @@ export default function PublicationDetailPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <div
-                onClick={() => (window.location.href = "/contact")}
+                onClick={() => (window.location.href = withBasePath("/contact"))}
                 className="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
               >
                 Contact Authors
               </div>
               <div
-                onClick={() => (window.location.href = "/publications")}
+                onClick={() => (window.location.href = withBasePath("/publications"))}
                 className="px-8 py-4 bg-white/10 text-white font-semibold rounded-xl border-2 border-white/20 hover:bg-white/20 transition-all duration-300 cursor-pointer"
               >
                 View All Publications

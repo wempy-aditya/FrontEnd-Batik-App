@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 
 export default function ProjectDetailPage() {
   const params = useParams();
@@ -16,7 +17,7 @@ export default function ProjectDetailPage() {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await fetch(`/api/projects/public/${id}`);
+        const response = await fetch(withBasePath(`/api/projects/public/${id}`));
         if (response.ok) {
           const data = await response.json();
           setProject(data);
@@ -39,7 +40,7 @@ export default function ProjectDetailPage() {
       if (activeTab === 'contributors' && id && contributors.length === 0) {
         setLoadingContributors(true);
         try {
-          const response = await fetch(`/api/contributors/project/${id}/contributors`);
+          const response = await fetch(withBasePath(`/api/contributors/project/${id}/contributors`));
           if (response.ok) {
             const data = await response.json();
             setContributors(data.data || []);
@@ -93,7 +94,7 @@ export default function ProjectDetailPage() {
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-900">Project Not Found</h2>
             <button
-              onClick={() => router.push('/projects')}
+              onClick={() => router.push(withBasePath('/projects'))}
               className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
             >
               Back to Projects
@@ -129,7 +130,7 @@ export default function ProjectDetailPage() {
           <div className="mb-8">
             <div className="flex items-center gap-2 text-amber-200">
               <button
-                onClick={() => router.push('/')}
+                onClick={() => router.push(withBasePath('/'))}
                 className="hover:text-white transition-colors duration-300"
               >
                 Home
@@ -138,7 +139,7 @@ export default function ProjectDetailPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
               <button
-                onClick={() => router.push('/projects')}
+                onClick={() => router.push(withBasePath('/projects'))}
                 className="hover:text-white transition-colors duration-300"
               >
                 Projects
@@ -551,13 +552,13 @@ export default function ProjectDetailPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={() => router.push('/contact')}
+                onClick={() => router.push(withBasePath('/contact'))}
                 className="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
               >
                 Contact Us
               </button>
               <button
-                onClick={() => router.push('/projects')}
+                onClick={() => router.push(withBasePath('/projects'))}
                 className="px-8 py-4 bg-white/10 text-white font-semibold rounded-xl border-2 border-white/20 hover:bg-white/20 transition-all duration-300"
               >
                 View All Projects

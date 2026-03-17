@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function Contributors() {
   const { token } = useAuth();
@@ -38,7 +39,7 @@ export default function Contributors() {
   const fetchCurrentUser = async () => {
     try {
       console.log('Fetching current user...');
-      const response = await fetch('/api/user/me', {
+      const response = await fetch(withBasePath('/api/user/me'), {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -62,9 +63,9 @@ export default function Contributors() {
     try {
       setLoading(true);
       const offset = (currentPage - 1) * itemsPerPage;
-      const url = `/api/contributors?offset=${offset}&limit=${itemsPerPage}${
+      const url = withBasePath(`/api/contributors?offset=${offset}&limit=${itemsPerPage}${
         searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : ""
-      }`;
+      }`);
 
       const response = await fetch(url);
       if (response.ok) {
@@ -110,8 +111,8 @@ export default function Contributors() {
     
     try {
       const url = formData.id
-        ? `/api/contributors/${formData.id}`
-        : "/api/contributors";
+        ? withBasePath(`/api/contributors/${formData.id}`)
+        : withBasePath("/api/contributors");
 
       const method = formData.id ? "PUT" : "POST";
 
@@ -169,7 +170,7 @@ export default function Contributors() {
     if (!contributorToDelete) return;
 
     try {
-      const response = await fetch(`/api/contributors/${contributorToDelete.id}`, {
+      const response = await fetch(withBasePath(`/api/contributors/${contributorToDelete.id}`), {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

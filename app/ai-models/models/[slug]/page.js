@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function AiModelDetailPage() {
   const router = useRouter();
@@ -24,14 +25,14 @@ export default function AiModelDetailPage() {
       setError("");
 
       try {
-        let response = await fetch(`/api/ai-models/public/slug/${encodeURIComponent(slug)}`, {
+        let response = await fetch(withBasePath(`/api/ai-models/public/slug/${encodeURIComponent(slug)}`), {
           headers: {
             ...authHeader,
           },
         });
 
         if (!response.ok) {
-          response = await fetch(`/api/ai-models/public/${encodeURIComponent(slug)}`, {
+          response = await fetch(withBasePath(`/api/ai-models/public/${encodeURIComponent(slug)}`), {
             headers: {
               ...authHeader,
             },
