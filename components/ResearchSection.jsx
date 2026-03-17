@@ -190,24 +190,19 @@ const ResearchSection = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-white relative">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20 overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.5'%3E%3Cpath d='M0 0h20v20H0z'/%3E%3Cpath d='M10 0v20'/%3E%3Cpath d='M0 10h20'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: "20px 20px",
-          }}
-        ></div>
+    <section className="py-12 md:py-16 relative" style={{ background: "linear-gradient(160deg, #0f0c06 0%, #1c1609 25%, #2a1f0d 50%, #1c1609 75%, #0f0c06 100%)" }}>
+      {/* Background glow */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 right-0 w-72 h-72 bg-amber-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-yellow-600/15 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-10">
-          <div className="inline-flex items-center px-4 py-2 bg-amber-100 backdrop-blur-sm rounded-full border border-amber-200 mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-amber-500/30 mb-6">
             <svg
-              className="w-4 h-4 text-amber-600 mr-2"
+              className="w-4 h-4 text-amber-400 mr-2"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -219,15 +214,15 @@ const ResearchSection = () => {
                 d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
               />
             </svg>
-            <span className="text-sm font-semibold text-amber-800">
+            <span className="text-sm font-semibold text-amber-300">
               Research Publications
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Our Publications
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Explore our research contributions in batik pattern recognition,
             generation, and classification using artificial intelligence.
           </p>
@@ -375,22 +370,23 @@ const ResearchSection = () => {
                     onMouseEnter={() => setHoveredPaper(paper.id)}
                     onMouseLeave={() => setHoveredPaper(null)}
                   >
-                    {/* Paper Card */}
+                    {/* Paper Card - Glassmorphism */}
                     <div
-                      className={`relative bg-white rounded-2xl p-6 md:p-8 shadow-md border border-gray-100 transition-all duration-500 transform hover:-translate-y-2 h-full flex flex-col ${
-                        hoveredPaper === paper.id ? "shadow-lg" : ""
+                      className={`relative rounded-2xl p-6 md:p-8 shadow-lg border border-amber-400/20 hover:border-amber-400/50 transition-all duration-500 transform hover:-translate-y-2 h-full flex flex-col backdrop-blur-sm ${
+                        hoveredPaper === paper.id ? "shadow-amber-400/15 shadow-2xl" : ""
                       }`}
+                      style={{ background: "rgba(255, 240, 200, 0.06)" }}
                     >
                       {/* Gradient glow on hover */}
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl opacity-0 group-hover:opacity-15 blur-[2px] transition-all duration-700"></div>
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-xl opacity-0 group-hover:opacity-15 blur-[2px] transition-all duration-700"></div>
 
                       <div className="relative z-10 flex flex-col h-full">
                         {/* Header */}
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "linear-gradient(135deg, #1a1200, #d4a017)" }}>
                               <svg
-                                className="w-5 h-5 text-white"
+                                className="w-5 h-5 text-amber-300"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -414,20 +410,20 @@ const ResearchSection = () => {
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-amber-600 transition-colors duration-300">
+                        <h3 className="text-lg md:text-xl font-bold text-amber-50 mb-3 leading-tight group-hover:text-amber-300 transition-colors duration-300">
                           {truncateText(paper.title, 100) ||
                             "Untitled Publication"}
                         </h3>
 
                         {/* Abstract - Truncated */}
-                        <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-4">
+                        <p className="text-sm md:text-base text-amber-100/80 leading-relaxed mb-4">
                           {truncateText(paper.abstract, 120)}
                         </p>
 
                         {/* Authors */}
                         {paper.authors || paper.author ? (
                           <div className="mb-3">
-                            <div className="text-sm font-semibold text-gray-700 mb-2">
+                            <div className="text-sm font-semibold text-amber-400 mb-2">
                               Authors:
                             </div>
                             <div className="flex flex-wrap gap-2">
@@ -439,7 +435,7 @@ const ResearchSection = () => {
                                 .map((author, index) => (
                                   <span
                                     key={index}
-                                    className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full"
+                                    className="text-sm text-amber-100/80 bg-white/5 border border-amber-400/20 px-3 py-1 rounded-full"
                                   >
                                     {author}
                                   </span>
@@ -448,7 +444,7 @@ const ResearchSection = () => {
                                 ? paper.authors
                                 : []
                               ).length > 3 && (
-                                <span className="text-sm text-gray-400 bg-gray-50 px-3 py-1 rounded-full">
+                                <span className="text-sm text-amber-200/50 bg-white/5 px-3 py-1 rounded-full">
                                   +{paper.authors.length - 3} more
                                 </span>
                               )}
@@ -465,7 +461,7 @@ const ResearchSection = () => {
                                 .map((keyword, index) => (
                                   <span
                                     key={index}
-                                    className="text-sm text-amber-700 bg-amber-50 px-3 py-1 rounded-full"
+                                    className="text-sm text-amber-300 bg-amber-500/10 border border-amber-400/20 px-3 py-1 rounded-full"
                                   >
                                     {keyword}
                                   </span>
@@ -474,28 +470,25 @@ const ResearchSection = () => {
                           </div>
                         )}
 
-                        {/* Publication Info - Clear Labels */}
-                        <div className="space-y-2.5 mb-4 pt-4 border-t border-gray-200">
-                          {/* Venue */}
+                        {/* Publication Info */}
+                        <div className="space-y-2.5 mb-4 pt-4 border-t border-amber-400/20">
                           {paper.venue && (
                             <div className="flex items-start gap-2">
-                              <span className="text-sm font-semibold text-gray-700 flex-shrink-0">
+                              <span className="text-sm font-semibold text-amber-400 flex-shrink-0">
                                 Venue:
                               </span>
-                              <span className="text-sm text-gray-600 leading-relaxed">
+                              <span className="text-sm text-amber-100/80 leading-relaxed">
                                 {truncateText(paper.venue, 120)}
                               </span>
                             </div>
                           )}
-
-                          {/* Citations */}
                           {paper.citations !== undefined &&
                             paper.citations !== null && (
                               <div className="flex items-center gap-2">
-                                <span className="text-sm font-semibold text-gray-700">
+                                <span className="text-sm font-semibold text-amber-400">
                                   Total Citations:
                                 </span>
-                                <span className="text-sm font-bold text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
+                                <span className="text-sm font-bold text-black bg-gradient-to-r from-amber-400 to-yellow-400 px-3 py-1 rounded-full">
                                   {paper.citations}
                                 </span>
                               </div>
@@ -523,14 +516,15 @@ const ResearchSection = () => {
                         <div className="mt-auto pt-4 space-y-2">
                           {/* Main Actions: Read + Cite + Copy + Open */}
                           <div className="grid grid-cols-12 gap-2">
-                            {/* Read Button - 5 columns */}
+                            {/* Read Button */}
                             <button
                               onClick={() =>
                                 router.push(
                                   `/publications/${paper.uuid || paper.id}`,
                                 )
                               }
-                              className="col-span-5 py-3 px-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-1.5"
+                              className="col-span-5 py-3 px-3 text-black font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-1.5"
+                              style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}
                             >
                               <svg
                                 className="w-4 h-4"
@@ -554,11 +548,11 @@ const ResearchSection = () => {
                               <span>Read</span>
                             </button>
 
-                            {/* Cite Button - 3 columns */}
+                            {/* Cite Button */}
                             {paper.doi && (
                               <button
                                 onClick={() => setCitationPaper(paper)}
-                                className="col-span-3 py-3 px-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-1"
+                                className="col-span-3 py-3 px-2 bg-amber-900/80 hover:bg-amber-800 text-amber-300 font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-1 border border-amber-500/30"
                                 title="Export Citation"
                               >
                                 <svg
@@ -585,7 +579,7 @@ const ResearchSection = () => {
                                   navigator.clipboard.writeText(paper.doi);
                                   alert("DOI copied!");
                                 }}
-                                className="col-span-2 py-3 px-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center"
+                                className="col-span-2 py-3 px-2 bg-zinc-800 hover:bg-zinc-700 border border-white/10 text-gray-300 font-semibold rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center"
                                 title="Copy DOI"
                               >
                                 <svg
@@ -613,7 +607,7 @@ const ResearchSection = () => {
                                     "_blank",
                                   )
                                 }
-                                className="col-span-2 py-3 px-2 bg-gray-700 hover:bg-gray-800 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center"
+                                className="col-span-2 py-3 px-2 bg-zinc-900 hover:bg-zinc-800 border border-amber-500/20 text-amber-400 font-semibold rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center"
                                 title="Open DOI"
                               >
                                 <svg
@@ -636,7 +630,7 @@ const ResearchSection = () => {
                           {/* View More Button */}
                           <button
                             onClick={() => setSelectedPaper(paper)}
-                            className="w-full py-2.5 px-4 border-2 border-gray-300 hover:border-amber-500 text-gray-700 hover:text-amber-600 font-semibold text-sm rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+                            className="w-full py-2.5 px-4 border border-amber-400/20 hover:border-amber-400 text-amber-200/70 hover:text-amber-300 font-semibold text-sm rounded-lg transition-all duration-300 flex items-center justify-center gap-2 hover:bg-amber-500/10"
                           >
                             <svg
                               className="w-4 h-4"
@@ -685,7 +679,7 @@ const ResearchSection = () => {
         <div className="text-center mt-6 md:mt-8">
           <button
             onClick={() => (window.location.href = "/publications")}
-            className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-amber-500/30"
           >
             <span>View All Publications</span>
             <svg

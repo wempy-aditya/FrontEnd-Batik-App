@@ -228,18 +228,24 @@ export default function DatasetsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50">
+    <div className="min-h-screen" style={{ background: "linear-gradient(160deg, #0f0c06 0%, #1c1609 25%, #2a1f0d 50%, #1c1609 75%, #0f0c06 100%)", color: "white" }}>
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0 bg-repeat"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 30m-4 0a4 4 0 1 1 8 0a4 4 0 1 1 -8 0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          ></div>
-        </div>
+      <section className="relative py-20 pt-32 overflow-hidden border-b border-amber-500/10">
+        {/* Base Warm-Dark Gradient matching the Home theme */}
+        <div 
+          className="absolute inset-0" 
+          style={{ background: "linear-gradient(160deg, #1c1609 0%, #2a1f0d 40%, #0f0c06 100%)" }} 
+        />
+
+        {/* Background Batik Image - as a seamless texture */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-luminosity"
+          style={{ 
+            backgroundImage: "url('/background_batik.jpg')",
+            maskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 40%, transparent 100%)"
+          }}
+        />
 
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -293,12 +299,12 @@ export default function DatasetsPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-gray-100 to-blue-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-50 via-amber-200 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
                 Research Datasets
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+            <p className="text-xl md:text-2xl text-amber-100/80 leading-relaxed font-light">
               Explore our comprehensive collection of curated datasets for
               machine learning research. From computer vision to NLP, find the
               perfect data for your next breakthrough.
@@ -311,7 +317,7 @@ export default function DatasetsPage() {
       <section className="py-20">
         <div className="container mx-auto px-6 lg:px-8">
           {/* Filters Section - Compact Unified Container */}
-          <div className="mb-12 bg-white rounded-2xl border-2 border-gray-100 p-6 shadow-lg">
+          <div className="mb-12 bg-white/5 backdrop-blur-md rounded-2xl border border-amber-500/20 p-6 shadow-xl">
             {/* Main Filter Bar */}
             <div className="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center mb-4">
               {/* Search Bar */}
@@ -321,7 +327,7 @@ export default function DatasetsPage() {
                   value={searchQuery}
                   onChange={handleSearch}
                   placeholder="Search datasets..."
-                  className="w-full px-6 py-3 pl-12 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:bg-white focus:outline-none transition-all"
+                  className="w-full px-6 py-3 pl-12 bg-black/40 text-amber-50 placeholder-amber-100/40 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all"
                 />
                 <svg
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -346,7 +352,7 @@ export default function DatasetsPage() {
                     setSelectedCategory(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full lg:w-44 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer font-medium text-gray-700"
+                  className="w-full lg:w-44 px-4 py-3 bg-black/40 text-amber-50 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all appearance-none font-medium [&>option]:bg-[#1c1609] [&>option]:text-amber-50"
                 >
                   {categories.map((category) => (
                     <option
@@ -380,7 +386,7 @@ export default function DatasetsPage() {
                     setSelectedFormat(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full lg:w-36 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer font-medium text-gray-700"
+                  className="w-full lg:w-36 px-4 py-3 bg-black/40 text-amber-50 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all appearance-none font-medium [&>option]:bg-[#1c1609] [&>option]:text-amber-50"
                 >
                   {formatOptions.map((format) => (
                     <option key={format.id} value={format.id}>
@@ -411,7 +417,7 @@ export default function DatasetsPage() {
                     setSelectedLicense(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full lg:w-36 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer font-medium text-gray-700"
+                  className="w-full lg:w-36 px-4 py-3 bg-black/40 text-amber-50 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all appearance-none font-medium [&>option]:bg-[#1c1609] [&>option]:text-amber-50"
                 >
                   {licenseOptions.map((license) => (
                     <option key={license.id} value={license.id}>
@@ -439,7 +445,7 @@ export default function DatasetsPage() {
                 <select
                   value={selectedAccess}
                   onChange={(e) => setSelectedAccess(e.target.value)}
-                  className="w-full lg:w-36 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer font-medium text-gray-700"
+                  className="w-full lg:w-36 px-4 py-3 bg-black/40 text-amber-50 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all appearance-none font-medium [&>option]:bg-[#1c1609] [&>option]:text-amber-50"
                 >
                   {accessTypes.map((access) => (
                     <option key={access.id} value={access.id}>
@@ -470,7 +476,7 @@ export default function DatasetsPage() {
                     setSortBy(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full lg:w-40 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer font-medium text-gray-700"
+                  className="w-full lg:w-40 px-4 py-3 bg-black/40 text-amber-50 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all appearance-none font-medium [&>option]:bg-[#1c1609] [&>option]:text-amber-50"
                 >
                   {sortOptions.map((option) => (
                     <option key={option.id} value={option.id}>
@@ -499,10 +505,10 @@ export default function DatasetsPage() {
                   setIsFeatured(!isFeatured);
                   setCurrentPage(1);
                 }}
-                className={`px-5 py-3 rounded-xl font-semibold transition-all duration-300 border-2 whitespace-nowrap ${
+                className={`px-5 py-3 rounded-xl font-semibold transition-all duration-300 border whitespace-nowrap ${
                   isFeatured
-                    ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-transparent shadow-md"
-                    : "bg-gray-50 text-gray-700 border-gray-200 hover:border-blue-300 hover:bg-blue-50"
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-black border-transparent shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                    : "bg-black/40 text-amber-200 border-amber-500/30 hover:border-amber-400 hover:bg-amber-900/30"
                 }`}
               >
                 Featured
@@ -510,18 +516,18 @@ export default function DatasetsPage() {
             </div>
 
             {/* Divider */}
-            <div className="border-t border-gray-200 my-4"></div>
+            <div className="border-t border-amber-500/20 my-4"></div>
 
             {/* Active Filters & Results Count Row */}
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               {/* Active Filters */}
               <div className="flex flex-wrap gap-2 items-center flex-1">
-                <span className="text-sm font-semibold text-gray-700">
+                <span className="text-sm font-semibold text-amber-100/70">
                   Active filters:
                 </span>
 
                 {selectedCategory !== "all" && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-100 text-blue-800 rounded-lg text-sm font-medium">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 text-amber-200 rounded-lg text-sm font-medium border border-amber-500/20">
                     <span className="font-semibold">Category:</span>
                     {
                       categories.find(
@@ -535,7 +541,7 @@ export default function DatasetsPage() {
                         setSelectedCategory("all");
                         setCurrentPage(1);
                       }}
-                      className="ml-1 hover:bg-blue-200 rounded-full w-4 h-4 flex items-center justify-center"
+                      className="ml-1 hover:bg-amber-500/20 rounded-full w-4 h-4 flex items-center justify-center transition-colors"
                     >
                       ×
                     </button>
@@ -543,7 +549,7 @@ export default function DatasetsPage() {
                 )}
 
                 {selectedFormat !== "all" && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-100 text-blue-800 rounded-lg text-sm font-medium">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 text-amber-200 rounded-lg text-sm font-medium border border-amber-500/20">
                     <span className="font-semibold">Format:</span>
                     {selectedFormat}
                     <button
@@ -551,7 +557,7 @@ export default function DatasetsPage() {
                         setSelectedFormat("all");
                         setCurrentPage(1);
                       }}
-                      className="ml-1 hover:bg-blue-200 rounded-full w-4 h-4 flex items-center justify-center"
+                      className="ml-1 hover:bg-amber-500/20 rounded-full w-4 h-4 flex items-center justify-center transition-colors"
                     >
                       ×
                     </button>
@@ -559,7 +565,7 @@ export default function DatasetsPage() {
                 )}
 
                 {selectedLicense !== "all" && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-100 text-blue-800 rounded-lg text-sm font-medium">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 text-amber-200 rounded-lg text-sm font-medium border border-amber-500/20">
                     <span className="font-semibold">License:</span>
                     {selectedLicense}
                     <button
@@ -567,7 +573,7 @@ export default function DatasetsPage() {
                         setSelectedLicense("all");
                         setCurrentPage(1);
                       }}
-                      className="ml-1 hover:bg-blue-200 rounded-full w-4 h-4 flex items-center justify-center"
+                      className="ml-1 hover:bg-amber-500/20 rounded-full w-4 h-4 flex items-center justify-center transition-colors"
                     >
                       ×
                     </button>
@@ -575,12 +581,12 @@ export default function DatasetsPage() {
                 )}
 
                 {selectedAccess !== "all" && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-100 text-green-800 rounded-lg text-sm font-medium">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 text-amber-200 rounded-lg text-sm font-medium border border-amber-500/20">
                     <span className="font-semibold">Access:</span>
                     {selectedAccess}
                     <button
                       onClick={() => setSelectedAccess("all")}
-                      className="ml-1 hover:bg-green-200 rounded-full w-4 h-4 flex items-center justify-center"
+                      className="ml-1 hover:bg-amber-500/20 rounded-full w-4 h-4 flex items-center justify-center transition-colors"
                     >
                       ×
                     </button>
@@ -588,14 +594,14 @@ export default function DatasetsPage() {
                 )}
 
                 {isFeatured && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-100 text-blue-800 rounded-lg text-sm font-medium">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 text-amber-200 rounded-lg text-sm font-medium border border-amber-500/20">
                     Featured
                     <button
                       onClick={() => {
                         setIsFeatured(false);
                         setCurrentPage(1);
                       }}
-                      className="ml-1 hover:bg-blue-200 rounded-full w-4 h-4 flex items-center justify-center"
+                      className="ml-1 hover:bg-amber-500/20 rounded-full w-4 h-4 flex items-center justify-center transition-colors"
                     >
                       ×
                     </button>
@@ -603,14 +609,14 @@ export default function DatasetsPage() {
                 )}
 
                 {sortBy !== "latest" && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-100 text-purple-800 rounded-lg text-sm font-medium">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-500/10 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/20">
                     <span className="font-semibold">Sort:</span>
                     {sortOptions.find((s) => s.id === sortBy)?.name}
                   </span>
                 )}
 
                 {searchQuery && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-cyan-100 text-cyan-800 rounded-lg text-sm font-medium">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-500/10 text-blue-300 rounded-lg text-sm font-medium border border-blue-500/20">
                     <span className="font-semibold">Search:</span>"
                     {searchQuery.substring(0, 20)}
                     {searchQuery.length > 20 ? "..." : ""}"
@@ -619,7 +625,7 @@ export default function DatasetsPage() {
                         setSearchQuery("");
                         setCurrentPage(1);
                       }}
-                      className="ml-1 hover:bg-cyan-200 rounded-full w-4 h-4 flex items-center justify-center"
+                      className="ml-1 hover:bg-blue-500/20 rounded-full w-4 h-4 flex items-center justify-center transition-colors"
                     >
                       ×
                     </button>
@@ -633,7 +639,7 @@ export default function DatasetsPage() {
                   !isFeatured &&
                   sortBy === "latest" &&
                   !searchQuery && (
-                    <span className="text-sm text-gray-500">None</span>
+                    <span className="text-sm text-amber-100/40">None</span>
                   )}
 
                 {(selectedCategory !== "all" ||
@@ -654,7 +660,7 @@ export default function DatasetsPage() {
                       setSearchQuery("");
                       setCurrentPage(1);
                     }}
-                    className="px-4 py-1.5 bg-red-50 text-red-600 rounded-lg text-sm font-semibold hover:bg-red-100 transition-colors border border-red-200"
+                    className="px-4 py-1.5 bg-red-500/10 text-red-400 rounded-lg text-sm font-semibold hover:bg-red-500/20 transition-colors border border-red-500/20"
                   >
                     Clear All
                   </button>
@@ -662,14 +668,14 @@ export default function DatasetsPage() {
               </div>
 
               {/* Results Count */}
-              <div className="lg:border-l lg:border-gray-200 lg:pl-6">
-                <p className="text-gray-600 text-sm whitespace-nowrap">
+              <div className="lg:border-l lg:border-amber-500/20 lg:pl-6">
+                <p className="text-amber-100/60 text-sm whitespace-nowrap">
                   Showing{" "}
-                  <span className="font-bold text-gray-900">
+                  <span className="font-bold text-amber-400">
                     {filteredDatasets.length}
                   </span>{" "}
                   of{" "}
-                  <span className="font-bold text-gray-900">{totalItems}</span>{" "}
+                  <span className="font-bold text-amber-400">{totalItems}</span>{" "}
                   datasets
                 </p>
               </div>
@@ -712,7 +718,7 @@ export default function DatasetsPage() {
                   onMouseLeave={() => setHoveredDataset(null)}
                 >
                   {/* Dataset Card */}
-                  <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 h-full">
+                  <div className="relative rounded-2xl overflow-hidden shadow-lg border border-amber-400/20 hover:border-amber-400/50 hover:shadow-amber-400/15 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-full flex flex-col backdrop-blur-sm" style={{ background: "rgba(255, 240, 200, 0.06)" }}>
                     {/* Header with Preview */}
                     <div className="relative h-40 overflow-hidden">
                       <div
@@ -761,13 +767,13 @@ export default function DatasetsPage() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6 space-y-4">
+                    <div className="p-6 space-y-4 flex-1 flex flex-col">
                       {/* Title & Downloads */}
                       <div className="flex items-start justify-between">
-                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-amber-50 group-hover:text-amber-300 transition-colors duration-300">
                           {dataset.name}
                         </h3>
-                        <div className="flex items-center text-sm text-gray-500 ml-2">
+                        <div className="flex items-center text-sm text-amber-100/60 ml-2">
                           <svg
                             className="w-4 h-4 mr-1"
                             fill="none"
@@ -787,7 +793,7 @@ export default function DatasetsPage() {
 
                       {/* Description */}
                       <p
-                        className="text-gray-600 text-sm leading-relaxed mb-4"
+                        className="text-amber-100/60 text-sm leading-relaxed mb-4 flex-grow"
                         style={{
                           display: "-webkit-box",
                           WebkitLineClamp: 5,
@@ -800,25 +806,25 @@ export default function DatasetsPage() {
                       </p>
 
                       {/* Stats Grid */}
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="bg-gray-50 rounded-lg p-3 text-center">
-                          <div className="text-lg font-bold text-gray-900">
+                      <div className="grid grid-cols-2 gap-3 mt-auto">
+                        <div className="bg-black/20 border border-amber-500/10 rounded-lg p-3 text-center">
+                          <div className="text-lg font-bold text-amber-100">
                             {dataset.categories?.length || 0}
                           </div>
-                          <div className="text-xs text-gray-600">
+                          <div className="text-xs text-amber-100/50">
                             Categories
                           </div>
                         </div>
-                        <div className="bg-gray-50 rounded-lg p-3 text-center">
-                          <div className="text-lg font-bold text-gray-900">
+                        <div className="bg-black/20 border border-amber-500/10 rounded-lg p-3 text-center">
+                          <div className="text-lg font-bold text-amber-100">
                             {formatNumber(dataset.samples)}
                           </div>
-                          <div className="text-xs text-gray-600">Samples</div>
+                          <div className="text-xs text-amber-100/50">Samples</div>
                         </div>
                       </div>
 
                       {/* Metadata */}
-                      <div className="space-y-2 text-xs text-gray-500">
+                      <div className="space-y-2 text-xs text-amber-100/60">
                         <div className="flex justify-between">
                           <span>Format:</span>
                           <span className="font-medium">{dataset.format}</span>
@@ -851,9 +857,7 @@ export default function DatasetsPage() {
                               window.location.href = `/datasets/${dataset.id}/download`;
                             }
                           }}
-                          className={`w-full py-3 px-4 bg-gradient-to-r ${getGradientClass(
-                            dataset.gradient,
-                          )} text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
+                          className={`w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105`}
                         >
                           <div className="flex items-center justify-center gap-2">
                             <svg
@@ -875,7 +879,7 @@ export default function DatasetsPage() {
 
                         <button
                           onClick={() => router.push(`/datasets/${dataset.id}`)}
-                          className="w-full py-2 px-4 text-gray-700 font-medium text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                          className="w-full py-2 px-4 text-amber-200 font-medium text-sm border border-amber-500/30 rounded-lg hover:bg-amber-500/10 transition-colors duration-200"
                         >
                           View Details
                         </button>
@@ -900,8 +904,8 @@ export default function DatasetsPage() {
                 disabled={currentPage === 1}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   currentPage === 1
-                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-white text-gray-700 hover:bg-blue-50 border border-gray-200"
+                    ? "bg-black/20 text-amber-100/30 cursor-not-allowed border border-transparent"
+                    : "bg-white/5 text-amber-200 hover:bg-amber-500/20 border border-amber-500/30"
                 }`}
               >
                 Previous
@@ -914,8 +918,8 @@ export default function DatasetsPage() {
                     onClick={() => setCurrentPage(index + 1)}
                     className={`px-4 py-2 rounded-lg font-medium transition-all ${
                       currentPage === index + 1
-                        ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white"
-                        : "bg-white text-gray-700 hover:bg-blue-50 border border-gray-200"
+                        ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-black border border-transparent"
+                        : "bg-white/5 text-amber-200 hover:bg-amber-500/20 border border-amber-500/30"
                     }`}
                   >
                     {index + 1}
@@ -930,8 +934,8 @@ export default function DatasetsPage() {
                 disabled={currentPage === totalPages}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   currentPage === totalPages
-                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-white text-gray-700 hover:bg-blue-50 border border-gray-200"
+                    ? "bg-black/20 text-amber-100/30 cursor-not-allowed border border-transparent"
+                    : "bg-white/5 text-amber-200 hover:bg-amber-500/20 border border-amber-500/30"
                 }`}
               >
                 Next
@@ -942,24 +946,24 @@ export default function DatasetsPage() {
           {/* CTA Section */}
           <div className="text-center mt-20">
             <div className="max-w-3xl mx-auto">
-              <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border-2 border-gray-100">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-xl border border-amber-500/20">
+                <h2 className="text-3xl md:text-4xl font-bold text-amber-50 mb-4">
                   Need a Custom Dataset?
                 </h2>
-                <p className="text-xl text-gray-600 mb-6">
+                <p className="text-xl text-amber-100/70 mb-6">
                   We can help you create, annotate, and validate custom datasets
                   tailored to your specific research needs.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={() => (window.location.href = "/contact")}
-                    className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_15px_rgba(245,158,11,0.4)]"
                   >
                     Contact Our Team
                   </button>
                   <button
                     onClick={() => (window.location.href = "/projects")}
-                    className="px-8 py-4 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-200 hover:border-amber-300 hover:bg-amber-50 transition-all duration-300"
+                    className="px-8 py-4 bg-white/5 text-amber-200 font-semibold rounded-xl border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10 transition-all duration-300 backdrop-blur-sm"
                   >
                     View Services
                   </button>

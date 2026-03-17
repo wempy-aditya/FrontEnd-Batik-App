@@ -262,18 +262,21 @@ export default function NewsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <div className="min-h-screen" style={{ background: "linear-gradient(160deg, #0f0c06 0%, #1c1609 25%, #2a1f0d 50%, #1c1609 75%, #0f0c06 100%)", color: "white" }}>
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
+      <section className="relative py-20 pt-32 overflow-hidden border-b border-amber-500/10">
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0 bg-repeat"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          ></div>
-        </div>
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/background_batik.jpg')" }}
+        />
+        {/* Warm-dark gradient overlay */}
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(160deg, rgba(15,12,6,0.85) 0%, rgba(28,22,9,0.7) 25%, rgba(42,31,13,0.6) 50%, rgba(28,22,9,0.8) 75%, rgba(15,12,6,0.95) 100%)" 
+          }} 
+        />
 
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -286,12 +289,12 @@ export default function NewsPage() {
           <div className="flex items-center text-sm text-amber-200 mb-8">
             <button
               onClick={() => router.push("/")}
-              className="hover:text-white transition-colors"
+              className="hover:text-amber-100 transition-colors"
             >
               Home
             </button>
             <svg
-              className="w-4 h-4 mx-2"
+              className="w-4 h-4 mx-2 text-amber-500/50"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -303,11 +306,11 @@ export default function NewsPage() {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-            <span className="text-white">News</span>
+            <span className="text-amber-50">News</span>
           </div>
 
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-8">
+            <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-amber-500/30 mb-8">
               <svg
                 className="w-4 h-4 text-amber-400"
                 fill="none"
@@ -321,18 +324,18 @@ export default function NewsPage() {
                   d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
                 />
               </svg>
-              <span className="text-sm font-semibold text-amber-200">
+              <span className="text-sm font-bold text-amber-200">
                 Latest Updates & Announcements
               </span>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-50 via-amber-200 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
                 News & Updates
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+            <p className="text-xl md:text-2xl text-amber-100/80 font-light leading-relaxed">
               Stay informed about our latest research, product updates, and
               company announcements. Discover what's happening at AI Vision Lab.
             </p>
@@ -350,14 +353,14 @@ export default function NewsPage() {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 border-2 ${
+                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 border backdrop-blur-sm ${
                     selectedCategory === category.id
-                      ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white border-transparent shadow-lg"
-                      : "bg-white text-gray-700 border-gray-200 hover:border-amber-300 hover:bg-amber-50"
+                      ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-black border-transparent shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                      : "bg-white/5 text-amber-200 border-amber-500/30 hover:border-amber-400/50 hover:bg-white/10"
                   }`}
                 >
                   {category.name}
-                  <span className="ml-2 text-sm opacity-75">
+                  <span className={`ml-2 text-sm ${selectedCategory === category.id ? "text-black/70" : "text-amber-500/50"}`}>
                     ({category.count})
                   </span>
                 </button>
@@ -368,14 +371,14 @@ export default function NewsPage() {
           {/* Featured News */}
           {selectedCategory === "all" && displayFeatured.length > 0 && (
             <div className="mb-16">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              <h2 className="text-3xl font-bold text-amber-50 mb-8 drop-shadow-sm">
                 Featured Stories
               </h2>
               <div className="grid lg:grid-cols-2 gap-8">
                 {displayFeatured.map((article) => (
                   <div
                     key={article.id}
-                    className="group relative bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-200/50 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                    className="group relative bg-white/5 backdrop-blur-md rounded-3xl overflow-hidden shadow-lg border border-amber-500/20 hover:border-amber-400/50 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)] transition-all duration-500 transform hover:-translate-y-2"
                   >
                     {/* Thumbnail Image */}
                     {article.thumbnail_url ? (
@@ -385,20 +388,20 @@ export default function NewsPage() {
                           alt={article.title}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"></div>
                         <div className="absolute top-4 left-4">
-                          <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-gray-900 text-sm font-semibold rounded-full capitalize">
+                          <span className="px-4 py-2 bg-black/60 backdrop-blur-md text-amber-200 border border-amber-500/30 text-sm font-semibold rounded-full capitalize">
                             {getCategory(article)}
                           </span>
                         </div>
                       </div>
                     ) : (
                       <div
-                        className={`h-64 bg-gradient-to-br ${article.image || "from-amber-500 to-yellow-500"} relative`}
+                        className={`h-64 bg-gradient-to-br ${article.image || "from-amber-500 to-yellow-600"} relative`}
                       >
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"></div>
                         <div className="absolute top-4 left-4">
-                          <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-gray-900 text-sm font-semibold rounded-full capitalize">
+                          <span className="px-4 py-2 bg-black/60 backdrop-blur-md text-amber-200 border border-amber-500/30 text-sm font-semibold rounded-full capitalize">
                             {getCategory(article)}
                           </span>
                         </div>
@@ -406,7 +409,7 @@ export default function NewsPage() {
                     )}
 
                     <div className="p-8">
-                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                      <div className="flex items-center gap-4 text-sm text-amber-200/60 mb-4 font-light">
                         <span>
                           {formatDate(article.created_at || article.date)}
                         </span>
@@ -416,11 +419,11 @@ export default function NewsPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-amber-600 transition-colors">
+                      <h3 className="text-2xl font-bold text-amber-50 mb-4 group-hover:text-amber-300 transition-colors">
                         {article.title}
                       </h3>
 
-                      <p className="text-gray-600 leading-relaxed mb-6 line-clamp-3">
+                      <p className="text-amber-100/70 leading-relaxed mb-6 line-clamp-3 font-light">
                         {article.excerpt ||
                           article.content?.substring(0, 150) + "..." ||
                           ""}
@@ -428,13 +431,13 @@ export default function NewsPage() {
 
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full flex items-center justify-center text-white font-bold">
+                          <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold shadow-md shadow-amber-500/20">
                             {(article.creator_name || article.author || "A")
                               .charAt(0)
                               .toUpperCase()}
                           </div>
                           <div>
-                            <div className="text-sm font-semibold text-gray-900">
+                            <div className="text-sm font-semibold text-amber-50">
                               {article.creator_name ||
                                 article.author ||
                                 "Admin"}
@@ -444,7 +447,7 @@ export default function NewsPage() {
 
                         <button
                           onClick={() => router.push(`/news/${article.id}`)}
-                          className="px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                          className="px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-semibold rounded-lg hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] transition-all duration-300"
                         >
                           Read More
                         </button>
@@ -458,25 +461,25 @@ export default function NewsPage() {
 
           {/* All News Grid */}
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+            <h2 className="text-3xl font-bold text-amber-50 mb-8 drop-shadow-sm">
               {selectedCategory === "all" ? "All News" : "Filtered News"}
             </h2>
 
             {loading ? (
               <div className="text-center py-12">
-                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mb-4"></div>
-                <p className="text-gray-600">Loading news...</p>
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mb-4"></div>
+                <p className="text-amber-100/60 font-light">Loading news...</p>
               </div>
             ) : filteredNews.length === 0 ? (
-              <div className="text-center py-12">
-                <p className="text-gray-600">No news found.</p>
+              <div className="text-center py-12 bg-white/5 backdrop-blur-md rounded-2xl border border-amber-500/20">
+                <p className="text-amber-100/60 font-light">No news found.</p>
               </div>
             ) : (
               <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
                 {filteredNews.map((article) => (
                   <div
                     key={article.id}
-                    className="group bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200/50 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                    className="group bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-amber-500/20 hover:border-amber-400/50 hover:shadow-[0_0_20px_rgba(245,158,11,0.15)] transition-all duration-500 transform hover:-translate-y-2"
                   >
                     {/* Thumbnail */}
                     {article.thumbnail_url ? (
@@ -486,20 +489,20 @@ export default function NewsPage() {
                           alt={article.title}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"></div>
                         <div className="absolute top-4 left-4">
-                          <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-900 text-xs font-semibold rounded-full capitalize">
+                          <span className="px-3 py-1 bg-black/60 backdrop-blur-md text-amber-200 border border-amber-500/30 text-xs font-semibold rounded-full capitalize">
                             {getCategory(article)}
                           </span>
                         </div>
                       </div>
                     ) : (
                       <div
-                        className={`h-48 bg-gradient-to-br ${article.image || "from-gray-500 to-slate-500"} relative`}
+                        className={`h-48 bg-gradient-to-br ${article.image || "from-gray-700 to-slate-800"} relative`}
                       >
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"></div>
                         <div className="absolute top-4 left-4">
-                          <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-900 text-xs font-semibold rounded-full capitalize">
+                          <span className="px-3 py-1 bg-black/60 backdrop-blur-md text-amber-200 border border-amber-500/30 text-xs font-semibold rounded-full capitalize">
                             {getCategory(article)}
                           </span>
                         </div>
@@ -507,7 +510,7 @@ export default function NewsPage() {
                     )}
 
                     <div className="p-6">
-                      <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                      <div className="flex items-center gap-3 text-xs text-amber-200/50 mb-3 font-light">
                         <span>
                           {formatDate(article.created_at || article.date)}
                         </span>
@@ -517,25 +520,25 @@ export default function NewsPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-amber-600 transition-colors line-clamp-2">
+                      <h3 className="text-lg font-bold text-amber-50 mb-3 group-hover:text-amber-300 transition-colors line-clamp-2">
                         {article.title}
                       </h3>
 
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                      <p className="text-amber-100/60 text-sm leading-relaxed mb-4 line-clamp-3 font-light">
                         {article.excerpt ||
                           article.content?.substring(0, 100) + "..." ||
                           ""}
                       </p>
 
-                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <div className="text-xs text-gray-600">
-                          By {article.creator_name || article.author || "Admin"}
+                      <div className="flex items-center justify-between pt-4 border-t border-amber-500/10">
+                        <div className="text-xs text-amber-100/50 font-light">
+                          By <span className="font-medium text-amber-100/80">{article.creator_name || article.author || "Admin"}</span>
                         </div>
                         <button
                           onClick={() => router.push(`/news/${article.id}`)}
-                          className="text-amber-600 hover:text-amber-700 font-semibold text-sm"
+                          className="text-amber-400 hover:text-amber-300 font-semibold text-sm flex items-center gap-1 transition-colors"
                         >
-                          Read →
+                          Read <span className="text-lg leading-none">→</span>
                         </button>
                       </div>
                     </div>

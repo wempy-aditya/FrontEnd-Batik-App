@@ -136,18 +136,17 @@ const GalleryCarousel = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-br from-slate-950 via-stone-900 to-slate-900 relative">
+    <section className="py-12 md:py-16 relative" style={{ background: "linear-gradient(160deg, #0f0c06 0%, #1c1609 25%, #2a1f0d 50%, #1c1609 75%, #0f0c06 100%)" }}>
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-3/4 left-1/3 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-600/15 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-10">
-          <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-amber-500/30 mb-6">
             <svg
               className="w-4 h-4 text-amber-400 mr-2"
               fill="none"
@@ -161,7 +160,7 @@ const GalleryCarousel = () => {
                 d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            <span className="text-sm font-semibold text-amber-200">
+            <span className="text-sm font-semibold text-amber-300">
               Batik Gallery
             </span>
           </div>

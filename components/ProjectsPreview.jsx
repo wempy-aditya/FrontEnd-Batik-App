@@ -68,8 +68,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-amber-500 to-yellow-500",
-      bgGradient: "from-amber-500/10 to-yellow-500/10",
+      gradient: "from-stone-700 via-amber-800 to-yellow-700",
+      bgGradient: "from-stone-700/10 to-yellow-700/10",
     },
     {
       id: 2,
@@ -100,8 +100,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-amber-500 to-red-500",
-      bgGradient: "from-amber-500/10 to-red-500/10",
+      gradient: "from-teal-700 via-emerald-700 to-cyan-700",
+      bgGradient: "from-teal-700/10 to-cyan-700/10",
     },
     {
       id: 3,
@@ -126,8 +126,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-yellow-500 to-amber-500",
-      bgGradient: "from-yellow-500/10 to-amber-500/10",
+      gradient: "from-orange-700 via-red-700 to-rose-700",
+      bgGradient: "from-orange-700/10 to-rose-700/10",
     },
     {
       id: 4,
@@ -152,8 +152,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-amber-600 to-yellow-600",
-      bgGradient: "from-amber-600/10 to-yellow-600/10",
+      gradient: "from-indigo-700 via-violet-700 to-purple-700",
+      bgGradient: "from-indigo-700/10 to-purple-700/10",
     },
     {
       id: 5,
@@ -178,8 +178,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-amber-500 to-cyan-500",
-      bgGradient: "from-amber-500/10 to-cyan-500/10",
+      gradient: "from-amber-800 via-orange-700 to-yellow-600",
+      bgGradient: "from-amber-800/10 to-yellow-600/10",
     },
     {
       id: 6,
@@ -204,8 +204,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-pink-500 to-amber-500",
-      bgGradient: "from-pink-500/10 to-amber-500/10",
+      gradient: "from-rose-700 via-pink-700 to-fuchsia-700",
+      bgGradient: "from-rose-700/10 to-fuchsia-700/10",
     },
     {
       id: 7,
@@ -226,12 +226,12 @@ const ProjectsPreview = () => {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="Mكعبة20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
           />
         </svg>
       ),
-      gradient: "from-amber-500 to-purple-500",
-      bgGradient: "from-amber-500/10 to-purple-500/10",
+      gradient: "from-slate-700 via-zinc-700 to-stone-700",
+      bgGradient: "from-slate-700/10 to-stone-700/10",
     },
     {
       id: 8,
@@ -256,8 +256,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-red-500 to-yellow-500",
-      bgGradient: "from-red-500/10 to-yellow-500/10",
+      gradient: "from-red-800 via-rose-700 to-pink-700",
+      bgGradient: "from-red-800/10 to-pink-700/10",
     },
     {
       id: 9,
@@ -282,8 +282,8 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-cyan-500 to-blue-500",
-      bgGradient: "from-cyan-500/10 to-blue-500/10",
+      gradient: "from-sky-700 via-blue-700 to-indigo-700",
+      bgGradient: "from-sky-700/10 to-indigo-700/10",
     },
     {
       id: 10,
@@ -308,10 +308,14 @@ const ProjectsPreview = () => {
           />
         </svg>
       ),
-      gradient: "from-slate-600 to-gray-600",
-      bgGradient: "from-slate-600/10 to-gray-600/10",
+      gradient: "from-green-800 via-emerald-800 to-teal-800",
+      bgGradient: "from-green-800/10 to-teal-800/10",
     },
   ];
+
+  // Helper: gold-black gradient CSS
+  const gradientToStyle = () =>
+    "linear-gradient(135deg, #0f0f0f 0%, #1a1200 40%, #78560a 70%, #d4a017 100%)";
 
   // Responsive items per page - match projects page grid
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -354,15 +358,15 @@ const ProjectsPreview = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50 to-white relative">
-      {/* Floating Elements - removed pattern */}
-      <div className="absolute top-20 left-1/4 w-64 h-64 bg-amber-200 rounded-full blur-3xl opacity-20"></div>
-      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-orange-200 rounded-full blur-3xl opacity-20"></div>
+    <section className="py-12 md:py-16 relative" style={{ background: "linear-gradient(160deg, #0f0c06 0%, #1c1609 25%, #2a1f0d 50%, #1c1609 75%, #0f0c06 100%)" }}>
+      {/* Floating glow elements */}
+      <div className="absolute top-20 left-1/4 w-64 h-64 bg-amber-600/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-yellow-600/15 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-yellow-100 px-4 py-2 rounded-full text-sm font-medium text-amber-800 mb-6">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-amber-500/30 px-4 py-2 rounded-full text-sm font-medium text-amber-300 mb-6">
             <svg
               className="w-4 h-4"
               fill="none"
@@ -379,15 +383,15 @@ const ProjectsPreview = () => {
             Featured Batik Products
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-            <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent">
               Our Batik
             </span>
             <br />
-            <span className="bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">
               Application Products
             </span>
           </h2>
-          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             One of the masterpieces of our research product. Explore batik
             generation, classification, retrieval, and datasets built with
             cutting-edge AI technology.
@@ -527,8 +531,8 @@ const ProjectsPreview = () => {
                     onMouseEnter={() => setHoveredCard(project.id)}
                     onMouseLeave={() => setHoveredCard(null)}
                   >
-                    {/* Project Card - Adopted from Projects Page */}
-                    <div className="relative bg-white rounded-3xl overflow-hidden shadow-md border border-gray-200/50 hover:shadow-lg transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 h-full flex flex-col">
+                    {/* Project Card - Glassmorphism */}
+                    <div className="relative rounded-3xl overflow-hidden shadow-lg border border-amber-400/20 hover:border-amber-400/50 hover:shadow-amber-400/15 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 h-full flex flex-col backdrop-blur-sm" style={{ background: "rgba(255, 240, 200, 0.06)" }}>
                       {/* Gradient Background on Hover */}
                       <div
                         className={`absolute inset-0 bg-gradient-to-br ${
@@ -558,10 +562,9 @@ const ProjectsPreview = () => {
                           />
                         ) : null}
                         <div
-                          className={`absolute inset-0 bg-gradient-to-br ${
-                            project.gradient || "from-amber-500 to-yellow-500"
-                          } transition-all duration-700 group-hover:scale-110`}
+                          className="absolute inset-0 transition-all duration-700 group-hover:scale-110"
                           style={{
+                            background: gradientToStyle(project.gradient),
                             display: project.thumbnail_url ? "none" : "block",
                           }}
                         >
@@ -601,10 +604,10 @@ const ProjectsPreview = () => {
                       <div className="relative z-10 p-6 space-y-4 flex-1 flex flex-col">
                         {/* Title & Description */}
                         <div className="flex-grow">
-                          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                          <h3 className="text-xl font-bold text-amber-50 mb-2 group-hover:text-amber-300 transition-colors duration-300">
                             {project.title || "Untitled Project"}
                           </h3>
-                          <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                          <p className="text-amber-100/60 text-sm leading-relaxed">
                             {truncateText(project.description, 100)}
                           </p>
                         </div>
@@ -613,7 +616,7 @@ const ProjectsPreview = () => {
                         {project.technologies &&
                           project.technologies.length > 0 && (
                             <div>
-                              <h4 className="text-xs font-semibold text-gray-900 mb-2">
+                              <h4 className="text-xs font-semibold text-amber-400/80 mb-2">
                                 Technologies:
                               </h4>
                               <div className="flex flex-wrap gap-1">
@@ -622,13 +625,13 @@ const ProjectsPreview = () => {
                                   .map((tech, techIndex) => (
                                     <span
                                       key={techIndex}
-                                      className="px-2 py-1 text-xs font-medium text-amber-700 bg-amber-50 rounded-md border border-amber-200"
+                                      className="px-2 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 border border-amber-400/20 rounded-md"
                                     >
                                       {tech}
                                     </span>
                                   ))}
                                 {project.technologies.length > 3 && (
-                                  <span className="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-md">
+                                  <span className="px-2 py-1 text-xs font-medium text-amber-200/50 bg-white/5 rounded-md border border-white/10">
                                     +{project.technologies.length - 3} more
                                   </span>
                                 )}
@@ -644,7 +647,8 @@ const ProjectsPreview = () => {
                                 `/projects/${project.slug || project.id}`,
                               )
                             }
-                            className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                            className="w-full py-3 px-4 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 cursor-pointer hover:opacity-90"
+                            style={{ background: gradientToStyle(project.gradient) }}
                           >
                             <div className="flex items-center justify-center gap-2">
                               <span>View Details</span>
@@ -723,7 +727,7 @@ const ProjectsPreview = () => {
           <div className="text-center relative z-50 mt-6 md:mt-8">
             <button
               onClick={() => router.push("/projects")}
-              className="group inline-flex items-center px-6 md:px-10 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold text-base md:text-lg rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+              className="group inline-flex items-center px-6 md:px-10 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-bold text-base md:text-lg rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/30"
             >
               <span>Explore All Products</span>
               <svg

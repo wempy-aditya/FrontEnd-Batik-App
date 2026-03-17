@@ -1,163 +1,96 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 
 const HeroSection = () => {
   const [hoverButton, setHoverButton] = useState(null);
   const router = useRouter();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-stone-900 to-neutral-950 pt-20">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div
-          className="absolute inset-0 bg-repeat"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C7A3C' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        ></div>
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/background_batik.jpg')" }}
+      />
+      {/* Warm-dark gradient overlay to match other sections */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(160deg, rgba(15,12,6,0.85) 0%, rgba(28,22,9,0.7) 25%, rgba(42,31,13,0.6) 50%, rgba(28,22,9,0.8) 75%, rgba(15,12,6,0.95) 100%)"
+        }}
+      />
 
-      {/* Floating Elements */}
+      {/* Floating glow elements - disesuaikan ke warm gold */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 right-1/3 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-yellow-600/15 rounded-full blur-3xl" style={{ animationDuration: '4s' }}></div>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="text-center lg:text-left space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-amber-100 to-amber-200 bg-clip-text text-transparent leading-tight">
-                Batik Generative
-                <span className="block bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">
-                  AI Platform
-                </span>
-              </h1>
+      {/* Content — centered */}
+      <div className="container mx-auto px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
+        <div className="space-y-6 max-w-3xl">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-amber-50 via-amber-200 to-yellow-400 bg-clip-text text-transparent leading-tight drop-shadow-lg">
+            Batik Generative
+            <span className="block bg-gradient-to-r from-amber-400 to-yellow-600 bg-clip-text text-transparent mt-2">
+              AI Platform
+            </span>
+          </h1>
 
-              <p className="text-xl md:text-2xl text-gray-300 max-w-2xl leading-relaxed">
-                Get to know more about batik and all its patterns. Do research
-                about batik products and collaborate with everyone to explore
-                more about batiks.
-              </p>
-            </div>
+          <p className="text-xl md:text-2xl text-amber-100/80 leading-relaxed font-light">
+            Get to know more about batik and all its patterns. Do research
+            about batik products and collaborate with everyone to explore
+            more about batiks.
+          </p>
+        </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button
-                onClick={() => router.push("/projects")}
-                onMouseEnter={() => setHoverButton("explore")}
-                onMouseLeave={() => setHoverButton(null)}
-                className="group relative px-8 py-4 bg-gradient-to-r from-amber-600 to-yellow-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/25"
+        <div className="flex flex-col sm:flex-row gap-4 mt-10">
+          {/* Solid Gold Button */}
+          <button
+            onClick={() => router.push("/projects")}
+            onMouseEnter={() => setHoverButton("explore")}
+            onMouseLeave={() => setHoverButton(null)}
+            className="group relative px-8 py-4 text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/20 shadow-lg"
+            style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}
+          >
+            <div className="flex items-center justify-center gap-2">
+              <span>Explore Products</span>
+              <svg
+                className={`w-4 h-4 transition-transform duration-300 ${hoverButton === "explore" ? "translate-x-1" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <div className="flex items-center justify-center gap-2">
-                  <span>Explore Products</span>
-                  <svg
-                    className={`w-4 h-4 transition-transform duration-300 ${hoverButton === "explore" ? "translate-x-1" : ""
-                      }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-300 -z-10"></div>
-              </button>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </div>
+            <div className="absolute inset-0 bg-yellow-400/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+          </button>
 
-              <button
-                onClick={() => router.push("/publications")}
-                onMouseEnter={() => setHoverButton("publications")}
-                onMouseLeave={() => setHoverButton(null)}
-                className="group px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:bg-white/20"
+          {/* Glassmorphism Outline Button */}
+          <button
+            onClick={() => router.push("/publications")}
+            onMouseEnter={() => setHoverButton("publications")}
+            onMouseLeave={() => setHoverButton(null)}
+            className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-amber-500/30 text-amber-200 font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:bg-amber-500/10 hover:border-amber-400/50"
+          >
+            <div className="flex items-center justify-center gap-2">
+              <span>Our Publications</span>
+              <svg
+                className={`w-4 h-4 transition-transform duration-300 ${hoverButton === "publications" ? "translate-x-1" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <div className="flex items-center justify-center gap-2">
-                  <span>Our Publications</span>
-                  <svg
-                    className={`w-4 h-4 transition-transform duration-300 ${hoverButton === "publications" ? "translate-x-1" : ""}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </div>
-              </button>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </div>
-          </div>
-
-          {/* Right Illustration */}
-          <div className="hidden lg:flex justify-center items-center">
-            <div className="relative w-full max-w-lg">
-              {/* Main Mockup Container */}
-              <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20">
-                {/* Mock UI Header */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  </div>
-                  <div className="h-2 bg-white/20 rounded-full flex-1 max-w-32"></div>
-                </div>
-
-                {/* Mock Gallery Grid */}
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  {[
-                    "/batik_0003.png",
-                    "/batik_motif_named_Sekar_Tanjung_featuring_a_centra_seed42_1.png",
-                    "/batik_with_flower_motifs_seed42_5.png",
-                    "/batik_with_flower_motifs_seed42_7.png",
-                  ].map((src, i) => (
-                    <div
-                      key={i}
-                      className="relative aspect-square rounded-xl overflow-hidden group"
-                    >
-                      <Image
-                        src={src}
-                        alt={`Batik Sample ${i + 1}`}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Mock Controls */}
-                <div className="space-y-3">
-                  <div className="h-3 bg-white/20 rounded-full w-3/4"></div>
-                  <div className="h-3 bg-white/20 rounded-full w-1/2"></div>
-                  <div className="flex gap-2">
-                    <div className="h-8 bg-purple-500/30 rounded-lg flex-1"></div>
-                    <div className="h-8 bg-pink-500/30 rounded-lg w-16"></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Elements around mockup */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full blur-sm opacity-60 animate-bounce"></div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-stone-500 to-amber-500 rounded-full blur-sm opacity-60 animate-bounce delay-1000"></div>
-              <div className="absolute top-1/2 -right-8 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full blur-sm opacity-60 animate-bounce delay-500"></div>
-            </div>
-          </div>
+          </button>
         </div>
       </div>
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f0c06] to-transparent"></div>
     </section>
   );
 };

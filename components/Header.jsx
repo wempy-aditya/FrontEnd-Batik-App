@@ -91,10 +91,10 @@ const Header = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isMobileMenuOpen
-            ? "bg-white shadow-lg"
-            : isScrolled || needsSolidHeader
-              ? "bg-white/95 backdrop-blur-lg shadow-lg"
-              : "bg-transparent"
+          ? "bg-white shadow-lg"
+          : isScrolled || needsSolidHeader
+            ? "bg-white/95 backdrop-blur-lg shadow-lg"
+            : "bg-transparent"
           }`}
       >
         <nav className="container mx-auto px-6 lg:px-8">
@@ -119,16 +119,16 @@ const Header = () => {
               <div className="hidden sm:block">
                 <div
                   className={`text-xl font-bold transition-colors duration-300 ${isMobileMenuOpen || isScrolled || needsSolidHeader
-                      ? "text-gray-900"
-                      : "text-white"
+                    ? "text-gray-900"
+                    : "text-white"
                     }`}
                 >
-                  BATIK
+                  BATIK UMM
                 </div>
                 <div
                   className={`text-xs transition-colors duration-300 ${isMobileMenuOpen || isScrolled || needsSolidHeader
-                      ? "text-gray-600"
-                      : "text-gray-300"
+                    ? "text-gray-600"
+                    : "text-gray-300"
                     }`}
                 ></div>
               </div>
@@ -141,12 +141,12 @@ const Header = () => {
                   key={item.path}
                   onClick={() => router.push(item.path)}
                   className={`px-4 py-2 rounded-lg font-medium cursor-pointer transition-all duration-300 ${isActive(item.path)
-                      ? isScrolled || needsSolidHeader
-                        ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
-                        : "bg-white/20 backdrop-blur-sm text-white"
-                      : isScrolled || needsSolidHeader
-                        ? "text-gray-700 hover:bg-gray-100"
-                        : "text-white hover:bg-white/10"
+                    ? isScrolled || needsSolidHeader
+                      ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
+                      : "bg-white/20 backdrop-blur-sm text-white"
+                    : isScrolled || needsSolidHeader
+                      ? "text-gray-700 hover:bg-gray-100"
+                      : "text-white hover:bg-white/10"
                     }`}
                 >
                   {item.name}
@@ -158,12 +158,12 @@ const Header = () => {
                 <div
                   onClick={() => setIsMoreDropdownOpen(!isMoreDropdownOpen)}
                   className={`px-4 py-2 rounded-lg font-medium cursor-pointer transition-all duration-300 flex items-center gap-1 ${isMoreActive()
-                      ? isScrolled || needsSolidHeader
-                        ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
-                        : "bg-white/20 backdrop-blur-sm text-white"
-                      : isScrolled || needsSolidHeader
-                        ? "text-gray-700 hover:bg-gray-100"
-                        : "text-white hover:bg-white/10"
+                    ? isScrolled || needsSolidHeader
+                      ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
+                      : "bg-white/20 backdrop-blur-sm text-white"
+                    : isScrolled || needsSolidHeader
+                      ? "text-gray-700 hover:bg-gray-100"
+                      : "text-white hover:bg-white/10"
                     }`}
                 >
                   More
@@ -194,8 +194,8 @@ const Header = () => {
                           setIsMoreDropdownOpen(false);
                         }}
                         className={`px-4 py-2.5 cursor-pointer transition-all duration-200 ${isActive(item.path)
-                            ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold"
-                            : "text-gray-700 hover:bg-gray-50"
+                          ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold"
+                          : "text-gray-700 hover:bg-gray-50"
                           }`}
                       >
                         {item.name}
@@ -212,8 +212,8 @@ const Header = () => {
                 <button
                   onClick={() => router.push("/dashboard")}
                   className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${isScrolled || needsSolidHeader
-                      ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white shadow-lg hover:shadow-xl"
-                      : "bg-amber-600 text-white hover:bg-amber-700"
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white shadow-lg hover:shadow-xl"
+                    : "bg-amber-600 text-white hover:bg-amber-700"
                     }`}
                 >
                   <svg
@@ -235,8 +235,8 @@ const Header = () => {
                 <button
                   onClick={() => router.push("/login")}
                   className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${isScrolled || needsSolidHeader
-                      ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg hover:shadow-xl"
-                      : "bg-amber-600 text-white hover:bg-amber-700"
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg hover:shadow-xl"
+                    : "bg-amber-600 text-white hover:bg-amber-700"
                     }`}
                 >
                   <svg
@@ -261,10 +261,10 @@ const Header = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`xl:hidden p-2 rounded-lg transition-all duration-300 z-50 ${isMobileMenuOpen
-                  ? "bg-gray-100 text-gray-900"
-                  : isScrolled || needsSolidHeader
-                    ? "text-gray-900 hover:bg-gray-100"
-                    : "text-white hover:bg-white/10"
+                ? "bg-gray-100 text-gray-900"
+                : isScrolled || needsSolidHeader
+                  ? "text-gray-900 hover:bg-gray-100"
+                  : "text-white hover:bg-white/10"
                 }`}
             >
               <svg
@@ -316,8 +316,8 @@ const Header = () => {
                   setIsMobileMenuOpen(false);
                 }}
                 className={`px-4 py-3 rounded-lg font-medium cursor-pointer transition-all duration-300 ${isActive(item.path)
-                    ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
+                  : "text-gray-700 hover:bg-gray-100"
                   }`}
               >
                 {item.name}
@@ -336,8 +336,8 @@ const Header = () => {
                   setIsMobileMenuOpen(false);
                 }}
                 className={`px-4 py-3 rounded-lg font-medium cursor-pointer transition-all duration-300 ${isActive(item.path)
-                    ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100"
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
+                  : "text-gray-700 hover:bg-gray-100"
                   }`}
               >
                 {item.name}

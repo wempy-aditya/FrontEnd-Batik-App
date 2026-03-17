@@ -126,46 +126,35 @@ export default function ProjectsPage() {
   };
 
   const getStatusColor = (status) => {
-    switch (status?.toLowerCase()) {
-      case "published":
-        return "bg-green-100 text-green-800 border-green-200";
-      case "draft":
-        return "bg-gray-100 text-gray-800 border-gray-200";
-      case "archived":
-        return "bg-blue-100 text-blue-800 border-blue-200";
-      default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
-    }
+    // Exact same styling as Home section (bg-white/90 backdrop-blur-sm text-green-700 border-green-200)
+    return "bg-white/90 backdrop-blur-sm text-green-700 border-green-200";
   };
 
   const getComplexityColor = (complexity) => {
-    switch (complexity?.toLowerCase()) {
-      case "easy":
-        return "bg-green-100 text-green-800";
-      case "medium":
-        return "bg-yellow-100 text-yellow-800";
-      case "hard":
-        return "bg-amber-100 text-amber-800";
-      case "expert":
-        return "bg-red-100 text-red-800";
-      default:
-        return "bg-gray-100 text-gray-800";
-    }
+    // Exact same styling as Home section (bg-amber-100/90 backdrop-blur-sm text-amber-700)
+    return "bg-amber-100/90 backdrop-blur-sm text-amber-700 border border-transparent";
   };
 
+  // Helper: gold-black gradient CSS
+  const gradientToStyle = (gradient) =>
+    "linear-gradient(135deg, #0f0f0f 0%, #1a1200 40%, #78560a 70%, #d4a017 100%)";
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
+    <div className="min-h-screen" style={{ background: "linear-gradient(160deg, #0f0c06 0%, #1c1609 25%, #2a1f0d 50%, #1c1609 75%, #0f0c06 100%)", color: "white" }}>
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0 bg-repeat"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          ></div>
-        </div>
+      <section className="relative py-20 pt-32 overflow-hidden border-b border-amber-500/10">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/background_batik.jpg')" }}
+        />
+        {/* Warm-dark gradient overlay to match other sections */}
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(160deg, rgba(15,12,6,0.85) 0%, rgba(28,22,9,0.7) 25%, rgba(42,31,13,0.6) 50%, rgba(28,22,9,0.8) 75%, rgba(15,12,6,0.95) 100%)" 
+          }} 
+        />
 
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -219,12 +208,12 @@ export default function ProjectsPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-50 via-amber-200 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
                 All AI Projects
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+            <p className="text-xl md:text-2xl text-amber-100/80 leading-relaxed font-light">
               Explore our comprehensive collection of AI and computer vision
               projects. From research prototypes to production-ready solutions,
               discover innovation at every level.
@@ -237,7 +226,7 @@ export default function ProjectsPage() {
       <section className="py-20">
         <div className="container mx-auto px-6 lg:px-8">
           {/* Filters Section - Compact Unified Container */}
-          <div className="mb-12 bg-white rounded-2xl border-2 border-gray-100 p-6 shadow-lg">
+          <div className="mb-12 bg-white/5 backdrop-blur-md rounded-2xl border border-amber-500/20 p-6 shadow-xl">
             {/* Main Filter Bar */}
             <div className="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center mb-4">
               {/* Search Bar */}
@@ -247,7 +236,7 @@ export default function ProjectsPage() {
                   value={searchQuery}
                   onChange={handleSearch}
                   placeholder="Search projects..."
-                  className="w-full px-6 py-3 pl-12 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-amber-500 focus:bg-white focus:outline-none transition-all"
+                  className="w-full px-6 py-3 pl-12 bg-black/40 text-amber-50 placeholder-amber-100/40 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all"
                 />
                 <svg
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -272,7 +261,7 @@ export default function ProjectsPage() {
                     setSelectedCategory(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full lg:w-48 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-amber-500 focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer font-medium text-gray-700"
+                  className="w-full lg:w-48 px-4 py-3 bg-black/40 text-amber-50 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all appearance-none font-medium [&>option]:bg-[#1c1609] [&>option]:text-amber-50"
                 >
                   {categories.map((category) => (
                     <option
@@ -306,7 +295,7 @@ export default function ProjectsPage() {
                     setSortBy(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full lg:w-40 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-amber-500 focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer font-medium text-gray-700"
+                  className="w-full lg:w-40 px-4 py-3 bg-black/40 text-amber-50 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all appearance-none font-medium [&>option]:bg-[#1c1609] [&>option]:text-amber-50"
                 >
                   {sortOptions.map((option) => (
                     <option key={option.id} value={option.id}>
@@ -335,10 +324,10 @@ export default function ProjectsPage() {
                   setIsFeatured(!isFeatured);
                   setCurrentPage(1);
                 }}
-                className={`px-5 py-3 rounded-xl font-semibold transition-all duration-300 border-2 whitespace-nowrap ${
+                className={`px-5 py-3 rounded-xl font-semibold transition-all duration-300 border whitespace-nowrap ${
                   isFeatured
-                    ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white border-transparent shadow-md"
-                    : "bg-gray-50 text-gray-700 border-gray-200 hover:border-amber-300 hover:bg-amber-50"
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-black border-transparent shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                    : "bg-black/40 text-amber-200 border-amber-500/30 hover:border-amber-400 hover:bg-amber-900/30"
                 }`}
               >
                 Featured
@@ -346,7 +335,7 @@ export default function ProjectsPage() {
             </div>
 
             {/* Divider */}
-            <div className="border-t border-gray-200 my-4"></div>
+            <div className="border-t border-amber-500/20 my-4"></div>
 
             {/* Active Filters & Results Count Row */}
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
@@ -444,14 +433,14 @@ export default function ProjectsPage() {
               </div>
 
               {/* Results Count */}
-              <div className="lg:border-l lg:border-gray-200 lg:pl-6">
-                <p className="text-gray-600 text-sm whitespace-nowrap">
+              <div className="lg:border-l lg:border-amber-500/20 lg:pl-6">
+                <p className="text-amber-100/60 text-sm whitespace-nowrap">
                   Showing{" "}
-                  <span className="font-bold text-gray-900">
+                  <span className="font-bold text-amber-400">
                     {displayProjects.length}
                   </span>{" "}
                   of{" "}
-                  <span className="font-bold text-gray-900">{totalItems}</span>{" "}
+                  <span className="font-bold text-amber-400">{totalItems}</span>{" "}
                   projects
                 </p>
               </div>
@@ -462,12 +451,12 @@ export default function ProjectsPage() {
           {loading ? (
             <div className="text-center py-20">
               <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-amber-500 border-t-transparent"></div>
-              <p className="mt-4 text-gray-600">Loading projects...</p>
+              <p className="mt-4 text-amber-100/60">Loading projects...</p>
             </div>
           ) : displayProjects.length === 0 ? (
             <div className="text-center py-20">
               <svg
-                className="w-24 h-24 mx-auto text-gray-300 mb-4"
+                className="w-24 h-24 mx-auto text-amber-500/20 mb-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -479,8 +468,8 @@ export default function ProjectsPage() {
                   d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <p className="text-xl text-gray-600">No projects found</p>
-              <p className="text-gray-500 mt-2">
+              <p className="text-xl text-amber-200">No projects found</p>
+              <p className="text-amber-100/40 mt-2">
                 Try adjusting your search or filters
               </p>
             </div>
@@ -494,15 +483,19 @@ export default function ProjectsPage() {
                   onMouseLeave={() => setHoveredProject(null)}
                 >
                   {/* Project Card */}
-                  <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-200/50 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 h-full flex flex-col">
+                  <div className="relative rounded-3xl overflow-hidden shadow-lg border border-amber-400/20 hover:border-amber-400/50 hover:shadow-amber-400/15 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 h-full flex flex-col backdrop-blur-sm" style={{ background: "rgba(255, 240, 200, 0.06)" }}>
                     {/* Gradient Background on Hover */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${project.thumbnail} rounded-3xl opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                      className={`absolute inset-0 bg-gradient-to-br ${
+                        project.gradient || "from-amber-500 to-yellow-500"
+                      } rounded-3xl opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                     ></div>
 
                     {/* Animated Border Glow */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-r ${project.thumbnail} rounded-3xl opacity-0 group-hover:opacity-20 blur-sm transition-all duration-500 scale-105`}
+                      className={`absolute inset-0 bg-gradient-to-r ${
+                        project.gradient || "from-amber-500 to-yellow-500"
+                      } rounded-3xl opacity-0 group-hover:opacity-15 blur transition-all duration-500 scale-105`}
                     ></div>
 
                     {/* Thumbnail/Hero Image */}
@@ -519,8 +512,9 @@ export default function ProjectsPage() {
                         />
                       ) : null}
                       <div
-                        className={`absolute inset-0 bg-gradient-to-br from-amber-500 to-yellow-500 transition-all duration-700 group-hover:scale-110`}
+                        className="absolute inset-0 transition-all duration-700 group-hover:scale-110"
                         style={{
+                          background: gradientToStyle(project.gradient),
                           display: project.thumbnail_url ? "none" : "block",
                         }}
                       >
@@ -566,17 +560,17 @@ export default function ProjectsPage() {
                     <div className="relative z-10 p-6 space-y-4 flex-1 flex flex-col">
                       {/* Title & Description */}
                       <div className="flex-grow">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-amber-50 mb-2 group-hover:text-amber-300 transition-colors duration-300">
                           {project.title}
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                        <p className="text-amber-100/60 text-sm leading-relaxed group-hover:text-amber-100/80 transition-colors duration-300">
                           {project.description}
                         </p>
                       </div>
 
                       {/* Technologies */}
                       <div>
-                        <h4 className="text-xs font-semibold text-gray-900 mb-2">
+                        <h4 className="text-xs font-semibold text-amber-400/80 mb-2">
                           Technologies:
                         </h4>
                         <div className="flex flex-wrap gap-1">
@@ -585,13 +579,13 @@ export default function ProjectsPage() {
                             .map((tech, index) => (
                               <span
                                 key={index}
-                                className="px-2 py-1 text-xs font-medium text-amber-700 bg-amber-50 rounded-md border border-amber-200"
+                                className="px-2 py-1 text-xs font-medium text-amber-300 bg-amber-500/10 border border-amber-400/20 rounded-md"
                               >
                                 {tech}
                               </span>
                             ))}
                           {project.technologies.length > 3 && (
-                            <span className="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-md">
+                            <span className="px-2 py-1 text-xs font-medium text-amber-200/50 bg-white/5 rounded-md border border-white/10">
                               +{project.technologies.length - 3} more
                             </span>
                           )}
@@ -604,13 +598,13 @@ export default function ProjectsPage() {
                           {project.tags.slice(0, 3).map((tag, index) => (
                             <span
                               key={index}
-                              className="px-2 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-md"
+                              className="px-2 py-1 text-xs font-medium text-amber-100/50 bg-black/30 rounded-md"
                             >
                               {tag}
                             </span>
                           ))}
                           {project.tags.length > 3 && (
-                            <span className="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-50 rounded-md">
+                            <span className="px-2 py-1 text-xs font-medium text-amber-100/30 bg-black/30 rounded-md">
                               +{project.tags.length - 3}
                             </span>
                           )}
@@ -626,12 +620,13 @@ export default function ProjectsPage() {
                             );
                             window.location.href = `/projects/${project.id}`;
                           }}
-                          className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                          className="w-full py-3 px-4 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 cursor-pointer hover:opacity-90"
+                          style={{ background: gradientToStyle(project.gradient) }}
                         >
                           <div className="flex items-center justify-center gap-2">
                             <span>View Details</span>
                             <svg
-                              className="w-4 h-4 transition-transform duration-300"
+                              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -661,8 +656,8 @@ export default function ProjectsPage() {
                 disabled={currentPage === 1}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   currentPage === 1
-                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-white text-gray-700 hover:bg-amber-50 border border-gray-200"
+                    ? "bg-black/20 text-amber-100/30 cursor-not-allowed border border-transparent"
+                    : "bg-white/5 text-amber-200 hover:bg-amber-500/20 border border-amber-500/30"
                 }`}
               >
                 Previous
@@ -675,8 +670,8 @@ export default function ProjectsPage() {
                     onClick={() => setCurrentPage(index + 1)}
                     className={`px-4 py-2 rounded-lg font-medium transition-all ${
                       currentPage === index + 1
-                        ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white"
-                        : "bg-white text-gray-700 hover:bg-amber-50 border border-gray-200"
+                        ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-black border border-transparent"
+                        : "bg-white/5 text-amber-200 hover:bg-amber-500/20 border border-amber-500/30"
                     }`}
                   >
                     {index + 1}
@@ -691,8 +686,8 @@ export default function ProjectsPage() {
                 disabled={currentPage === totalPages}
                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                   currentPage === totalPages
-                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-white text-gray-700 hover:bg-amber-50 border border-gray-200"
+                    ? "bg-black/20 text-amber-100/30 cursor-not-allowed border border-transparent"
+                    : "bg-white/5 text-amber-200 hover:bg-amber-500/20 border border-amber-500/30"
                 }`}
               >
                 Next
@@ -702,11 +697,11 @@ export default function ProjectsPage() {
 
           {/* CTA Section */}
           <div className="text-center mt-20">
-            <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-lg border-2 border-gray-100">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-xl border border-amber-500/20">
+              <h2 className="text-3xl md:text-4xl font-bold text-amber-50 mb-6">
                 Want to Collaborate?
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-amber-100/70 mb-8">
                 Join our team of researchers and developers working on
                 cutting-edge AI projects.
               </p>
@@ -716,7 +711,7 @@ export default function ProjectsPage() {
                     console.log("Navigating to contact page");
                     window.location.href = "/contact";
                   }}
-                  className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
+                  className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] cursor-pointer"
                 >
                   Get in Touch
                 </div>
@@ -725,7 +720,7 @@ export default function ProjectsPage() {
                     console.log("Navigating to publications page");
                     window.location.href = "/publications";
                   }}
-                  className="px-8 py-4 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-200 hover:border-amber-300 hover:bg-amber-50 transition-all duration-300 cursor-pointer"
+                  className="px-8 py-4 bg-white/5 text-amber-200 font-semibold rounded-xl border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10 transition-all duration-300 cursor-pointer backdrop-blur-sm"
                 >
                   View Research
                 </div>

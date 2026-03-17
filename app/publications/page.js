@@ -219,13 +219,13 @@ export default function PublicationsPage() {
   const getCategoryColor = (category) => {
     switch (category) {
       case "conference":
-        return "bg-blue-100 text-blue-800 border-blue-200";
+        return "bg-blue-900/40 text-blue-200 border-blue-500/30";
       case "journal":
-        return "bg-green-100 text-green-800 border-green-200";
+        return "bg-green-900/40 text-green-200 border-green-500/30";
       case "survey":
-        return "bg-purple-100 text-purple-800 border-purple-200";
+        return "bg-purple-900/40 text-purple-200 border-purple-500/30";
       default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
+        return "bg-amber-900/40 text-amber-200 border-amber-500/30";
     }
   };
 
@@ -235,22 +235,22 @@ export default function PublicationsPage() {
       // Handle old string format for backward compatibility
       switch (impact) {
         case "High":
-          return "bg-red-100 text-red-800";
+          return "bg-red-900/40 text-red-200";
         case "Medium":
-          return "bg-yellow-100 text-yellow-800";
+          return "bg-yellow-900/40 text-yellow-200";
         case "Low":
-          return "bg-gray-100 text-gray-800";
+          return "bg-gray-800 text-gray-300";
         default:
-          return "bg-gray-100 text-gray-800";
+          return "bg-gray-800 text-gray-300";
       }
     }
     // Handle numeric impact values
     if (impactValue >= 5.0) {
-      return "bg-red-100 text-red-800";
+      return "bg-red-900/40 text-red-200";
     } else if (impactValue >= 3.0) {
-      return "bg-yellow-100 text-yellow-800";
+      return "bg-yellow-900/40 text-yellow-200";
     } else {
-      return "bg-green-100 text-green-800";
+      return "bg-green-900/40 text-green-200";
     }
   };
 
@@ -276,18 +276,21 @@ export default function PublicationsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-yellow-50">
+    <div className="min-h-screen" style={{ background: "linear-gradient(160deg, #0f0c06 0%, #1c1609 25%, #2a1f0d 50%, #1c1609 75%, #0f0c06 100%)", color: "white" }}>
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0 bg-repeat"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M0 0h20v20H0z'/%3E%3Cpath d='M10 0v20'/%3E%3Cpath d='M0 10h20'/%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          ></div>
-        </div>
+      <section className="relative py-20 pt-32 overflow-hidden border-b border-amber-500/10">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/background_batik.jpg')" }}
+        />
+        {/* Warm-dark gradient overlay to match other sections */}
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(160deg, rgba(15,12,6,0.85) 0%, rgba(28,22,9,0.7) 25%, rgba(42,31,13,0.6) 50%, rgba(28,22,9,0.8) 75%, rgba(15,12,6,0.95) 100%)" 
+          }} 
+        />
 
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -341,12 +344,12 @@ export default function PublicationsPage() {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-white via-amber-100 to-yellow-100 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-50 via-amber-200 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
                 Research Publications
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+            <p className="text-xl md:text-2xl text-amber-100/80 leading-relaxed font-light">
               Explore our comprehensive collection of research publications
               advancing the frontiers of artificial intelligence, computer
               vision, and machine learning.
@@ -359,7 +362,7 @@ export default function PublicationsPage() {
       <section className="py-20">
         <div className="container mx-auto px-6 lg:px-8">
           {/* Filters Section - Compact Unified Container */}
-          <div className="mb-12 bg-white rounded-2xl border-2 border-gray-100 p-6 shadow-lg">
+          <div className="mb-12 bg-white/5 backdrop-blur-md rounded-2xl border border-amber-500/20 p-6 shadow-xl">
             {/* Main Filter Bar */}
             <div className="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center mb-4">
               {/* Search Bar */}
@@ -369,10 +372,10 @@ export default function PublicationsPage() {
                   placeholder="Search publications..."
                   defaultValue={searchQuery}
                   onKeyDown={handleSearch}
-                  className="w-full px-6 py-3 pl-12 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-amber-500 focus:bg-white focus:outline-none transition-all"
+                  className="w-full px-6 py-3 pl-12 bg-black/40 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all text-amber-50 placeholder-amber-100/30"
                 />
                 <svg
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-500/50"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -394,17 +397,17 @@ export default function PublicationsPage() {
                     setSelectedCategory(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full lg:w-48 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-amber-500 focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer font-medium text-gray-700"
+                  className="w-full lg:w-48 px-4 py-3 bg-black/40 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all appearance-none cursor-pointer font-medium text-amber-100"
                 >
                   <option value="all">All Types</option>
                   {displayCategories.map((category) => (
-                    <option key={category.id} value={category.id}>
+                    <option key={category.id} value={category.id} className="bg-black/80 text-amber-100 py-1">
                       {category.name}
                     </option>
                   ))}
                 </select>
                 <svg
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-500/50 pointer-events-none"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -426,17 +429,17 @@ export default function PublicationsPage() {
                     setSelectedYear(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full lg:w-40 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-amber-500 focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer font-medium text-gray-700"
+                  className="w-full lg:w-40 px-4 py-3 bg-black/40 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all appearance-none cursor-pointer font-medium text-amber-100"
                 >
                   <option value="all">All Years</option>
                   {availableYears.map((year) => (
-                    <option key={year} value={year}>
+                    <option key={year} value={year} className="bg-black/80 text-amber-100 py-1">
                       {year === "older" ? "Lebih dari 5 tahun" : year}
                     </option>
                   ))}
                 </select>
                 <svg
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-500/50 pointer-events-none"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -460,7 +463,7 @@ export default function PublicationsPage() {
                     setSelectedAuthor(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full lg:w-40 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-amber-500 focus:bg-white focus:outline-none transition-all font-medium text-gray-700"
+                  className="w-full lg:w-40 px-4 py-3 bg-black/40 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all font-medium text-amber-50 placeholder-amber-100/30"
                 />
               </div>
 
@@ -472,16 +475,16 @@ export default function PublicationsPage() {
                     setSortBy(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="w-full lg:w-40 px-4 py-3 bg-gray-50 rounded-xl border-2 border-gray-200 focus:border-amber-500 focus:bg-white focus:outline-none transition-all appearance-none cursor-pointer font-medium text-gray-700"
+                  className="w-full lg:w-40 px-4 py-3 bg-black/40 rounded-xl border border-amber-500/30 focus:border-amber-400 focus:bg-black/60 focus:outline-none transition-all appearance-none cursor-pointer font-medium text-amber-100"
                 >
                   {sortOptions.map((option) => (
-                    <option key={option.id} value={option.id}>
+                    <option key={option.id} value={option.id} className="bg-black/80 text-amber-100 py-1">
                       {option.name}
                     </option>
                   ))}
                 </select>
                 <svg
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-500/50 pointer-events-none"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -501,10 +504,10 @@ export default function PublicationsPage() {
                   setIsFeatured(!isFeatured);
                   setCurrentPage(1);
                 }}
-                className={`px-5 py-3 rounded-xl font-semibold transition-all duration-300 border-2 whitespace-nowrap ${
+                className={`px-5 py-3 rounded-xl font-semibold transition-all duration-300 border whitespace-nowrap ${
                   isFeatured
-                    ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white border-transparent shadow-md"
-                    : "bg-gray-50 text-gray-700 border-gray-200 hover:border-amber-300 hover:bg-amber-50"
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-black border-transparent shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                    : "bg-white/5 text-amber-200 border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10"
                 }`}
               >
                 Featured
@@ -630,7 +633,7 @@ export default function PublicationsPage() {
                   sortBy !== "latest") && (
                   <button
                     onClick={handleClearAllFilters}
-                    className="px-4 py-1.5 bg-red-50 text-red-600 rounded-lg text-sm font-semibold hover:bg-red-100 transition-colors border border-red-200"
+                    className="px-4 py-1.5 bg-red-900/30 text-red-400 rounded-lg text-sm font-semibold hover:bg-red-900/50 transition-colors border border-red-500/30"
                   >
                     Clear All
                   </button>
@@ -638,17 +641,17 @@ export default function PublicationsPage() {
               </div>
 
               {/* Results Count */}
-              <div className="lg:border-l lg:border-gray-200 lg:pl-6">
-                <p className="text-gray-600 text-sm whitespace-nowrap">
+              <div className="lg:border-l lg:border-amber-500/20 lg:pl-6">
+                <p className="text-amber-100/60 text-sm whitespace-nowrap">
                   Showing{" "}
-                  <span className="font-bold text-gray-900">
+                  <span className="font-bold text-amber-400">
                     {filteredPublications.length}
                   </span>
                   {totalItems > 0 && (
                     <>
                       {" "}
                       of{" "}
-                      <span className="font-bold text-gray-900">
+                      <span className="font-bold text-amber-400">
                         {totalItems}
                       </span>
                     </>
@@ -670,7 +673,7 @@ export default function PublicationsPage() {
           {!loading && filteredPublications.length === 0 && (
             <div className="text-center py-20">
               <svg
-                className="w-24 h-24 mx-auto text-gray-300 mb-4"
+                className="w-24 h-24 mx-auto text-amber-500/20 mb-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -682,10 +685,10 @@ export default function PublicationsPage() {
                   d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 />
               </svg>
-              <h3 className="text-2xl font-bold text-gray-700 mb-2">
+              <h3 className="text-2xl font-bold text-amber-50 mb-2">
                 No publications found
               </h3>
-              <p className="text-gray-500">
+              <p className="text-amber-100/40">
                 Try adjusting your search or filters
               </p>
             </div>
@@ -703,16 +706,21 @@ export default function PublicationsPage() {
                 >
                   {/* Publication Card */}
                   <div
-                    className={`relative bg-white rounded-2xl p-8 shadow-lg border border-gray-200 transition-all duration-500 transform hover:-translate-y-1 ${
-                      hoveredPaper === paper.id ? "shadow-2xl scale-[1.02]" : ""
+                    className={`relative rounded-2xl p-8 shadow-lg border border-amber-400/20 transition-all duration-500 transform hover:-translate-y-1 backdrop-blur-sm ${
+                      hoveredPaper === paper.id ? "shadow-2xl shadow-amber-400/15 scale-[1.02]" : ""
                     }`}
+                    style={{ background: "rgba(255, 240, 200, 0.06)" }}
                   >
+                    {/* Gradient glow on hover */}
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-xl opacity-0 group-hover:opacity-15 blur-[2px] transition-all duration-700 pointer-events-none"></div>
+
+                    <div className="relative z-10">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-6">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg, #1a1200, #d4a017)" }}>
                           <svg
-                            className="w-6 h-6 text-white"
+                            className="w-6 h-6 text-amber-300"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -748,10 +756,10 @@ export default function PublicationsPage() {
                       </div>
 
                       <div className="text-right">
-                        <div className="text-lg font-bold text-gray-900">
+                        <div className="text-lg font-bold text-amber-100">
                           {paper.citations}
                         </div>
-                        <div className="text-sm text-gray-500">Citations</div>
+                        <div className="text-sm text-amber-100/50">Citations</div>
                       </div>
                     </div>
 
@@ -760,13 +768,13 @@ export default function PublicationsPage() {
                       {/* Main Content */}
                       <div className="lg:col-span-2 space-y-4">
                         {/* Title */}
-                        <h3 className="text-2xl font-bold text-gray-900 leading-tight group-hover:text-amber-600 transition-colors duration-300">
+                        <h3 className="text-2xl font-bold text-amber-50 leading-tight group-hover:text-amber-300 transition-colors duration-300">
                           {paper.title}
                         </h3>
 
                         {/* Abstract */}
                         <p
-                          className="text-gray-600 leading-relaxed"
+                          className="text-amber-100/60 leading-relaxed"
                           style={{
                             display: "-webkit-box",
                             WebkitLineClamp: 7,
@@ -780,14 +788,14 @@ export default function PublicationsPage() {
 
                         {/* Authors */}
                         <div>
-                          <div className="text-sm font-semibold text-gray-700 mb-2">
+                          <div className="text-sm font-semibold text-amber-400 mb-2">
                             Authors:
                           </div>
                           <div className="flex flex-wrap gap-2">
                             {paper.authors.map((author, index) => (
                               <span
                                 key={index}
-                                className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full"
+                                className="text-sm text-amber-100/80 bg-white/5 border border-amber-400/20 px-3 py-1 rounded-full"
                               >
                                 {author}
                               </span>
@@ -797,14 +805,14 @@ export default function PublicationsPage() {
 
                         {/* Keywords */}
                         <div>
-                          <div className="text-sm font-semibold text-gray-700 mb-2">
+                          <div className="text-sm font-semibold text-amber-400 mb-2">
                             Keywords:
                           </div>
                           <div className="flex flex-wrap gap-2">
                             {paper.keywords.map((keyword, index) => (
                               <span
                                 key={index}
-                                className="text-sm text-amber-700 bg-amber-100 px-3 py-1 rounded-full"
+                                className="text-sm text-amber-300 bg-amber-500/10 border border-amber-400/20 px-3 py-1 rounded-full"
                               >
                                 {keyword}
                               </span>
@@ -816,28 +824,28 @@ export default function PublicationsPage() {
                       {/* Sidebar */}
                       <div className="space-y-6">
                         {/* Publication Info */}
-                        <div className="bg-gray-50 rounded-xl p-4 space-y-3">
+                        <div className="bg-black/20 border border-amber-500/10 rounded-xl p-4 space-y-3">
                           <div>
-                            <div className="text-sm font-semibold text-gray-700">
+                            <div className="text-sm font-semibold text-amber-400">
                               Published in:
                             </div>
-                            <div className="text-sm text-gray-600 font-medium">
+                            <div className="text-sm text-amber-100/80 font-medium">
                               {paper.venue}
                             </div>
                           </div>
                           <div>
-                            <div className="text-sm font-semibold text-gray-700">
+                            <div className="text-sm font-semibold text-amber-400">
                               Year:
                             </div>
-                            <div className="text-sm text-gray-600">
+                            <div className="text-sm text-amber-100/80">
                               {paper.year}
                             </div>
                           </div>
                           <div>
-                            <div className="text-sm font-semibold text-gray-700">
+                            <div className="text-sm font-semibold text-amber-400">
                               DOI:
                             </div>
-                            <div className="text-xs text-gray-500 font-mono break-all">
+                            <div className="text-xs text-blue-400 hover:text-blue-300 font-mono break-all cursor-text">
                               {paper.doi}
                             </div>
                           </div>
@@ -849,7 +857,8 @@ export default function PublicationsPage() {
                             onClick={() =>
                               handleDownloadPDF(paper.id, paper.pdf_url)
                             }
-                            className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-500/30"
+                            className="w-full py-3 px-4 text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-500/20"
+                            style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}
                           >
                             <div className="flex items-center justify-center gap-2">
                               <svg
@@ -874,13 +883,13 @@ export default function PublicationsPage() {
                               onClick={() =>
                                 router.push(`/publications/${paper.id}`)
                               }
-                              className="py-2 px-3 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-sm"
+                              className="py-2 px-3 text-amber-200 border border-amber-500/30 rounded-lg hover:bg-amber-500/10 transition-colors duration-200 text-sm"
                             >
                               View Details
                             </button>
                             <button
                               onClick={() => setCitationPaper(paper)}
-                              className="py-2 px-3 text-amber-700 border border-amber-300 bg-amber-50 rounded-lg hover:bg-amber-100 transition-colors duration-200 text-sm flex items-center justify-center gap-1"
+                              className="py-2 px-3 text-amber-300 border border-amber-500/30 bg-amber-900/40 rounded-lg hover:bg-amber-900/60 transition-colors duration-200 text-sm flex items-center justify-center gap-1"
                             >
                               <svg
                                 className="w-4 h-4"
@@ -901,6 +910,7 @@ export default function PublicationsPage() {
                         </div>
                       </div>
                     </div>
+                    </div>
 
                     {/* Publication ID */}
                     {/* <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-r from-blue-100 to-purple-100 text-gray-700 text-sm font-bold rounded-full flex items-center justify-center">
@@ -920,8 +930,8 @@ export default function PublicationsPage() {
                 disabled={currentPage === 1}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                   currentPage === 1
-                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-white text-gray-700 border border-gray-200 hover:border-amber-300 hover:bg-amber-50"
+                    ? "bg-black/20 text-gray-600 border border-amber-500/10 cursor-not-allowed"
+                    : "bg-black/40 text-amber-100 border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10"
                 }`}
               >
                 Previous
@@ -941,8 +951,8 @@ export default function PublicationsPage() {
                       onClick={() => setCurrentPage(pageNumber)}
                       className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                         currentPage === pageNumber
-                          ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
-                          : "bg-white text-gray-700 border border-gray-200 hover:border-amber-300 hover:bg-amber-50"
+                          ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-lg shadow-amber-500/20 border border-transparent"
+                          : "bg-black/40 text-amber-100 border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10"
                       }`}
                     >
                       {pageNumber}
@@ -953,7 +963,7 @@ export default function PublicationsPage() {
                   pageNumber === currentPage + 2
                 ) {
                   return (
-                    <span key={pageNumber} className="px-2 text-gray-400">
+                    <span key={pageNumber} className="px-2 text-amber-500/50">
                       ...
                     </span>
                   );
@@ -968,8 +978,8 @@ export default function PublicationsPage() {
                 disabled={currentPage === totalPages}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                   currentPage === totalPages
-                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-white text-gray-700 border border-gray-200 hover:border-amber-300 hover:bg-amber-50"
+                    ? "bg-black/20 text-gray-600 border border-amber-500/10 cursor-not-allowed"
+                    : "bg-black/40 text-amber-100 border border-amber-500/30 hover:border-amber-400 hover:bg-amber-500/10"
                 }`}
               >
                 Next
@@ -980,18 +990,19 @@ export default function PublicationsPage() {
           {/* CTA Section */}
           <div className="text-center mt-20">
             <div className="max-w-3xl mx-auto">
-              <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border-2 border-gray-100">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-xl border border-amber-500/20">
+                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-50 via-amber-200 to-yellow-400 bg-clip-text text-transparent mb-4">
                   Want to Collaborate?
                 </h2>
-                <p className="text-xl text-gray-600 mb-6">
+                <p className="text-xl text-amber-100/60 mb-6 font-light">
                   Join our research team and contribute to cutting-edge advances
                   in AI and computer vision.
                 </p>
                 <div className="flex justify-center">
                   <button
                     onClick={() => (window.location.href = "/contact")}
-                    className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    className="px-8 py-4 text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg shadow-amber-500/20"
+                    style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}
                   >
                     Contact Us
                   </button>

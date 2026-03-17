@@ -99,10 +99,22 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900">
+    <div className="min-h-screen" style={{ background: "linear-gradient(160deg, #0f0c06 0%, #1c1609 25%, #2a1f0d 50%, #1c1609 75%, #0f0c06 100%)", color: "white" }}>
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 overflow-hidden">
-        {/* Background Elements */}
+      <section className="relative py-20 pt-32 overflow-hidden border-b border-amber-500/10">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/background_batik.jpg')" }}
+        />
+        {/* Warm-dark gradient overlay */}
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(160deg, rgba(15,12,6,0.85) 0%, rgba(28,22,9,0.7) 25%, rgba(42,31,13,0.6) 50%, rgba(28,22,9,0.8) 75%, rgba(15,12,6,0.95) 100%)" 
+          }} 
+        />
+
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -110,10 +122,10 @@ export default function ContactPage() {
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center text-sm text-gray-400 mb-8">
+          <div className="flex items-center text-sm text-amber-200 mb-8">
             <button
               onClick={() => router.push("/")}
-              className="hover:text-amber-400 transition-colors"
+              className="hover:text-amber-100 transition-colors"
             >
               Home
             </button>
@@ -130,12 +142,12 @@ export default function ContactPage() {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-            <span className="text-amber-400">Contact Us</span>
+            <span className="text-amber-50">Contact Us</span>
           </div>
 
           {/* Title */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-black/40 backdrop-blur-md rounded-full border border-amber-500/30 mb-6">
               <svg
                 className="w-4 h-4 text-amber-400 mr-2"
                 fill="none"
@@ -149,15 +161,15 @@ export default function ContactPage() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <span className="text-sm font-semibold text-amber-200">
+              <span className="text-sm font-bold text-amber-200">
                 Get In Touch
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-amber-50 via-amber-200 to-yellow-400 bg-clip-text text-transparent mb-6 drop-shadow-lg">
               Contact Us
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-amber-100/80 font-light max-w-3xl mx-auto leading-relaxed">
               Have questions or want to collaborate? We'd love to hear from you.
               Our team is here to help you succeed.
             </p>
@@ -173,9 +185,9 @@ export default function ContactPage() {
               <a
                 key={index}
                 href={info.link}
-                className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 group"
+                className="p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-amber-500/20 hover:border-amber-400/50 hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 group shadow-lg"
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-xl flex items-center justify-center mb-4 shadow-md shadow-amber-500/20 group-hover:scale-110 transition-transform duration-300">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="none"
@@ -190,10 +202,10 @@ export default function ContactPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-lg font-bold text-amber-50 mb-2 group-hover:text-amber-300 transition-colors">
                   {info.title}
                 </h3>
-                <p className="text-gray-300">{info.content}</p>
+                <p className="text-amber-100/60 font-light">{info.content}</p>
               </a>
             ))}
           </div>
@@ -206,8 +218,8 @@ export default function ContactPage() {
           <div className="max-w-2xl mx-auto">
             <div className="space-y-8">
               {/* Map Section */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-8">
-                <h3 className="text-2xl font-bold text-white mb-6">
+              <div className="bg-white/5 backdrop-blur-md rounded-3xl border border-amber-500/20 p-8 shadow-xl">
+                <h3 className="text-2xl font-bold text-amber-50 mb-6 drop-shadow-sm">
                   Visit Our Office
                 </h3>
                 <MapComponent />

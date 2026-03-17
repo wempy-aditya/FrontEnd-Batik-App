@@ -112,10 +112,22 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-stone-900 to-slate-900">
+    <div className="min-h-screen" style={{ background: "linear-gradient(160deg, #0f0c06 0%, #1c1609 25%, #2a1f0d 50%, #1c1609 75%, #0f0c06 100%)", color: "white" }}>
       {/* Hero Section */}
-      <section className="relative py-20 pt-32 overflow-hidden">
-        {/* Background Elements */}
+      <section className="relative py-20 pt-32 overflow-hidden border-b border-amber-500/10">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/background_batik.jpg')" }}
+        />
+        {/* Warm-dark gradient overlay */}
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "linear-gradient(160deg, rgba(15,12,6,0.85) 0%, rgba(28,22,9,0.7) 25%, rgba(42,31,13,0.6) 50%, rgba(28,22,9,0.8) 75%, rgba(15,12,6,0.95) 100%)" 
+          }} 
+        />
+
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -123,10 +135,10 @@ export default function AboutPage() {
 
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center text-sm text-gray-400 mb-8">
+          <div className="flex items-center text-sm text-amber-200 mb-8">
             <button
               onClick={() => router.push("/")}
-              className="hover:text-amber-400 transition-colors"
+              className="hover:text-amber-100 transition-colors"
             >
               Home
             </button>
@@ -143,12 +155,12 @@ export default function AboutPage() {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-            <span className="text-amber-400">About Us</span>
+            <span className="text-amber-50">About Us</span>
           </div>
 
           {/* Title */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-black/40 backdrop-blur-md rounded-full border border-amber-500/30 mb-6">
               <svg
                 className="w-4 h-4 text-amber-400 mr-2"
                 fill="none"
@@ -162,15 +174,15 @@ export default function AboutPage() {
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <span className="text-sm font-semibold text-amber-200">
+              <span className="text-sm font-bold text-amber-200">
                 Our Story
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-amber-50 via-amber-200 to-yellow-400 bg-clip-text text-transparent mb-6 drop-shadow-lg">
               About Batik UMM
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-amber-100/80 font-light max-w-3xl mx-auto leading-relaxed">
               Empowering research and innovation in batik culture through
               cutting-edge technologies and collaboration.
             </p>
@@ -182,24 +194,29 @@ export default function AboutPage() {
       <section className="py-20 relative">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-12">
-              <h2 className="text-4xl font-bold text-white mb-6 text-center">
-                Our Mission
-              </h2>
-              <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                At Batik UMM, our mission is to empower research and innovation
-                in batik culture through cutting-edge technologies and
-                collaboration. We aim to provide comprehensive tools, datasets,
-                and intelligent systems — including AI-driven generative models,
-                classification, and retrieval frameworks — to support
-                researchers, designers, and cultural enthusiasts in exploring
-                and creating batik patterns.
-              </p>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Through this mission, we seek to preserve and extend the rich
-                batik tradition by integrating deep learning and community
-                engagement into batik research and digital applications.
-              </p>
+            <div className="bg-white/5 backdrop-blur-md rounded-3xl border border-amber-500/20 shadow-xl p-12 relative overflow-hidden">
+              {/* Decorative inner glow */}
+              <div className="absolute -inset-0.5 bg-gradient-to-br from-amber-500/10 via-transparent to-yellow-500/10 pointer-events-none"></div>
+
+              <div className="relative z-10">
+                <h2 className="text-4xl font-bold text-amber-50 mb-6 text-center">
+                  Our Mission
+                </h2>
+                <p className="text-amber-100/70 text-lg leading-relaxed mb-6 font-light">
+                  At Batik UMM, our mission is to empower research and innovation
+                  in batik culture through cutting-edge technologies and
+                  collaboration. We aim to provide comprehensive tools, datasets,
+                  and intelligent systems — including AI-driven generative models,
+                  classification, and retrieval frameworks — to support
+                  researchers, designers, and cultural enthusiasts in exploring
+                  and creating batik patterns.
+                </p>
+                <p className="text-amber-100/70 text-lg leading-relaxed font-light">
+                  Through this mission, we seek to preserve and extend the rich
+                  batik tradition by integrating deep learning and community
+                  engagement into batik research and digital applications.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -209,8 +226,8 @@ export default function AboutPage() {
       <section className="py-20 relative">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Our Values</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-amber-50 mb-6 drop-shadow-sm">Our Values</h2>
+            <p className="text-xl text-amber-100/50 max-w-3xl mx-auto font-light">
               The principles that guide everything we do
             </p>
           </div>
@@ -219,9 +236,9 @@ export default function AboutPage() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+                className="p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-amber-500/20 hover:border-amber-400/50 hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 group shadow-lg"
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-xl flex items-center justify-center mb-4 shadow-md shadow-amber-500/20 group-hover:scale-110 transition-transform duration-300">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="none"
@@ -236,10 +253,10 @@ export default function AboutPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
+                <h3 className="text-xl font-bold text-amber-50 mb-3 group-hover:text-amber-300 transition-colors">
                   {value.title}
                 </h3>
-                <p className="text-gray-300">{value.description}</p>
+                <p className="text-amber-100/60 leading-relaxed font-light">{value.description}</p>
               </div>
             ))}
           </div>
@@ -250,8 +267,8 @@ export default function AboutPage() {
       <section className="py-20 relative">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">Our Journey</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-amber-50 mb-6 drop-shadow-sm">Our Journey</h2>
+            <p className="text-xl text-amber-100/50 max-w-3xl mx-auto font-light">
               Key milestones in our evolution
             </p>
           </div>
@@ -260,15 +277,17 @@ export default function AboutPage() {
             {milestones.map((milestone, index) => (
               <div key={index} className="flex gap-6 mb-8 group">
                 <div className="flex flex-col items-center">
-                  <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold text-xs shadow-lg shadow-amber-500/20 group-hover:scale-110 transition-transform duration-300 ring-2 ring-amber-400/30">
                     {milestone.year}
                   </div>
                   {index !== milestones.length - 1 && (
-                    <div className="w-0.5 h-full bg-gradient-to-b from-amber-500/50 to-transparent mt-2"></div>
+                    <div className="w-0.5 h-full bg-gradient-to-b from-amber-500/50 to-amber-900/10 mt-2"></div>
                   )}
                 </div>
                 <div className="flex-1 pb-8">
-                  <div className="text-gray-300 text-lg">{milestone.event}</div>
+                  <div className="text-amber-100/80 text-lg leading-relaxed font-light group-hover:text-amber-200 transition-colors bg-white/5 border border-amber-500/10 p-4 rounded-xl shadow-md">
+                    {milestone.event}
+                  </div>
                 </div>
               </div>
             ))}
@@ -276,14 +295,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section (Hidden but styled) */}
       <section className="py-20 relative hidden">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-amber-50 mb-6 drop-shadow-sm">
               Meet Our Team
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-amber-100/50 max-w-3xl mx-auto font-light">
               The brilliant minds behind AI Vision
             </p>
           </div>
@@ -291,7 +310,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="group">
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+                <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-amber-500/20 overflow-hidden hover:border-amber-400/50 hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 shadow-lg">
                   {/* Avatar */}
                   <div
                     className={`aspect-square bg-gradient-to-br ${member.image} relative`}
@@ -309,13 +328,13 @@ export default function AboutPage() {
 
                   {/* Info */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-1">
+                    <h3 className="text-xl font-bold text-amber-50 mb-1">
                       {member.name}
                     </h3>
                     <div className="text-amber-400 text-sm mb-3">
                       {member.role}
                     </div>
-                    <p className="text-gray-300 text-sm mb-4">
+                    <p className="text-amber-100/60 text-sm mb-4 font-light">
                       {member.description}
                     </p>
 
@@ -323,10 +342,10 @@ export default function AboutPage() {
                     <div className="flex gap-3">
                       <a
                         href={member.social.linkedin}
-                        className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-amber-500 transition-colors duration-300"
+                        className="w-8 h-8 bg-black/40 border border-amber-500/20 rounded-lg flex items-center justify-center hover:bg-amber-500/80 hover:border-amber-400 transition-colors duration-300"
                       >
-                        <svg
-                          className="w-4 h-4 text-white"
+                       <svg
+                          className="w-4 h-4 text-amber-100"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -335,10 +354,10 @@ export default function AboutPage() {
                       </a>
                       <a
                         href={member.social.twitter}
-                        className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-amber-500 transition-colors duration-300"
+                        className="w-8 h-8 bg-black/40 border border-amber-500/20 rounded-lg flex items-center justify-center hover:bg-amber-500/80 hover:border-amber-400 transition-colors duration-300"
                       >
-                        <svg
-                          className="w-4 h-4 text-white"
+                         <svg
+                          className="w-4 h-4 text-amber-100"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -347,10 +366,10 @@ export default function AboutPage() {
                       </a>
                       <a
                         href={member.social.github}
-                        className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-amber-500 transition-colors duration-300"
+                        className="w-8 h-8 bg-black/40 border border-amber-500/20 rounded-lg flex items-center justify-center hover:bg-amber-500/80 hover:border-amber-400 transition-colors duration-300"
                       >
-                        <svg
-                          className="w-4 h-4 text-white"
+                         <svg
+                          className="w-4 h-4 text-amber-100"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -369,28 +388,33 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-20 relative">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-amber-500 to-yellow-500 rounded-3xl p-12 text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Join Our Mission
-            </h2>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
-              Be part of the batik research community. Whether you're a
-              researcher, designer, or cultural enthusiast, there's a place for
-              you in our community.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button
-                onClick={() => router.push("/contact")}
-                className="px-8 py-4 bg-white text-amber-900 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-              >
-                Get In Touch
-              </button>
-              <button
-                onClick={() => router.push("/projects")}
-                className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/30 transition-all duration-300 border border-white/30"
-              >
-                View Projects
-              </button>
+          <div className="bg-white/5 backdrop-blur-md border border-amber-500/20 rounded-3xl p-12 text-center shadow-2xl relative overflow-hidden">
+             {/* Decorative CTA inner glow */}
+             <div className="absolute -inset-0.5 bg-gradient-to-br from-amber-500/20 via-transparent to-yellow-500/10 pointer-events-none"></div>
+             
+             <div className="relative z-10">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-amber-50 via-amber-200 to-yellow-400 bg-clip-text text-transparent mb-6">
+                Join Our Mission
+              </h2>
+              <p className="text-xl text-amber-100/70 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
+                Be part of the batik research community. Whether you're a
+                researcher, designer, or cultural enthusiast, there's a place for
+                you in our community.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <button
+                  onClick={() => router.push("/contact")}
+                  className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-semibold rounded-xl hover:shadow-lg shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  Get In Touch
+                </button>
+                <button
+                  onClick={() => router.push("/projects")}
+                  className="px-8 py-4 bg-black/40 backdrop-blur-sm text-amber-100 font-semibold rounded-xl hover:bg-black/60 transition-all duration-300 border border-amber-500/30 hover:border-amber-400 transform hover:-translate-y-1"
+                >
+                  View Projects
+                </button>
+              </div>
             </div>
           </div>
         </div>

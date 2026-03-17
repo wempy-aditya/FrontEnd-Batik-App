@@ -40,7 +40,7 @@ const DatasetsPreview = () => {
             ...dataset,
             gradient:
               dataset.gradient ||
-              "from-amber-400 via-yellow-500 to-orange-500",
+              "from-teal-700 via-cyan-700 to-sky-700",
           }));
           setDatasets(datasetsWithGradient);
         }
@@ -54,19 +54,23 @@ const DatasetsPreview = () => {
     fetchDatasets();
   }, []);
 
+  // Helper: gold-black gradient for cards
+  const gradientToStyle = () =>
+    "linear-gradient(135deg, #0f0f0f 0%, #1a1200 40%, #78560a 70%, #d4a017 100%)";
+
   const fallbackDatasets = [
     {
       id: 1,
       name: "ImageNet-2024",
       description:
         "Large-scale dataset with over 14 million images across 20,000+ categories for object recognition research and deep learning applications.",
-      size: 161061273600, // 150GB in bytes
+      size: 161061273600,
       samples: 14200000,
       categories: ["Computer Vision", "Object Recognition"],
       access_level: "Public",
       downloadCount: "250K+",
       updated_at: "2024-01-15",
-      gradient: "from-amber-400 via-yellow-500 to-orange-500",
+      gradient: "from-teal-700 via-cyan-700 to-sky-700",
       format: "ImageNet",
       license: "Custom",
     },
@@ -75,13 +79,13 @@ const DatasetsPreview = () => {
       name: "COCO-Enhanced",
       description:
         "Extended version of MS COCO dataset with additional annotations for instance segmentation, keypoint detection, and panoptic understanding tasks.",
-      size: 48318382080, // 45GB in bytes
+      size: 48318382080,
       samples: 330000,
       categories: ["Segmentation", "Object Detection"],
       access_level: "Registered",
       downloadCount: "125K+",
       updated_at: "2023-11-20",
-      gradient: "from-amber-400 via-yellow-500 to-orange-500",
+      gradient: "from-indigo-700 via-violet-700 to-purple-700",
       format: "COCO JSON",
       license: "CC BY 4.0",
     },
@@ -90,13 +94,13 @@ const DatasetsPreview = () => {
       name: "Artistic Styles DB",
       description:
         "Curated collection of artistic images spanning various styles, periods, and techniques for neural style transfer and artistic AI research.",
-      size: 12884901888, // 12GB in bytes
+      size: 12884901888,
       samples: 85000,
       categories: ["Art", "Style Transfer"],
       access_level: "Premium",
       downloadCount: "45K+",
       updated_at: "2024-02-10",
-      gradient: "from-amber-400 via-yellow-500 to-orange-500",
+      gradient: "from-stone-700 via-amber-800 to-orange-700",
       format: "PNG/JPG",
       license: "MIT",
     },
@@ -173,19 +177,19 @@ const DatasetsPreview = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-white relative">
+    <section className="py-12 md:py-16 relative" style={{ background: "linear-gradient(160deg, #0f0c06 0%, #1c1609 25%, #2a1f0d 50%, #1c1609 75%, #0f0c06 100%)" }}>
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-0 w-72 h-72 bg-gradient-to-r from-amber-200 to-yellow-200 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-gradient-to-r from-orange-200 to-red-200 rounded-full blur-3xl opacity-30"></div>
+        <div className="absolute top-1/4 left-0 w-72 h-72 bg-amber-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-yellow-600/15 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-10">
-          <div className="inline-flex items-center px-4 py-2 bg-amber-100 rounded-full mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm border border-amber-500/30 rounded-full mb-6">
             <svg
-              className="w-4 h-4 text-amber-600 mr-2"
+              className="w-4 h-4 text-amber-400 mr-2"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -197,15 +201,15 @@ const DatasetsPreview = () => {
                 d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
               />
             </svg>
-            <span className="text-sm font-semibold text-amber-800">
+            <span className="text-sm font-semibold text-amber-300">
               Batik Datasets
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Batik Research Datasets
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Access high-quality batik image datasets for training and
             benchmarking your machine learning models.
           </p>
@@ -291,9 +295,9 @@ const DatasetsPreview = () => {
                     }}
                   >
                     <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                      {/* Header skeleton with amber gradient */}
-                      <div className="h-40 bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-500 relative overflow-hidden">
-                        {/* Grid skeleton overlay - same as page.js */}
+                      {/* Header skeleton with teal gradient */}
+                      <div className="h-40 bg-gradient-to-br from-teal-600 via-cyan-600 to-sky-600 relative overflow-hidden">
+                        {/* Grid skeleton overlay */}
                         <div className="absolute inset-0 p-4">
                           <div className="grid grid-cols-4 gap-2 h-full opacity-30">
                             {Array.from({ length: 8 }).map((_, i) => (
@@ -373,8 +377,8 @@ const DatasetsPreview = () => {
                     onMouseEnter={() => setHoveredDataset(dataset.id)}
                     onMouseLeave={() => setHoveredDataset(null)}
                   >
-                    {/* Dataset Card */}
-                    <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 h-full">
+                    {/* Dataset Card - Glassmorphism */}
+                    <div className="relative rounded-2xl overflow-hidden shadow-lg border border-amber-400/20 hover:border-amber-400/50 hover:shadow-amber-400/15 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-full backdrop-blur-sm" style={{ background: "rgba(255, 240, 200, 0.06)" }}>
                       {/* Header with Preview */}
                       <div className="relative h-40 overflow-hidden">
                         <div
@@ -391,11 +395,11 @@ const DatasetsPreview = () => {
                           style={{
                             backgroundImage: dataset.preview_image
                               ? `url(${dataset.preview_image})`
-                              : `linear-gradient(135deg, #fb923c, #f59e0b)`,
+                              : gradientToStyle(dataset.gradient),
                           }}
                         />
 
-                        {/* Orange Glass Grid Overlay */}
+                        {/* Teal Glass Grid Overlay */}
                         <div className="absolute inset-0 p-4 pointer-events-none">
                           <div className="grid grid-cols-5 gap-3 h-full">
                             {Array.from({ length: 10 }).map((_, i) => (
@@ -403,8 +407,8 @@ const DatasetsPreview = () => {
                                 key={i}
                                 className="
                                 rounded-lg
-                                bg-amber-300/20
-                                border border-amber-200/30
+                                bg-white/15
+                                border border-white/25
                                 shadow-inner
                               "
                               />
@@ -412,11 +416,11 @@ const DatasetsPreview = () => {
                           </div>
                         </div>
 
-                        {/* Soft Hover Highlight (bukan gelap) */}
+                        {/* Soft Hover Highlight */}
                         <div
                           className="
                           absolute inset-0
-                          bg-gradient-to-br from-amber-400/20 to-yellow-500/10
+                          bg-gradient-to-br from-white/10 to-white/5
                           opacity-0 group-hover:opacity-100
                           transition-opacity duration-300
                         "
@@ -450,10 +454,10 @@ const DatasetsPreview = () => {
                       <div className="p-6 space-y-4">
                         {/* Title & Downloads */}
                         <div className="flex items-start justify-between">
-                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors duration-300">
+                          <h3 className="text-xl font-bold text-amber-50 group-hover:text-amber-300 transition-colors duration-300">
                             {dataset.name || "Untitled Dataset"}
                           </h3>
-                          <div className="flex items-center text-sm text-gray-500 ml-2">
+                          <div className="flex items-center text-sm text-gray-400 ml-2">
                             <svg
                               className="w-4 h-4 mr-1"
                               fill="none"
@@ -473,7 +477,7 @@ const DatasetsPreview = () => {
 
                         {/* Description */}
                         <p
-                          className="text-gray-600 text-sm leading-relaxed mb-4"
+                          className="text-amber-100/60 text-sm leading-relaxed mb-4"
                           style={{
                             display: "-webkit-box",
                             WebkitLineClamp: 7,
@@ -487,39 +491,39 @@ const DatasetsPreview = () => {
 
                         {/* Stats Grid */}
                         <div className="grid grid-cols-2 gap-3">
-                          <div className="bg-gray-50 rounded-lg p-3 text-center">
-                            <div className="text-lg font-bold text-gray-900">
+                          <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,200,50,0.08)", border: "1px solid rgba(212,160,23,0.2)" }}>
+                            <div className="text-lg font-bold text-amber-400">
                               {dataset.categories?.length || 0}
                             </div>
-                            <div className="text-xs text-gray-600">
+                            <div className="text-xs text-amber-200/60">
                               Categories
                             </div>
                           </div>
-                          <div className="bg-gray-50 rounded-lg p-3 text-center">
-                            <div className="text-lg font-bold text-gray-900">
+                          <div className="rounded-lg p-3 text-center" style={{ background: "rgba(255,200,50,0.08)", border: "1px solid rgba(212,160,23,0.2)" }}>
+                            <div className="text-lg font-bold text-amber-400">
                               {formatNumber(dataset.samples)}
                             </div>
-                            <div className="text-xs text-gray-600">Samples</div>
+                            <div className="text-xs text-amber-200/60">Samples</div>
                           </div>
                         </div>
 
                         {/* Metadata */}
-                        <div className="space-y-2 text-xs text-gray-500">
+                        <div className="space-y-2 text-xs text-amber-200/60">
                           <div className="flex justify-between">
                             <span>Format:</span>
-                            <span className="font-medium">
+                            <span className="font-medium text-amber-100/80">
                               {dataset.format || "N/A"}
                             </span>
                           </div>
                           <div className="flex justify-between">
                             <span>License:</span>
-                            <span className="font-medium">
+                            <span className="font-medium text-amber-100/80">
                               {dataset.license || "N/A"}
                             </span>
                           </div>
                           <div className="flex justify-between">
                             <span>Updated:</span>
-                            <span className="font-medium">
+                            <span className="font-medium text-amber-100/80">
                               {dataset.updated_at || dataset.created_at
                                 ? new Date(
                                     dataset.updated_at || dataset.created_at,
@@ -535,6 +539,7 @@ const DatasetsPreview = () => {
 
                         {/* Action Buttons */}
                         <div className="space-y-2 pt-2">
+                          {/* Download button */}
                           <button
                             onClick={() => {
                               if (dataset.file_url) {
@@ -543,7 +548,8 @@ const DatasetsPreview = () => {
                                 window.location.href = `/datasets/${dataset.id}/download`;
                               }
                             }}
-                            className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
+                            className="w-full py-3 px-4 text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:opacity-90"
+                            style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}
                           >
                             <div className="flex items-center justify-center gap-2">
                               <svg
@@ -567,7 +573,7 @@ const DatasetsPreview = () => {
                             onClick={() =>
                               router.push(`/datasets/${dataset.id}`)
                             }
-                            className="w-full py-2 px-4 text-gray-700 font-medium text-sm border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                            className="w-full py-2 px-4 text-amber-300 font-medium text-sm border border-amber-500/30 rounded-lg hover:bg-amber-500/10 transition-colors duration-200"
                           >
                             View Details
                           </button>
@@ -611,7 +617,7 @@ const DatasetsPreview = () => {
               console.log("Navigating to datasets page");
               window.location.href = "/datasets";
             }}
-            className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            className="group inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-amber-500 to-yellow-400 text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-amber-500/30"
           >
             <span>Browse All Datasets</span>
             <svg
