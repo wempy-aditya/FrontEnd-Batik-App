@@ -1,4 +1,5 @@
 "use client";
+import { withBasePath } from "@/lib/basePath";
 
 const Footer = () => {
   return (
@@ -19,7 +20,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg flex-shrink-0 ring-1 ring-amber-500/40">
                 <img
-                  src="/logo_batik.png"
+                  src={withBasePath("/logo_batik.png")}
                   alt="Batik UMM Logo"
                   className="w-full h-full object-cover"
                 />
@@ -52,7 +53,7 @@ const Footer = () => {
               ].map(({ href, label }) => (
                 <li key={label}>
                   <a
-                    href={href}
+                    href={withBasePath(href)}
                     className="group flex items-center gap-2 text-amber-100/60 hover:text-amber-300 transition-colors duration-200 text-sm md:text-base"
                   >
                     <span className="w-1 h-1 rounded-full bg-amber-500/50 group-hover:bg-amber-400 transition-colors duration-200 flex-shrink-0"></span>
@@ -121,7 +122,7 @@ const Footer = () => {
               {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
                 <a
                   key={item}
-                  href="/about"
+                  href={withBasePath("/about")}
                   className="text-amber-100/40 hover:text-amber-300 transition-colors duration-200"
                 >
                   {item}

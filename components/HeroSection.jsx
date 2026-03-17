@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 
 const HeroSection = () => {
   const [hoverButton, setHoverButton] = useState(null);
@@ -11,7 +12,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/background_batik.jpg')" }}
+        style={{ backgroundImage: `url('${withBasePath("/background_batik.jpg")}')` }}
       />
       {/* Warm-dark gradient overlay to match other sections */}
       <div

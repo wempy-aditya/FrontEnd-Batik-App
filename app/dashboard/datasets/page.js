@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../../components/AuthProvider";
 import { parseApiError } from "@/lib/handleApiError";
+import { withBasePath } from "@/lib/basePath";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -2281,7 +2282,7 @@ export default function ManageDatasetsPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
                   <p className="text-gray-500 mb-2">No files available</p>
-                  <a href="/dashboard/files" className="text-amber-600 hover:text-amber-700 font-medium">
+                  <a href={withBasePath("/dashboard/files")} className="text-amber-600 hover:text-amber-700 font-medium">
                     Go to File Manager to upload files
                   </a>
                 </div>

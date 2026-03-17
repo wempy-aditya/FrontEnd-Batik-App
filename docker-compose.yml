@@ -1,11 +1,13 @@
 version: "3.8"
 
 services:
-  frontend-web-batik:
-    image: 10.10.11.235:5000/frontend-web-batik:latest
-    container_name: frontend-web-batik
+  frontend-batik:
+    image: 10.10.11.235:5000/frontend-batik:latest
+    container_name: frontend-batik
     restart: unless-stopped
     pull_policy: always
+    environment:
+      - NEXT_PUBLIC_BASE_PATH=/v2
     expose:
       - "3050"
     networks:

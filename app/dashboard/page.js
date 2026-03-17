@@ -2,9 +2,11 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
+import { withBasePath } from "@/lib/basePath";
 
 export default function DashboardPage() {
   const router = useRouter();
+  const goTo = (path) => router.push(withBasePath(path));
   const [activeSection, setActiveSection] = useState("overview");
   const { user } = useAuth();
   const [stats, setStats] = useState(null);
@@ -17,7 +19,7 @@ export default function DashboardPage() {
         setIsLoadingStats(true);
         setStatsError("");
         const token = localStorage.getItem("access_token");
-        const res = await fetch("/api/dashboard", {
+        const res = await fetch(withBasePath("/api/dashboard"), {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -209,7 +211,7 @@ export default function DashboardPage() {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                 <button
-                  onClick={() => router.push("/dashboard/datasets")}
+                  onClick={() => goTo("/dashboard/datasets")}
                   className="p-3 sm:p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg sm:rounded-xl border-2 border-blue-200 hover:border-blue-300 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
@@ -240,7 +242,7 @@ export default function DashboardPage() {
                 </button>
 
                 <button
-                  onClick={() => router.push("/dashboard/news")}
+                  onClick={() => goTo("/dashboard/news")}
                   className="p-3 sm:p-4 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg sm:rounded-xl border-2 border-indigo-200 hover:border-indigo-300 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
@@ -271,7 +273,7 @@ export default function DashboardPage() {
                 </button>
 
                 <button
-                  onClick={() => router.push("/dashboard/categories")}
+                  onClick={() => goTo("/dashboard/categories")}
                   className="p-3 sm:p-4 bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg sm:rounded-xl border-2 border-amber-200 hover:border-amber-300 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
@@ -302,7 +304,7 @@ export default function DashboardPage() {
                 </button>
 
                 <button
-                  onClick={() => router.push("/dashboard/publications")}
+                  onClick={() => goTo("/dashboard/publications")}
                   className="p-3 sm:p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-lg sm:rounded-xl border-2 border-green-200 hover:border-green-300 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
@@ -333,7 +335,7 @@ export default function DashboardPage() {
                 </button>
 
                 <button
-                  onClick={() => router.push("/dashboard/projects")}
+                  onClick={() => goTo("/dashboard/projects")}
                   className="p-3 sm:p-4 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg sm:rounded-xl border-2 border-purple-200 hover:border-purple-300 transition-colors group"
                 >
                   <div className="flex items-center gap-3">

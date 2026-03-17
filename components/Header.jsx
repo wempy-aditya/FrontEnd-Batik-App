@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
+import { withBasePath, stripBasePath } from "@/lib/basePath";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,6 +11,8 @@ const Header = () => {
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const normalizedPathname = stripBasePath(pathname || "/");
+  const goTo = (path) => router.push(withBasePath(path));
 
   // Halaman-halaman yang tidak punya hero section gelap
   // Header akan selalu solid (tidak transparan) di halaman-halaman ini
@@ -19,7 +22,7 @@ const Header = () => {
 
   // Cek apakah halaman saat ini membutuhkan header solid
   const needsSolidHeader = solidHeaderPages.some((page) =>
-    pathname?.startsWith(page),
+    normalizedPathname?.startsWith(page),
   );
 
   useEffect(() => {
@@ -85,8 +88,8 @@ const Header = () => {
     { name: "Contact", path: "/contact" },
   ];
 
-  const isActive = (path) => pathname === path;
-  const isMoreActive = () => moreItems.some((item) => pathname === item.path);
+  const isActive = (path) => normalizedPathname === path;
+  const isMoreActive = () => moreItems.some((item) => normalizedPathname === item.path);
 
   return (
     <>
@@ -102,13 +105,13 @@ const Header = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div
-              onClick={() => router.push("/")}
+              onClick={() => goTo("/")}
               className="flex items-center gap-3 cursor-pointer group z-50"
             >
               <div className="relative">
                 <div className="w-12 h-12 rounded-xl overflow-hidden transform group-hover:scale-110 transition-transform duration-300 shadow-lg bg-white">
                   <Image
-                    src="/logo_batik.png"
+                    src={withBasePath("/logo_batik.png")}
                     alt="Batik UMM Logo"
                     width={48}
                     height={48}
@@ -140,7 +143,7 @@ const Header = () => {
               {navItems.map((item) => (
                 <div
                   key={item.path}
-                  onClick={() => router.push(item.path)}
+                  onClick={() => goTo(item.path)}
                   className={`px-4 py-2 rounded-lg font-medium cursor-pointer transition-all duration-300 ${isActive(item.path)
                     ? isScrolled || needsSolidHeader
                       ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg"
@@ -191,7 +194,7 @@ const Header = () => {
                       <div
                         key={item.path}
                         onClick={() => {
-                          router.push(item.path);
+                          goTo(item.path);
                           setIsMoreDropdownOpen(false);
                         }}
                         className={`px-4 py-2.5 cursor-pointer transition-all duration-200 ${isActive(item.path)
@@ -211,7 +214,7 @@ const Header = () => {
             <div className="hidden xl:flex items-center gap-3">
               {isAuthenticated ? (
                 <button
-                  onClick={() => router.push("/dashboard")}
+                  onClick={() => goTo("/dashboard")}
                   className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${isScrolled || needsSolidHeader
                     ? "bg-gradient-to-r from-amber-500 to-yellow-600 text-white shadow-lg hover:shadow-xl"
                     : "bg-amber-600 text-white hover:bg-amber-700"
@@ -234,7 +237,7 @@ const Header = () => {
                 </button>
               ) : (
                 <button
-                  onClick={() => router.push("/login")}
+                  onClick={() => goTo("/login")}
                   className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center gap-2 ${isScrolled || needsSolidHeader
                     ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg hover:shadow-xl"
                     : "bg-amber-600 text-white hover:bg-amber-700"
@@ -313,7 +316,7 @@ const Header = () => {
               <div
                 key={item.path}
                 onClick={() => {
-                  router.push(item.path);
+                  goTo(item.path);
                   setIsMobileMenuOpen(false);
                 }}
                 className={`px-4 py-3 rounded-lg font-medium cursor-pointer transition-all duration-300 ${isActive(item.path)
@@ -333,7 +336,7 @@ const Header = () => {
               <div
                 key={item.path}
                 onClick={() => {
-                  router.push(item.path);
+                  goTo(item.path);
                   setIsMobileMenuOpen(false);
                 }}
                 className={`px-4 py-3 rounded-lg font-medium cursor-pointer transition-all duration-300 ${isActive(item.path)
@@ -348,7 +351,7 @@ const Header = () => {
             <div className="pt-4 space-y-3 border-t border-gray-200 mt-4">
               <button
                 onClick={() => {
-                  router.push("/test-api");
+                  goTo("/test-api");
                   setIsMobileMenuOpen(false);
                 }}
                 className="w-full px-4 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
@@ -359,7 +362,7 @@ const Header = () => {
               {isAuthenticated ? (
                 <button
                   onClick={() => {
-                    router.push("/dashboard");
+                    goTo("/dashboard");
                     setIsMobileMenuOpen(false);
                   }}
                   className="w-full px-4 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-lg font-semibold shadow-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all duration-300"
@@ -382,7 +385,7 @@ const Header = () => {
               ) : (
                 <button
                   onClick={() => {
-                    router.push("/login");
+                    goTo("/login");
                     setIsMobileMenuOpen(false);
                   }}
                   className="w-full px-4 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-lg font-semibold shadow-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all duration-300"

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { ProtectedRoute, useAuth } from '@/components/AuthProvider';
+import { withBasePath, stripBasePath } from '@/lib/basePath';
 
 export default function DashboardLayout({ children }) {
   return (
@@ -14,6 +15,8 @@ export default function DashboardLayout({ children }) {
 function DashboardLayoutContent({ children }) {
   const router = useRouter();
   const pathname = usePathname();
+  const normalizedPathname = stripBasePath(pathname || '/');
+  const goTo = (path) => router.push(withBasePath(path));
   const { user, logout, getUserInfo, handleUnauthorized } = useAuth();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -41,7 +44,7 @@ function DashboardLayoutContent({ children }) {
 
   const handleLogout = async () => {
     await logout();
-    router.push('/login');
+    goTo('/login');
   };
 
   const menuItems = [
@@ -50,77 +53,77 @@ function DashboardLayoutContent({ children }) {
       label: 'Overview', 
       icon: 'chart', 
       href: '/dashboard',
-      active: pathname === '/dashboard'
+      active: normalizedPathname === '/dashboard'
     },
     { 
       id: 'datasets', 
       label: 'Datasets', 
       icon: 'database', 
       href: '/dashboard/datasets',
-      active: pathname.startsWith('/dashboard/datasets')
+      active: normalizedPathname.startsWith('/dashboard/datasets')
     },
     { 
       id: 'categories', 
       label: 'Categories', 
       icon: 'tag', 
       href: '/dashboard/categories',
-      active: pathname.startsWith('/dashboard/categories')
+      active: normalizedPathname.startsWith('/dashboard/categories')
     },
     { 
       id: 'news', 
       label: 'News', 
       icon: 'newspaper', 
       href: '/dashboard/news',
-      active: pathname.startsWith('/dashboard/news')
+      active: normalizedPathname.startsWith('/dashboard/news')
     },
     { 
       id: 'publications', 
       label: 'Publications', 
       icon: 'document', 
       href: '/dashboard/publications',
-      active: pathname.startsWith('/dashboard/publications')
+      active: normalizedPathname.startsWith('/dashboard/publications')
     },
     { 
       id: 'projects', 
       label: 'Projects', 
       icon: 'rocket', 
       href: '/dashboard/projects',
-      active: pathname.startsWith('/dashboard/projects')
+      active: normalizedPathname.startsWith('/dashboard/projects')
     },
     { 
       id: 'ai-models', 
       label: 'AI Models', 
       icon: 'brain', 
       href: '/dashboard/ai-models',
-      active: pathname.startsWith('/dashboard/ai-models')
+      active: normalizedPathname.startsWith('/dashboard/ai-models')
     },
     { 
       id: 'gallery', 
       label: 'Gallery', 
       icon: 'photo', 
       href: '/dashboard/gallery',
-      active: pathname.startsWith('/dashboard/gallery')
+      active: normalizedPathname.startsWith('/dashboard/gallery')
     },
     { 
       id: 'files', 
       label: 'Files', 
       icon: 'folder', 
       href: '/dashboard/files',
-      active: pathname.startsWith('/dashboard/files')
+      active: normalizedPathname.startsWith('/dashboard/files')
     },
     { 
       id: 'users', 
       label: 'Users', 
       icon: 'users', 
       href: '/dashboard/users',
-      active: pathname.startsWith('/dashboard/users')
+      active: normalizedPathname.startsWith('/dashboard/users')
     },
     { 
       id: 'contributors', 
       label: 'Contributors', 
       icon: 'team', 
       href: '/dashboard/contributors',
-      active: pathname.startsWith('/dashboard/contributors')
+      active: normalizedPathname.startsWith('/dashboard/contributors')
     },
   ];
 
@@ -184,7 +187,7 @@ function DashboardLayoutContent({ children }) {
 
             <div className="flex items-center gap-2 sm:gap-4">
               <button
-                onClick={() => router.push('/')}
+                onClick={() => goTo('/')}
                 className="hidden sm:flex px-3 sm:px-4 py-2 text-amber-600 hover:text-amber-800 transition-colors items-center gap-2"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -241,7 +244,7 @@ function DashboardLayoutContent({ children }) {
                 <button
                   key={item.id}
                   onClick={() => {
-                    router.push(item.href);
+                    goTo(item.href);
                     setIsSidebarOpen(false); // Close mobile menu
                   }}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
