@@ -422,7 +422,7 @@ export default function GalleryManagement() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-amber-50/30 to-slate-50">
         <div className="text-center">
           <div className="relative w-20 h-20 mx-auto mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-2xl animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl animate-pulse"></div>
             <div className="absolute inset-2 bg-white rounded-xl"></div>
             <svg
               className="absolute inset-0 w-full h-full p-5 text-amber-600 animate-spin"
@@ -479,9 +479,9 @@ export default function GalleryManagement() {
             </div>
             <button
               onClick={() => openModal("create")}
-              className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
+              className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
@@ -513,7 +513,7 @@ export default function GalleryManagement() {
               className="group bg-white/90 backdrop-blur-sm rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-xl hover:border-slate-300/60 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
               {/* Image */}
-              <div className="relative h-64 bg-gradient-to-br from-amber-50 to-yellow-50">
+              <div className="relative h-64 bg-gradient-to-br from-amber-50 to-orange-50">
                 {gallery.image_url ? (
                   <img
                     src={gallery.image_url}
@@ -678,7 +678,7 @@ export default function GalleryManagement() {
           {filteredGalleries.length === 0 && !isLoading && (
             <div className="col-span-full text-center py-16">
               <div className="max-w-md mx-auto">
-                <div className="w-32 h-32 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-amber-500/20">
+                <div className="w-32 h-32 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-amber-500/20">
                   <svg
                     className="w-16 h-16 text-white"
                     fill="none"
@@ -701,7 +701,7 @@ export default function GalleryManagement() {
                 </p>
                 <button
                   onClick={() => openModal("create")}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-8 py-4 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
                 >
                   <svg
                     className="w-5 h-5"
@@ -893,7 +893,7 @@ export default function GalleryManagement() {
                 <div className="flex gap-3 pt-4">
                   <button
                     type="submit"
-                    className="flex-1 bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3.5 rounded-xl font-semibold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
+                    className="flex-1 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3.5 rounded-xl font-semibold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
                   >
                     {modalMode === "create"
                       ? "Create Gallery Item"
@@ -975,7 +975,7 @@ export default function GalleryManagement() {
               ) : (
                 viewGallery && (
                   <div className="space-y-6 p-4 sm:p-6">
-                    <div className="aspect-video bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl overflow-hidden border border-slate-200">
+                    <div className="aspect-video bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl overflow-hidden border border-slate-200">
                       {viewGallery.image_url ? (
                         <img
                           src={viewGallery.image_url}
@@ -1183,7 +1183,7 @@ export default function GalleryManagement() {
       {showCategoryModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 z-50 animate-fadeIn">
           <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl max-w-md w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden">
-            <div className="sticky top-0 bg-gradient-to-r from-amber-500 to-yellow-600 p-4 sm:p-6 z-10">
+            <div className="sticky top-0 bg-gradient-to-r from-amber-500 to-orange-600 p-4 sm:p-6 z-10">
               <h2 className="text-xl sm:text-2xl font-bold text-white">
                 Assign Categories
               </h2>
@@ -1221,7 +1221,7 @@ export default function GalleryManagement() {
               <div className="flex gap-3">
                 <button
                   onClick={handleSaveCategories}
-                  className="flex-1 bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300"
+                  className="flex-1 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300"
                 >
                   Save Changes
                 </button>

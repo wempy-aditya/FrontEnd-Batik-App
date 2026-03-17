@@ -24,6 +24,10 @@ export default function PublicationsPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoadingDetail, setIsLoadingDetail] = useState(false);
   const [error, setError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(100);
+  const [totalItems, setTotalItems] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
   const [formData, setFormData] = useState({
     title: "",
     slug: "",
@@ -54,6 +58,9 @@ export default function PublicationsPage() {
 
   useEffect(() => {
     fetchPublications();
+  }, [currentPage, itemsPerPage]);
+
+  useEffect(() => {
     fetchCategories();
   }, []);
 
@@ -61,24 +68,61 @@ export default function PublicationsPage() {
     try {
       setIsLoading(true);
       const token = localStorage.getItem("access_token");
+      const offset = (currentPage - 1) * itemsPerPage;
 
-      const response = await fetch("/api/publications", {
+      const response = await fetch(
+        `/api/publications?offset=${offset}&limit=${itemsPerPage}`,
+        {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-      });
+        },
+      );
 
       if (response.ok) {
         const data = await response.json();
-        setPublications(data.data?.data || []);
+        const responsePayload = data?.data || {};
+        const fetchedPublications = Array.isArray(responsePayload?.data)
+          ? responsePayload.data
+          : [];
+        const parsedTotal = Number(responsePayload?.total);
+        const parsedPages = Number(responsePayload?.pages);
+        const parsedPage = Number(responsePayload?.page);
+
+        setPublications(fetchedPublications);
+        setTotalItems(Number.isFinite(parsedTotal) ? parsedTotal : 0);
+
+        const fallbackTotalPages = Math.max(
+          1,
+          Math.ceil(
+            (Number.isFinite(parsedTotal) ? parsedTotal : fetchedPublications.length) /
+              itemsPerPage,
+          ),
+        );
+
+        const resolvedTotalPages = Number.isFinite(parsedPages)
+          ? Math.max(1, parsedPages)
+          : fallbackTotalPages;
+        setTotalPages(resolvedTotalPages);
+
+        if (fetchedPublications.length === 0 && currentPage > 1) {
+          const targetPage = Math.max(1, resolvedTotalPages);
+          if (targetPage !== currentPage) {
+            setCurrentPage(targetPage);
+          }
+        } else if (Number.isFinite(parsedPage) && parsedPage !== currentPage) {
+          setCurrentPage(parsedPage);
+        }
       } else {
         throw new Error("Failed to fetch publications");
       }
     } catch (error) {
       console.error("Error fetching publications:", error);
       setError("Failed to load publications");
+      setTotalItems(2);
+      setTotalPages(1);
       // Use mock data for now
       setPublications([
         {
@@ -128,6 +172,23 @@ export default function PublicationsPage() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handlePageChange = (nextPage) => {
+    if (nextPage < 1 || nextPage > totalPages || nextPage === currentPage) {
+      return;
+    }
+    setCurrentPage(nextPage);
+  };
+
+  const handleItemsPerPageChange = (event) => {
+    const nextLimit = Number(event.target.value);
+    if (!Number.isFinite(nextLimit) || nextLimit <= 0) {
+      return;
+    }
+
+    setItemsPerPage(nextLimit);
+    setCurrentPage(1);
   };
 
   const fetchCategories = async () => {
@@ -551,7 +612,7 @@ export default function PublicationsPage() {
       <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-slate-50 via-amber-50/30 to-slate-50">
         <div className="text-center">
           <div className="relative w-24 h-24 mx-auto mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-3xl animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-3xl animate-pulse"></div>
             <div className="absolute inset-2 bg-white rounded-2xl flex items-center justify-center">
               <svg
                 className="w-10 h-10 text-amber-600 animate-spin"
@@ -595,9 +656,9 @@ export default function PublicationsPage() {
             </div>
             <button
               onClick={() => openModal("create")}
-              className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
+              className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
@@ -730,9 +791,9 @@ export default function PublicationsPage() {
                 <div className="flex justify-between items-center text-xs text-slate-500 pb-4 mb-4 border-b border-slate-100">
                   <span>
                     Published:{" "}
-                    {new Date(
-                      publication.publication_date,
-                    ).toLocaleDateString()}
+                    {
+                      publication.year
+                    }
                   </span>
                   <span className="bg-slate-100/80 backdrop-blur-sm px-2.5 py-1 rounded-lg font-medium">
                     {publication.access_level}
@@ -851,7 +912,7 @@ export default function PublicationsPage() {
                 </p>
                 <button
                   onClick={() => openModal("create")}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-8 py-4 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
                 >
                   <svg
                     className="w-5 h-5"
@@ -872,6 +933,71 @@ export default function PublicationsPage() {
             </div>
           )}
         </div>
+
+        {totalItems > 0 && (
+          <div className="mt-8 bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200/60 shadow-sm px-4 sm:px-6 py-4">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <p className="text-sm text-slate-600">
+                Menampilkan{" "}
+                <span className="font-semibold text-slate-800">
+                  {(currentPage - 1) * itemsPerPage + 1}
+                </span>{" "}
+                -{" "}
+                <span className="font-semibold text-slate-800">
+                  {Math.min(currentPage * itemsPerPage, totalItems)}
+                </span>{" "}
+                dari{" "}
+                <span className="font-semibold text-slate-800">{totalItems}</span>
+                {" "}publikasi
+              </p>
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <label
+                    htmlFor="itemsPerPage"
+                    className="text-sm text-slate-600 whitespace-nowrap"
+                  >
+                    Per halaman
+                  </label>
+                  <select
+                    id="itemsPerPage"
+                    value={itemsPerPage}
+                    onChange={handleItemsPerPageChange}
+                    className="px-3 py-2 rounded-xl border border-slate-200 text-sm bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500/40"
+                  >
+                    <option value={6}>6</option>
+                    <option value={9}>9</option>
+                    <option value={12}>12</option>
+                    <option value={18}>18</option>
+                  </select>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="px-3 py-2 rounded-xl border border-slate-200 text-sm text-slate-700 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    Prev
+                  </button>
+
+                  <span className="px-3 py-2 rounded-xl text-sm font-medium text-slate-700 bg-slate-100/80">
+                    Page {currentPage} / {totalPages}
+                  </span>
+
+                  <button
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage >= totalPages}
+                    className="px-3 py-2 rounded-xl border border-slate-200 text-sm text-slate-700 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
 
       {/* Publication Modal */}
@@ -1002,7 +1128,7 @@ export default function PublicationsPage() {
                     </div>
 
                     {/* Publication Details */}
-                    <div className="bg-gradient-to-r from-blue-50 to-amber-50/50 p-4 rounded-2xl border border-blue-200">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50/50 p-4 rounded-2xl border border-blue-200">
                       <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                         <svg
                           className="w-5 h-5 text-blue-600"
@@ -1088,7 +1214,7 @@ export default function PublicationsPage() {
                     </div>
 
                     {/* Impact & Citations */}
-                    <div className="bg-gradient-to-r from-green-50 to-yellow-50/50 p-4 rounded-2xl border border-green-200">
+                    <div className="bg-gradient-to-r from-green-50 to-emerald-50/50 p-4 rounded-2xl border border-green-200">
                       <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                         <svg
                           className="w-5 h-5 text-green-600"
@@ -1262,10 +1388,10 @@ export default function PublicationsPage() {
                     {(selectedPublication?.methodology ||
                       selectedPublication?.results ||
                       selectedPublication?.conclusions) && (
-                      <div className="bg-gradient-to-r from-amber-50 to-purple-50/50 p-4 rounded-2xl border border-amber-200">
+                      <div className="bg-gradient-to-r from-indigo-50 to-purple-50/50 p-4 rounded-2xl border border-indigo-200">
                         <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                           <svg
-                            className="w-5 h-5 text-amber-600"
+                            className="w-5 h-5 text-indigo-600"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -1832,7 +1958,7 @@ export default function PublicationsPage() {
                       <button
                         type="button"
                         onClick={handleAddAuthor}
-                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
+                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
                       >
                         Add
                       </button>
@@ -1875,7 +2001,7 @@ export default function PublicationsPage() {
                       <button
                         type="button"
                         onClick={handleAddKeyword}
-                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
+                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all duration-200 font-medium hover:scale-105"
                       >
                         Add
                       </button>
@@ -1884,7 +2010,7 @@ export default function PublicationsPage() {
                       {formData.keywords.map((keyword, index) => (
                         <span
                           key={index}
-                          className="bg-gradient-to-r from-amber-50 to-yellow-50 text-amber-700 px-4 py-1.5 rounded-xl text-sm font-medium border border-amber-200 flex items-center gap-2"
+                          className="bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 px-4 py-1.5 rounded-xl text-sm font-medium border border-amber-200 flex items-center gap-2"
                         >
                           {keyword}
                           <button
@@ -1915,7 +2041,7 @@ export default function PublicationsPage() {
                         className="w-full p-3 border-2 border-slate-200 rounded-2xl focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 focus:outline-none transition-all hover:border-slate-300"
                       >
                         <option value="public">Public</option>
-                        <option value="private">Private</option>
+                        <option value="registered">Registered</option>
                         <option value="premium">Premium</option>
                       </select>
                     </div>
@@ -1933,7 +2059,7 @@ export default function PublicationsPage() {
                       >
                         <option value="draft">Draft</option>
                         <option value="published">Published</option>
-                        <option value="archived">Archived</option>
+                        {/* <option value="archived">Archived</option> */}
                       </select>
                     </div>
                   </div>
@@ -1953,7 +2079,7 @@ export default function PublicationsPage() {
                       className={`flex-1 px-6 py-3 rounded-2xl text-white transition-all duration-200 font-medium flex items-center justify-center gap-2 ${
                         isSubmitting
                           ? "bg-slate-400 cursor-not-allowed"
-                          : "bg-gradient-to-r from-amber-500 to-yellow-600 hover:shadow-lg hover:scale-105"
+                          : "bg-gradient-to-r from-amber-500 to-orange-600 hover:shadow-lg hover:scale-105"
                       }`}
                     >
                       {isSubmitting ? (
@@ -2012,7 +2138,7 @@ export default function PublicationsPage() {
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 z-50">
           <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-lg max-h-[95vh] sm:max-h-[90vh] overflow-hidden transform animate-slideUp">
             {/* Modal Header */}
-            <div className="sticky top-0 bg-gradient-to-r from-amber-500 to-yellow-600 p-4 sm:p-5 flex items-center justify-between">
+            <div className="sticky top-0 bg-gradient-to-r from-amber-500 to-orange-600 p-4 sm:p-5 flex items-center justify-between">
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold text-white">
                   Assign Categories
@@ -2093,7 +2219,7 @@ export default function PublicationsPage() {
                   className={`flex-1 px-6 py-3 rounded-2xl text-white transition-all duration-200 font-medium flex items-center justify-center gap-2 ${
                     isSubmitting || selectedCategories.length === 0
                       ? "bg-slate-400 cursor-not-allowed"
-                      : "bg-gradient-to-r from-amber-500 to-yellow-600 hover:shadow-lg hover:scale-105"
+                      : "bg-gradient-to-r from-amber-500 to-orange-600 hover:shadow-lg hover:scale-105"
                   }`}
                 >
                   {isSubmitting ? (

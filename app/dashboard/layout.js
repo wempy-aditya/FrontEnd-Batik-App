@@ -143,7 +143,7 @@ function DashboardLayoutContent({ children }) {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-cyan-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 flex items-center justify-center">
         <div className="text-center">
           <svg className="w-16 h-16 text-amber-600 animate-spin mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -155,7 +155,7 @@ function DashboardLayoutContent({ children }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-cyan-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
       {/* Header */}
       <header className="bg-white/95 backdrop-blur-sm border-b border-amber-200 shadow-sm sticky top-0 z-40">
         <div className="px-4 sm:px-6 py-4">
@@ -171,7 +171,7 @@ function DashboardLayoutContent({ children }) {
                 </svg>
               </button>
               
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-xl flex items-center justify-center">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center">
                 <svg className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
@@ -194,7 +194,7 @@ function DashboardLayoutContent({ children }) {
               </button>
               
               <div className="flex items-center gap-2 sm:gap-3 px-2 sm:px-4 py-2 bg-amber-50 rounded-xl">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs sm:text-sm font-bold">
                     {user?.name?.charAt(0) || 'A'}
                   </span>
@@ -246,7 +246,7 @@ function DashboardLayoutContent({ children }) {
                   }}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                     item.active
-                      ? 'bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg'
+                      ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
                       : 'text-gray-600 hover:bg-amber-50 hover:text-amber-700'
                   }`}
                 >

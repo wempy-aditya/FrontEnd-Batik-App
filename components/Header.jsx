@@ -75,6 +75,7 @@ const Header = () => {
   ];
 
   const moreItems = [
+    { name: "Ai Models", path: "/ai-models/models" },
     { name: "News", path: "/news" },
     // { name: "Batik Inpainting", path: "/inpainting" },
     // { name: "Batik ControlNet", path: "/controlnet" },

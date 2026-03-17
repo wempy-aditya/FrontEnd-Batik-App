@@ -545,7 +545,7 @@ export default function ManageDatasetsPage() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-amber-50/30 to-slate-50">
         <div className="text-center">
           <div className="relative w-20 h-20 mx-auto mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-2xl animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl animate-pulse"></div>
             <div className="absolute inset-2 bg-white rounded-xl"></div>
             <svg
               className="absolute inset-0 w-full h-full p-5 text-amber-600 animate-spin"
@@ -586,9 +586,9 @@ export default function ManageDatasetsPage() {
             </div>
             <button
               onClick={() => openModal("create")}
-              className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
+              className="group relative overflow-hidden bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
@@ -645,7 +645,7 @@ export default function ManageDatasetsPage() {
                     <h3 className="font-bold text-slate-900 mb-2 line-clamp-2 text-lg group-hover:text-amber-700 transition-colors">
                       {dataset.name}
                     </h3>
-                    <p className="text-sm text-amber-700 bg-gradient-to-r from-amber-50 to-yellow-50 px-3 py-1.5 rounded-xl font-mono font-medium mb-2 inline-block border border-amber-200">
+                    <p className="text-sm text-amber-700 bg-gradient-to-r from-amber-50 to-orange-50 px-3 py-1.5 rounded-xl font-mono font-medium mb-2 inline-block border border-amber-200">
                       {dataset.slug}
                     </p>
                     <p className="text-sm text-slate-600 line-clamp-2 leading-relaxed">
@@ -877,7 +877,7 @@ export default function ManageDatasetsPage() {
                 </p>
                 <button
                   onClick={() => openModal("create")}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-8 py-4 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 hover:scale-105"
                 >
                   <svg
                     className="w-5 h-5"
@@ -1044,13 +1044,13 @@ export default function ManageDatasetsPage() {
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
                           Tagline
                         </label>
-                        <p className="p-3 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl text-gray-900 border border-amber-200">
+                        <p className="p-3 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl text-gray-900 border border-amber-200">
                           {selectedDataset?.tagline || "N/A"}
                         </p>
                       </div>
 
                       {/* Dataset Metrics */}
-                      <div className="bg-gradient-to-r from-blue-50 to-amber-50/50 p-4 rounded-2xl border border-blue-200">
+                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50/50 p-4 rounded-2xl border border-blue-200">
                         <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                           <svg
                             className="w-5 h-5 text-blue-600"
@@ -1177,7 +1177,7 @@ export default function ManageDatasetsPage() {
 
                       {/* Statistics */}
                       {selectedDataset?.statistics && (
-                        <div className="bg-gradient-to-r from-green-50 to-yellow-50/50 p-4 rounded-2xl border border-green-200">
+                        <div className="bg-gradient-to-r from-green-50 to-emerald-50/50 p-4 rounded-2xl border border-green-200">
                           <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                             <svg
                               className="w-5 h-5 text-green-600"
@@ -1972,7 +1972,7 @@ export default function ManageDatasetsPage() {
                         className={`flex-1 px-6 py-3.5 rounded-2xl font-semibold text-white transition-all duration-300 ${
                           isSubmitting
                             ? "bg-slate-400 cursor-not-allowed"
-                            : "bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:scale-105"
+                            : "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:scale-105"
                         }`}
                       >
                         {isSubmitting ? (
@@ -2129,7 +2129,7 @@ export default function ManageDatasetsPage() {
                     className={`flex-1 px-6 py-3.5 rounded-2xl font-semibold text-white transition-all duration-300 ${
                       isSubmitting || selectedCategories.length === 0
                         ? "bg-slate-400 cursor-not-allowed"
-                        : "bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:scale-105"
+                        : "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:scale-105"
                     }`}
                   >
                     {isSubmitting ? (
