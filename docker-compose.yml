@@ -29,10 +29,10 @@ services:
       - "traefik.http.routers.batik-frontend-v2-next.tls=true"
       - "traefik.http.routers.batik-frontend-v2-next.priority=110"
 
-      - "traefik.http.routers.batik-frontend-v2-api.rule=Host(`batik.umm.ac.id`) && PathPrefix(`/api`)"
-      - "traefik.http.routers.batik-frontend-v2-api.entrypoints=websecure"
-      - "traefik.http.routers.batik-frontend-v2-api.tls=true"
-      - "traefik.http.routers.batik-frontend-v2-api.priority=110"
+      # - "traefik.http.routers.batik-frontend-v2-api.rule=Host(`batik.umm.ac.id`) && PathPrefix(`/api`)"
+      # - "traefik.http.routers.batik-frontend-v2-api.entrypoints=websecure"
+      # - "traefik.http.routers.batik-frontend-v2-api.tls=true"
+      # - "traefik.http.routers.batik-frontend-v2-api.priority=110"
 
       - "traefik.http.routers.batik-frontend-v2-rootfiles.rule=Host(`batik.umm.ac.id`) && (Path(`/favicon.ico`) || Path(`/robots.txt`) || Path(`/sitemap.xml`))"
       - "traefik.http.routers.batik-frontend-v2-rootfiles.entrypoints=websecure"
