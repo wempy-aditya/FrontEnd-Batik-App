@@ -8,9 +8,9 @@ services:
     pull_policy: always
     environment:
       - NEXT_PUBLIC_BASE_PATH=/v2
-      - BACKEND_API_URL=https://rispro.umm.ac.id
-      - NEXT_PUBLIC_BACKEND_URL=https://rispro.umm.ac.id
-      - NEXT_PUBLIC_API_URL=https://rispro.umm.ac.id
+      - BACKEND_API_URL=https://batik.umm.ac.id
+      - NEXT_PUBLIC_BACKEND_URL=https://batik.umm.ac.id
+      - NEXT_PUBLIC_API_URL=https://batik.umm.ac.id
     expose:
       - "3050"
     networks:
