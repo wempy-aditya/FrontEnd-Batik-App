@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  frontend-web-batik:
+    image: 10.10.11.235:5000/frontend-web-batik:latest
+    container_name: frontend-web-batik
+    restart: unless-stopped
+    pull_policy: always
+    expose:
+      - "3050"
+    networks:
+      - traefik-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-proxy"
+
+      - "traefik.http.routers.batik-frontend-v2.rule=Host(`batik.umm.ac.id`) && PathPrefix(`/v2`)"
+      - "traefik.http.routers.batik-frontend-v2.entrypoints=websecure"
+      - "traefik.http.routers.batik-frontend-v2.tls=true"
+      - "traefik.http.routers.batik-frontend-v2.priority=100"
+
+      - "traefik.http.routers.batik-frontend-v2.middlewares=batik-v2-strip"
+      - "traefik.http.middlewares.batik-v2-strip.stripprefix.prefixes=/v2"
+
+      - "traefik.http.services.batik-frontend-v2.loadbalancer.server.port=3050"
+
+networks:
+  traefik-proxy:
+    external: true
