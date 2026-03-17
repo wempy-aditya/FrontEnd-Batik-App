@@ -3,6 +3,7 @@ const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
 
 const nextConfig = {
   output: "standalone", // Enables the optimized build
+  assetPrefix: basePath || undefined,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
     NEXT_PUBLIC_BACKEND_URL:

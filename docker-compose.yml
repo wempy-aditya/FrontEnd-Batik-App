@@ -8,12 +8,9 @@ services:
     pull_policy: always
     environment:
       - NEXT_PUBLIC_BASE_PATH=/v2
+      - BACKEND_API_URL=https://rispro.umm.ac.id
       - NEXT_PUBLIC_BACKEND_URL=https://rispro.umm.ac.id
       - NEXT_PUBLIC_API_URL=https://rispro.umm.ac.id
-      - NEXT_PUBLIC_CLASSIFY_API_URL=https://rispro.umm.ac.id/model/klasifikasi-batik
-      - NEXT_PUBLIC_RVGAN_API_URL=https://rispro.umm.ac.id/model/rvgan
-      - NEXT_PUBLIC_BATIKGAN_API_URL=https://rispro.umm.ac.id/model/gancl
-      - NEXT_PUBLIC_RETRIEVAL_API_URL=https://rispro.umm.ac.id/model/pattern-generator
     expose:
       - "3050"
     networks:
@@ -29,21 +26,6 @@ services:
 
       - "traefik.http.routers.batik-frontend-v2.middlewares=batik-v2-strip"
       - "traefik.http.middlewares.batik-v2-strip.stripprefix.prefixes=/v2"
-
-      - "traefik.http.routers.batik-frontend-v2-next.rule=Host(`batik.umm.ac.id`) && PathPrefix(`/_next`)"
-      - "traefik.http.routers.batik-frontend-v2-next.entrypoints=websecure"
-      - "traefik.http.routers.batik-frontend-v2-next.tls=true"
-      - "traefik.http.routers.batik-frontend-v2-next.priority=110"
-
-      # - "traefik.http.routers.batik-frontend-v2-api.rule=Host(`batik.umm.ac.id`) && PathPrefix(`/api`)"
-      # - "traefik.http.routers.batik-frontend-v2-api.entrypoints=websecure"
-      # - "traefik.http.routers.batik-frontend-v2-api.tls=true"
-      # - "traefik.http.routers.batik-frontend-v2-api.priority=110"
-
-      - "traefik.http.routers.batik-frontend-v2-rootfiles.rule=Host(`batik.umm.ac.id`) && (Path(`/favicon.ico`) || Path(`/robots.txt`) || Path(`/sitemap.xml`))"
-      - "traefik.http.routers.batik-frontend-v2-rootfiles.entrypoints=websecure"
-      - "traefik.http.routers.batik-frontend-v2-rootfiles.tls=true"
-      - "traefik.http.routers.batik-frontend-v2-rootfiles.priority=110"
 
       - "traefik.http.services.batik-frontend-v2.loadbalancer.server.port=3050"
 

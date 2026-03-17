@@ -5,9 +5,12 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const authHeader = request.headers.get("authorization");
     const apiBaseUrl =
+      process.env.BACKEND_API_URL ||
+      process.env.BACKEND_URL ||
       process.env.NEXT_PUBLIC_API_URL ||
       process.env.NEXT_PUBLIC_BACKEND_URL ||
       "http://localhost:8000";
+    const normalizedApiBaseUrl = apiBaseUrl.replace(/\/$/, "");
 
     // Build API URL with all supported filters
     const params = new URLSearchParams();
@@ -40,7 +43,7 @@ export async function GET(request) {
     const sortBy = searchParams.get("sort_by") || "latest";
     params.append("sort_by", sortBy);
 
-    const url = `${apiBaseUrl}/api/v1/public/projects/?${params.toString()}`;
+    const url = `${normalizedApiBaseUrl}/api/v1/public/projects/?${params.toString()}`;
 
     const response = await fetch(url, {
       headers: {
@@ -75,6 +78,8 @@ export async function GET(request) {
       {
         error: "Error fetching public projects",
         detail: error.message,
+        cause: error?.cause?.message || null,
+        code: error?.cause?.code || error?.code || null,
       },
       { status: 500 }
     );
